@@ -1,0 +1,1293 @@
+/* AssetManagement.css */
+.asset-page-container {
+    padding: 32px;
+    background-color: #f8fafc;
+    min-height: calc(100vh - 64px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.asset-page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.asset-page-title i {
+    color: #1557b7;
+    ;
+}
+
+/* Stats Cards Section */
+.asset-header-stats {
+    margin: 10px 0 32px 0;
+    width: 100%;
+}
+
+.asset-quick-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.asset-stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.asset-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.asset-stat-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.total-icon {
+    background: #eff6ff;
+    color: #3b82f6;
+}
+
+.allocated-icon {
+    background: #ecfdf5;
+    color: #10b981;
+}
+
+.stock-icon {
+    background: #fefce8;
+    color: #eab308;
+}
+
+.damaged-icon {
+    background: #fef2f2;
+    color: #ef4444;
+}
+
+
+.asset-stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.asset-stat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #64748b;
+    letter-spacing: 0.5px;
+}
+
+/* Tabs Navigation */
+.asset-tabs-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 8px;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+.asset-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    flex: 1;
+}
+
+.asset-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.asset-tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    color: #64748b;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.asset-tab-btn:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+.asset-tab-btn.active {
+    background: #1557b7;
+    ;
+    color: white;
+}
+
+.tab-icon {
+    font-size: 1.1rem;
+}
+
+.tab-nav-arrow {
+    background: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    color: #1557b7;
+    ;
+}
+
+/* Main Content Area */
+.asset-main-content {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Common Styles for Asset Pages */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* Premium Table Styling */
+.asset-table-container {
+    max-height: calc(100vh - 320px);
+    overflow: auto;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    position: relative;
+}
+
+.asset-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.asset-table th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #1F6FEB;
+    padding: 16px;
+    font-weight: 700;
+    color: white;
+    text-transform: none !important;
+    font-size: 15px !important;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #1557b7;
+    text-align: left;
+}
+
+.asset-table td {
+    padding: 16px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    font-size: 0.9375rem;
+}
+
+.asset-table tr:hover td {
+    background: #f8fafc;
+}
+
+/* Badge Styles */
+.badge {
+    padding: 6px 12px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.badge-success {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.badge-warning {
+    background: #fef9c3;
+    color: #a16207;
+}
+
+.badge-danger {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.badge-info {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+/* Form Styles */
+.premium-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.premium-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #475569;
+}
+
+.premium-form .form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+.premium-form .form-control:focus {
+    border-color: #1557b7;
+    ;
+    box-shadow: 0 0 0 3px rgba(244, 177, 131, 0.1);
+    outline: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .asset-quick-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .asset-quick-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Asset Category Management Styles */
+.category-management {
+    padding: 24px;
+    color: #1e293b;
+}
+
+.root-category-row {
+    background: #fff;
+}
+
+.sub-category-row {
+    background: #fafafa;
+}
+
+.parent-cat-badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.root-cat-badge {
+    color: #94a3b8;
+    font-style: italic;
+    font-size: 0.8rem;
+}
+
+.field-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.field-tag {
+    background: #f1f5f9;
+    color: #334155;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.type-label {
+    color: #64748b;
+    font-size: 0.7rem;
+}
+
+.mandatory-star {
+    color: #ef4444;
+    font-weight: bold;
+}
+
+.no-fields {
+    color: #cbd5e1;
+    font-size: 0.85rem;
+}
+
+.status-pill {
+    border: none;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.status-pill.active {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status-pill.inactive {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.status-pill:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.icon-btn-add-sub {
+    background: #ecfdf5;
+    color: #059669;
+    border: 1px solid #10b981;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.icon-btn-add-sub:hover {
+    background: #10b981;
+    color: white;
+}
+
+.icon-btn-edit {
+    background: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #3b82f6;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.icon-btn-delete {
+    background: #fff1f2;
+    color: #e11d48;
+    border: 1px solid #f43f5e;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.category-form-row {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.category-main-inputs {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 24px;
+    align-items: flex-start;
+}
+
+.category-main-inputs label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 0.85rem;
+    color: #334155;
+}
+
+.fields-config-area {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.fields-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.fields-header h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0;
+    color: #334155;
+}
+
+.fields-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fields-grid-header {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr 40px;
+    gap: 16px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94a3b8;
+    padding: 0 16px;
+    text-transform: uppercase;
+}
+
+.field-config-row {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr 40px;
+    gap: 16px;
+    align-items: center;
+    background: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.no-fields-msg {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    padding: 24px;
+    background: white;
+    border-radius: 8px;
+    border: 1px dashed #cbd5e1;
+}
+
+.modal-footer {
+    padding: 24px 0 0 0;
+    display: flex;
+    gap: 16px;
+    border-top: 1px solid #f1f5f9;
+    margin-top: 24px;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cbd5e1;
+    transition: .3s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+}
+
+input:checked+.slider {
+    background-color: #3b82f6;
+}
+
+input:checked+.slider:before {
+    transform: translateX(20px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.btn-icon-danger {
+    background: #fee2e2;
+    color: #ef4444;
+    border: 1px solid #fecaca;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-icon-danger:hover {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    color: #1557b7;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    transition: color 0.2s;
+}
+
+.btn-link:hover {
+    color: #0f766e;
+    text-decoration: underline;
+}
+
+.premium-form .form-group label {
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+    line-height: 1.1 !important;
+    font-size: 1rem;
+}
+
+.premium-form .form-control {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-form .form-control:focus {
+    border-color: #1557b7;
+    box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.1);
+    outline: none;
+}
+
+.modal-content.premium-form {
+    animation: modalAppear 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* General Layout Utilities for Mobile */
+@media (max-width: 768px) {
+    .responsive-flex-column {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .responsive-flex-column>div,
+    .responsive-flex-column>button {
+        width: 100% !important;
+    }
+}
+
+/* Comprehensive Mobile Support */
+@media (max-width: 768px) {
+    .asset-page-container {
+        padding: 16px;
+    }
+    
+    .asset-page-title {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+    
+    .asset-header-stats {
+        margin-bottom: 24px;
+    }
+    
+    .asset-stat-card {
+        padding: 16px;
+    }
+    
+    .asset-stat-value {
+        font-size: 1.25rem;
+    }
+    
+    .asset-stat-label {
+        font-size: 0.65rem;
+    }
+
+    .asset-tabs-container {
+        margin: 0 -16px 20px -16px;
+        padding: 0 16px;
+    }
+
+    .asset-table-container {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+
+    .section-header {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 16px !important;
+    }
+
+    .section-header>div {
+        flex: 1 1 auto !important;
+        width: 100% !important;
+    }
+
+    .section-header button {
+        width: 100%;
+    }
+
+    .asset-header-stats {
+        margin-bottom: 24px;
+    }
+
+    .asset-main-content {
+        padding: 16px;
+    }
+
+    /* Make tables horizontally scrollable without breaking page width */
+    .asset-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -16px;
+        padding: 0 16px;
+    }
+
+    .asset-table {
+        min-width: 600px;
+    }
+
+    /* Category configuration forms */
+    .category-main-inputs {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .category-main-inputs>div {
+        width: 100%;
+    }
+
+    .fields-grid-header {
+        display: none;
+        /* Hide multi-column headers on mobile, stack instead */
+    }
+
+    .field-config-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 16px;
+        position: relative;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+    }
+
+    /* Reposition delete button for field config on mobile */
+    .field-config-row .btn-icon-danger {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        padding: 4px 8px;
+    }
+
+    .field-config-row>div:nth-child(3) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        border: 1px solid #cbd5e1;
+    }
+
+    .field-config-row>div:nth-child(3)::before {
+        content: 'Mandatory:';
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #475569;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .modal-footer button {
+        width: 100%;
+        margin-left: 0 !important;
+    }
+}
+/* DatePicker Premium Styles (from Onboarding) */
+.full-width-picker {
+    width: 100% !important;
+}
+
+.react-datepicker-wrapper {
+    width: 100% !important;
+}
+
+.custom-calendar-header {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    position: relative !important;
+}
+
+.calendar-header-banner {
+    background: linear-gradient(90deg, #4cd7e0 0%, #1F6FEB 100%) !important;
+    padding: 18px 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    color: white !important;
+}
+
+.header-main-content {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex: 1 !important;
+    justify-content: center !important;
+}
+
+.header-text-group {
+    display: flex !important;
+    gap: 10px !important;
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+}
+
+.clickable-header-text {
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    padding: 2px 6px !important;
+    border-radius: 6px !important;
+}
+
+.clickable-header-text:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.header-nav-btn {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border: none !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    font-size: 1.4rem !important;
+    transition: all 0.2s ease !important;
+    line-height: 1 !important;
+}
+
+.header-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.35) !important;
+    transform: scale(1.05) !important;
+}
+
+.react-datepicker__header {
+    background: white !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    padding: 0 !important;
+}
+
+.react-datepicker__day-name {
+    color: #64748b !important;
+    font-weight: 700 !important;
+    width: 40px !important;
+}
+
+.react-datepicker__day {
+    width: 40px !important;
+    line-height: 40px !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    color: #1e293b !important;
+    margin: 2px !important;
+}
+
+.react-datepicker__day--selected {
+    background-color: #1F6FEB !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.4) !important;
+}
+
+.header-dropdown {
+    position: absolute !important;
+    top: 55px !important;
+    background: white !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    z-index: 100 !important;
+    padding: 8px !important;
+    border: 1px solid #f1f5f9 !important;
+    display: block !important;
+}
+
+.month-dropdown {
+    left: 20px !important;
+    width: 160px !important;
+}
+
+.year-dropdown {
+    left: 80px !important; /* Fixed position instead of centering to avoid width issues */
+    width: 120px !important;
+}
+
+.dropdown-scroll-pane {
+    max-height: 200px !important;
+    overflow-y: auto !important;
+    width: 100% !important;
+}
+
+.dropdown-item {
+    padding: 10px 16px !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    font-size: 1rem !important;
+    color: #475569 !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+.dropdown-item:hover {
+    background: #f0fdfa !important;
+    color: #1F6FEB !important;
+}
+
+.dropdown-item.active {
+    background: #1F6FEB !important;
+    color: white !important;
+}
+
+/* Asset Information Modal Styles */
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.detail-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+    min-width: 140px;
+}
+
+.detail-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1e293b;
+    text-align: right;
+    flex: 1;
+}
+
+/* ==========================================================================
+   UNIFIED BRANDING: OVERRIDES PORTED FROM EXIT MANAGEMENT
+   ========================================================================== */
+
+/* 1. Global Font and Size Adjustments for Form Elements & Controls */
+.asset-page-container,
+.asset-page-container *,
+.modal-content,
+.modal-content * {
+    font-family: 'Wix Madefor Display' !important;
+}
+
+/* 2. Rounded curves and font size (15px) for all input fields & dropdown selects */
+.asset-page-container .form-control,
+.asset-page-container input,
+.asset-page-container select,
+.asset-page-container textarea,
+.asset-page-container .react-select__control,
+.premium-form .form-control,
+.premium-form input,
+.premium-form select,
+.premium-form textarea,
+.premium-form .react-select__control,
+.modal-content .form-control,
+.modal-content input,
+.modal-content select,
+.modal-content textarea,
+.modal-content .react-select__control,
+.premium-datepicker-container input,
+.full-width-picker input {
+    border-radius: 8px !important;
+    font-size: 15px !important;
+}
+
+/* 3. Rounded curves (8px) for buttons, tabs, tables, status pills, inputs, and cards */
+.asset-page-container .asset-tabs-container,
+.asset-page-container .asset-tabs,
+.asset-page-container .asset-tab-btn,
+.asset-page-container .btn-primary,
+.asset-page-container .btn-secondary,
+.asset-page-container .btn-cancel,
+.modal-content button,
+.modal-content .btn-primary,
+.modal-content .btn-secondary,
+.modal-content .btn-close,
+.asset-page-container .asset-table-container,
+.asset-page-container .asset-table,
+.asset-page-container .badge,
+.asset-page-container .status-pill,
+.asset-page-container .status-badge,
+.asset-page-container .asset-stat-card,
+.modal-content .detail-card,
+.modal-content .dropdown-item,
+.asset-page-container input,
+.asset-page-container select,
+.asset-page-container textarea,
+.asset-page-container .form-control,
+.modal-content input,
+.modal-content select,
+.modal-content textarea,
+.modal-content .form-control,
+.asset-allocation input,
+.asset-allocation select,
+.asset-allocation textarea {
+    border-radius: 8px !important;
+}
+
+/* 4. Enforce 15px text and uniform widths for Asset Management Tabs with #0B3D91 default and #1F6FEB selected */
+.asset-page-container .asset-tabs-container {
+    background-color: #0B3D91 !important;
+    background: #0B3D91 !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+.asset-page-container .asset-tabs {
+    gap: 0 !important;
+}
+
+.asset-page-container .asset-tab-btn {
+    font-size: 15px !important;
+    flex: 1 !important;
+    justify-content: center !important;
+    background-color: transparent !important;
+    background: transparent !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    border-radius: 0 !important;
+    height: 48px !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+.asset-page-container .asset-tab-btn:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+.asset-page-container .asset-tab-btn.active {
+    background-color: #1F6FEB !important;
+    background: #1F6FEB !important;
+    color: #ffffff !important;
+    border-radius: 0 !important;
+    font-weight: 700 !important;
+}
+
+/* 5. Field Labels override to be exactly 15px */
+.asset-page-container label,
+.asset-page-container .detail-label,
+.premium-form label,
+.premium-form .form-group label,
+.modal-content label,
+.modal-content .detail-label {
+    font-size: 15px !important;
+}
+
+/* 6. Form control placeholders to be exactly 15px */
+.asset-page-container input::placeholder,
+.asset-page-container textarea::placeholder,
+.premium-form input::placeholder,
+.modal-content input::placeholder {
+    font-size: 15px !important;
+}
+
+/* 7. Textarea background color override to #F5F7FA */
+.asset-page-container textarea,
+.modal-content textarea {
+    background-color: #F5F7FA !important;
+}
+
+/* 8. Action Buttons (Submit, Register, Add Asset) sizing, weight, and brand-teal colors */
+.asset-page-container .btn-primary,
+.modal-content .btn-primary {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    background-color: #00B3A4 !important;
+    background: #00B3A4 !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(0, 179, 164, 0.2) !important;
+}
+
+.asset-page-container .btn-primary:hover,
+.modal-content .btn-primary:hover {
+    background-color: #009688 !important;
+    background: #009688 !important;
+    box-shadow: 0 6px 16px rgba(0, 179, 164, 0.3) !important;
+}
+
+/* 9. Enforce professional brand-teal outline style for secondary/cancel/clear buttons */
+.asset-page-container .btn-secondary,
+.modal-content .btn-secondary,
+.asset-page-container .btn-cancel,
+.modal-content .btn-cancel {
+    border: 1.5px solid #00B3A4 !important;
+    background: #ffffff !important;
+    color: #00B3A4 !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+.asset-page-container .btn-secondary:hover,
+.modal-content .btn-secondary:hover,
+.asset-page-container .btn-cancel:hover,
+.modal-content .btn-cancel:hover {
+    background: rgba(0, 179, 164, 0.04) !important;
+    border-color: #008a7e !important;
+    color: #008a7e !important;
+    box-shadow: 0 4px 12px rgba(0, 179, 164, 0.08) !important;
+}
+
+/* 10. File upload / Bulk Import container styling alignment to #F5F7FA */
+.modal-content div:has(input[id="bulk-import-file-input"]) {
+    background-color: #F5F7FA !important;
+    border: 2px dashed #cbd5e1 !important;
+    border-radius: 8px !important;
+}
+
+/* 11. Choose File button in Bulk Import Modal to match Exit Choose File styling */
+.modal-content label[htmlfor="bulk-import-file-input"],
+.modal-content label[for="bulk-import-file-input"] {
+    background-color: #f1f5f9 !important;
+    color: #00B3A4 !important;
+    border: 1.5px solid #00B3A4 !important;
+    border-radius: 8px !important;
+    font-size: 15px !important;
+    text-transform: none !important;
+    font-weight: 600 !important;
+    padding: 10px 20px !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+.modal-content label[htmlfor="bulk-import-file-input"]:hover,
+.modal-content label[for="bulk-import-file-input"]:hover {
+    background-color: rgba(0, 179, 164, 0.04) !important;
+    border-color: #008a7e !important;
+    color: #008a7e !important;
+}
+
+/* 12. Asset Management Title and Subheading Style Alignment */
+.asset-page-container .asset-page-title {
+    font-size: 30px !important;
+    color: #1F2937 !important;
+    margin-bottom: 6px !important;
+    font-weight: normal !important;
+}
+
+.asset-page-container .asset-subtitle {
+    color: #00B3A4 !important;
+    font-size: 15px !important;
+    margin-top: 0 !important;
+    margin-bottom: 24px !important;
+    font-weight: 500 !important;
+}
+
+/* 13. Table Header Background Color Override and Rounded Corners */
+.asset-page-container .asset-table th {
+    background-color: #629AF1 !important;
+    background: #629AF1 !important;
+    border-bottom: 2px solid #4f86db !important;
+}
+
+.asset-page-container .asset-table th:first-child {
+    border-top-left-radius: 8px !important;
+    border-bottom-left-radius: 8px !important;
+}
+
+.asset-page-container .asset-table th:last-child {
+    border-top-right-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+}
+
+.asset-page-container .asset-table-container > div {
+    border-radius: 8px !important;
+}
+
+.asset-page-container .asset-table tr:last-child td:first-child {
+    border-bottom-left-radius: 8px !important;
+}
+
+.asset-page-container .asset-table tr:last-child td:last-child {
+    border-bottom-right-radius: 8px !important;
+}
+
+/* 14. Force Rounded Curves for Search Inputs */
+html body div.asset-page-container input.asset-search-input,
+html body div.asset-master input.asset-search-input,
+html body div.asset-allocation input.asset-search-input,
+.asset-page-container .asset-search-input,
+.asset-master .asset-search-input,
+.asset-allocation .asset-search-input,
+.asset-master input[type="text"].asset-search-input,
+.asset-allocation input[type="text"].asset-search-input {
+    border-radius: 8px !important;
+    height: 54px !important;
+    border: 1px solid #dbe4ee !important;
+    box-sizing: border-box !important;
+}
+
+/* 15. Fix Modal z-index so they appear above the Sidebar but beside it */
+.modal-overlay,
+.modal-backdrop {
+    z-index: 10000 !important;
+}
+
+@media (min-width: 769px) {
+    .modal-overlay,
+    .modal-backdrop {
+        left: 280px !important;
+        width: calc(100% - 280px) !important;
+    }
+}
+
+/* Ultimate high-specificity selectors to crush any SPA global CSS overrides and force exactly 8px border-radius */
+div.asset-master div.modal-overlay div.modal-content.premium-form .form-group input.form-control,
+div.asset-master div.modal-overlay div.modal-content.premium-form .form-group input[type="text"],
+div.asset-master div.modal-overlay div.modal-content.premium-form .form-group select,
+div.asset-master div.modal-overlay div.modal-content.premium-form .form-group textarea,
+div.asset-master div.modal-overlay div.modal-content.premium-form .form-group .react-select__control,
+div.asset-master div.modal-overlay div.modal-content.premium-form .form-group .react-select__value-container,
+div.asset-master div.modal-overlay div.modal-content.premium-form .form-group .premium-datepicker-container input,
+div.asset-master div.modal-overlay div.modal-content.premium-form .form-group .full-width-picker input,
+div.asset-allocation div.modal-overlay div.modal-content.premium-form .form-group input.form-control,
+div.asset-allocation div.modal-overlay div.modal-content.premium-form .form-group input[type="text"],
+div.asset-allocation div.modal-overlay div.modal-content.premium-form .form-group select,
+div.asset-allocation div.modal-overlay div.modal-content.premium-form .form-group textarea,
+div.asset-allocation div.modal-overlay div.modal-content.premium-form .form-group .react-select__control,
+div.asset-allocation div.modal-overlay div.modal-content.premium-form .form-group .react-select__value-container,
+div.asset-allocation div.modal-overlay div.modal-content.premium-form .form-group .premium-datepicker-container input,
+div.asset-allocation div.modal-overlay div.modal-content.premium-form .form-group .full-width-picker input,
+div.asset-allocation div.modal-overlay div.modal-content.premium-form .form-group .date-picker-wrapper input {
+    border-radius: 8px !important;
+}
+
+/* Enforce 8px border-radius and premium styling for the search inputs */
+html body div.asset-page-container input.asset-search-input,
+html body div.asset-master input.asset-search-input,
+html body div.asset-allocation input.asset-search-input,
+.asset-page-container input.asset-search-input,
+div.asset-master input.asset-search-input,
+div.asset-allocation input.asset-search-input,
+input.asset-search-input {
+    width: 100% !important;
+    height: 54px !important;
+    padding: 0 16px !important;
+    border-radius: 8px !important;
+    border: 1px solid #dbe4ee !important;
+    font-size: 0.85rem !important;
+    background: #f8fafc !important;
+    transition: all 0.2s ease !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+}
+
+html body div.asset-page-container input.asset-search-input:focus,
+html body div.asset-master input.asset-search-input:focus,
+html body div.asset-allocation input.asset-search-input:focus,
+.asset-page-container input.asset-search-input:focus,
+div.asset-master input.asset-search-input:focus,
+div.asset-allocation input.asset-search-input:focus,
+input.asset-search-input:focus {
+    border: 1px solid #1F6FEB !important;
+    background: white !important;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.1) !important;
+}

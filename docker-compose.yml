@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: local-mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rohan321
+      MYSQL_DATABASE: employee_login_db
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  localstack:
+    image: localstack/localstack
+    container_name: local-aws-s3
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=s3
+      - DEBUG=1
+      - DEFAULT_REGION=ap-south-1
+
+  mailpit:
+    image: axllent/mailpit
+    container_name: local-mailpit
+    ports:
+      - "8025:8025" # Web UI
+      - "1025:1025" # SMTP server
+
+volumes:
+  mysql-data:

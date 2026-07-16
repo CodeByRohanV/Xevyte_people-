@@ -1,0 +1,1021 @@
+/* Preonboarding.css - Mobile Responsive Styles */
+
+.preonboarding-tabs-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 0;
+    background: #0B3D91;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+    flex-grow: 1;
+}
+
+/* Professional Verification Status Control */
+.verification-controls-container {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    margin-left: 15px;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    min-width: fit-content;
+}
+
+.verification-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 800;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    color: #64748b;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+    text-transform: capitalize;
+    letter-spacing: 0.8px;
+}
+
+.verification-label.verified.selected {
+    background-color: #00b3a4 !important;
+    color: #fff !important;
+    box-shadow: none;
+}
+
+.verification-label.not-clear.selected {
+    background-color: #f59e0b !important;
+    color: #fff !important;
+    box-shadow: none;
+}
+
+.preonboarding-tabs-container::-webkit-scrollbar {
+    display: none;
+}
+
+.preonboarding-tabs-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 24px auto !important;
+    gap: 10px !important;
+}
+
+/* Desktop Styles for Review Modal and View Component */
+.review-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 280px;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+    backdrop-filter: blur(4px);
+    padding: 20px;
+}
+
+.review-modal-box {
+    width: 100%;
+    maxWidth: 1000px;
+    max-height: 90vh;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.review-modal-box h3 {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
+
+.review-modal-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px 30px;
+    background-color: #F5F7FA !important;
+}
+
+.review-applicant-content {
+    padding: 24px 30px;
+}
+
+.review-applicant-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 30px;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 110; /* Above section titles */
+    flex-shrink: 0;
+}
+
+.review-applicant-title {
+    margin: 0;
+    color: #14b8a6;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+}
+
+.review-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-section-wrapper {
+    margin-bottom: 24px;
+    background: #fff;
+    border-radius: 0;
+    border: 1px solid #cbd5e1;
+    overflow: hidden;
+}
+
+.view-section-title {
+    padding: 12px 20px;
+    background: #629AF1;
+    color: #fff;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.view-section-content {
+    padding: 8px;
+}
+
+.view-section-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.view-field-row {
+    border-bottom: 1px solid #f0fdfd;
+}
+
+.view-field-label {
+    font-weight: 600;
+    width: 35%;
+    padding: 12px;
+    color: #475569;
+    font-size: 15px;
+    text-align: left;
+}
+
+.view-field-value-cell {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 50px;
+}
+
+.view-field-value {
+    flex: 1;
+    font-size: 15px;
+    color: #1e293b;
+    margin-right: 10px;
+}
+
+.view-verification-controls-wrapper {
+    flex-shrink: 0;
+}
+
+.view-action-footer {
+    text-align: right;
+    padding: 20px 0;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.view-approval-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.view-form-group {
+    margin-bottom: 20px;
+}
+
+/* Confirmation Page Styles */
+.confirmation-container {
+    padding: 24px;
+    background: #fff;
+    border-radius: 0;
+}
+
+.confirmation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+/* Generation Modal Styles */
+.generation-modal {
+    width: 450px !important;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: normal !important;
+    color: #14b8a6;
+    margin-bottom: 24px;
+}
+
+.modal-label {
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    font-weight: normal !important;
+    color: #14b8a6;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.modal-select {
+    height: 48px !important;
+    padding: 0 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    line-height: normal !important;
+}
+
+.generation-links-wrapper {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.scroll-btn {
+    display: none;
+    background: white;
+    border: 1px solid #14b8a6;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #14b8a6;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(20, 184, 166, 0.2);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.scroll-btn:hover {
+    background: #14b8a6;
+    color: white;
+}
+
+.preonboarding-table {
+    background: transparent !important;
+}
+
+@media (max-width: 768px) {
+
+    /* Main Container */
+    .preonboarding-container {
+        padding: 10px !important;
+    }
+
+    /* Tab Container Mobile */
+    .preonboarding-tabs-wrapper {
+        width: 100% !important;
+        margin-bottom: 24px !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+    }
+
+    .scroll-btn {
+        display: flex !important;
+    }
+
+    .preonboarding-tabs-container {
+        width: 100% !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+    }
+
+    /* Tab Buttons Mobile */
+    .preonboarding-tabs-container button {
+        padding: 10px 18px !important;
+        font-size: 12px !important;
+        flex-shrink: 0 !important;
+        min-width: max-content !important;
+    }
+
+    /* Form Container Mobile */
+    div[style*="maxWidth: '800px'"] {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+
+    /* Form Card Mobile */
+    div[style*="borderRadius: '20px'"][style*="padding: '20px'"] {
+        padding: 15px !important;
+        border-radius: 0 !important;
+    }
+
+    /* Form Title Mobile */
+    h3[style*="color:"] {
+        font-size: 1.1rem !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Form Grid Mobile */
+    div[style*="gridTemplateColumns: '1fr 1fr 1fr'"],
+    div[style*="gridTemplateColumns: '1fr 1fr'"] {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    /* Input Labels Mobile */
+    label[style*="fontWeight: '700'"] {
+        font-size: 15px !important;
+        margin-bottom: 6px !important;
+    }
+
+    /* Input Fields Mobile */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select {
+        height: 50px !important;
+        font-size: 15px !important;
+        padding: 14px 16px !important;
+    }
+
+    /* File Upload Area Mobile */
+    div[style*="border: 2px dashed"] {
+        padding: 16px !important;
+    }
+
+    /* Submit Button Mobile */
+    button[type="submit"] {
+        padding: 14px 20px !important;
+        font-size: 15px !important;
+        min-height: 50px !important;
+        margin-top: 20px !important;
+    }
+
+    /* Validation Card Mobile */
+    div[style*="borderRadius: '20px'"][style*="padding: '24px'"] {
+        padding: 15px !important;
+        border-radius: 0 !important;
+    }
+
+    /* Validation Header Mobile */
+    div[style*="justifyContent: 'space-between'"][style*="marginBottom: '20px'"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+    }
+
+    div[style*="justifyContent: 'space-between'"] h3 {
+        font-size: 1.1rem !important;
+    }
+
+    /* Search Input Mobile */
+    input[placeholder*="Search"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 50px !important;
+        font-size: 15px !important;
+    }
+
+    /* Table Container Mobile */
+    div[style*="maxHeight: calc(100vh - 350px)"] {
+        max-height: calc(100vh - 250px) !important;
+        overflow-x: auto !important;
+    }
+
+    /* Table Mobile */
+    table {
+        min-width: 700px !important;
+        font-size: 15px !important;
+    }
+
+    /* Table Headers Mobile */
+    th[style*="backgroundColor"] {
+        padding: 12px 10px !important;
+        font-size: 15px !important;
+    }
+
+    /* Table Cells Mobile */
+    td[style*="padding: '16px'"] {
+        padding: 12px 10px !important;
+        font-size: 15px !important;
+    }
+
+    /* Status Badge Mobile */
+    span[style*="borderRadius: '20px'"] {
+        padding: 4px 10px !important;
+        font-size: 15px !important;
+    }
+
+    /* Row Button Mobile */
+    td button {
+        padding: 10px 14px !important;
+        font-size: 15px !important;
+        min-height: 44px !important;
+    }
+
+    /* Modal Overlay Mobile */
+    div[style*="position: fixed"][style*="zIndex: 1000"] {
+        padding: 10px !important;
+    }
+
+    /* Modal Box Mobile */
+    div[style*="width: '85%'"][style*="borderRadius: '24px'"] {
+        width: 95% !important;
+        max-width: 95% !important;
+        padding: 15px !important;
+        border-radius: 0 !important;
+        max-height: 95vh !important;
+    }
+
+    /* Modal Header Mobile */
+    div[style*="borderBottom: 1px solid"] h2 {
+        font-size: 1.1rem !important;
+    }
+
+    /* Modal Close Button Mobile */
+    div[style*="borderBottom: 1px solid"] button {
+        padding: 8px !important;
+    }
+}
+
+/* Additional Modal Enhancements for Mobile */
+@media (max-width: 768px) {
+
+    /* Review Modal Styles */
+    .review-modal-overlay {
+        position: fixed !important;
+        inset: 0 !important;
+        background: rgba(0, 0, 0, 0.5) !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
+        padding: 15px !important;
+        z-index: 1000 !important;
+        backdrop-filter: blur(4px) !important;
+    }
+
+    .review-modal-box {
+        background: #fff !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 8px !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+        max-height: 95vh !important;
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+    }
+
+    .review-modal-content {
+        flex: 1 !important;
+        overflow-y: auto !important;
+        padding: 0 15px 15px 15px !important;
+        background-color: #F5F7FA !important;
+    }
+
+    .review-applicant-header {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 15px !important;
+        border-bottom: 1px solid #eee !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 10 !important;
+        flex-shrink: 0 !important;
+        background: #fff !important;
+        border-top-left-radius: 8px !important;
+        border-top-right-radius: 8px !important;
+    }
+
+    .review-applicant-title {
+        margin: 0 !important;
+        font-size: 1.1rem !important;
+        color: #14b8a6 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        line-height: 1.3 !important;
+        flex: 1 !important;
+    }
+
+    .review-applicant-title span {
+        font-size: 0.9rem !important;
+        color: #64748b !important;
+        word-break: break-all !important;
+    }
+
+    .review-close-btn {
+        background: none !important;
+        border: none !important;
+        cursor: pointer !important;
+        color: #64748b !important;
+        padding: 5px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* ViewPreOnboarding Enhancements */
+    .view-section-wrapper {
+        margin-bottom: 20px !important;
+        background: #fff !important;
+        border-radius: 0 !important;
+        border: 1px solid #cbd5e1 !important;
+        overflow: hidden !important;
+    }
+
+    .view-section-title {
+        padding: 12px 15px !important;
+        background: #629AF1 !important;
+        color: #fff !important;
+        margin: 0 !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+    }
+
+    .view-section-content {
+        padding: 0 !important;
+    }
+
+    .view-section-table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+    }
+
+    .view-field-row {
+        display: flex !important;
+        flex-direction: column !important;
+        border-bottom: 1px solid #f0fdfd !important;
+        padding: 10px 15px !important;
+    }
+
+    .view-field-label {
+        font-weight: 700 !important;
+        color: #475569 !important;
+        font-size: 15px !important;
+        margin-bottom: 4px !important;
+        width: 100% !important;
+        padding: 0 !important;
+        text-align: left !important;
+    }
+
+    .view-field-value-cell {
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        min-height: auto !important;
+        border: none !important;
+    }
+
+    .view-field-value {
+        font-size: 15px !important;
+        color: #1e293b !important;
+        width: 100% !important;
+        margin-bottom: 8px !important;
+        margin-right: 0 !important;
+    }
+
+    .view-verification-controls-wrapper {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-top: 5px !important;
+    }
+
+    .view-action-footer {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+        padding: 15px 0 !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+
+    .view-action-footer button {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .view-approval-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    .view-form-group {
+        margin-bottom: 15px !important;
+    }
+
+    /* Enhanced Professional Segmented Control for Mobile - Vertical Flow */
+    .verification-controls-container {
+        margin-left: 0 !important;
+        margin-top: 10px !important;
+        width: 100% !important;
+        background: #f1f5f9 !important;
+        padding: 5px !important;
+        border-radius: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 6px !important;
+    }
+
+    .verification-label {
+        padding: 10px 12px !important;
+        font-size: 15px !important;
+        width: 100% !important;
+        justify-content: center !important;
+        border-radius: 8px !important;
+        min-height: 48px !important;
+        text-transform: capitalize !important;
+        letter-spacing: 0.8px !important;
+        font-weight: 800 !important;
+    }
+
+    .verification-label.verified.selected {
+        background: #00b3a4 !important;
+        color: white !important;
+        box-shadow: 0 4px 12px rgba(0, 179, 164, 0.25) !important;
+    }
+
+    .verification-label.not-clear.selected {
+        background: #f59e0b !important;
+        color: white !important;
+        box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25) !important;
+    }
+
+    .verification-label:active {
+        transform: scale(0.96) !important;
+    }
+
+    /* Generation Modal Mobile Fixes */
+    .generation-modal {
+        width: calc(100% - 30px) !important;
+        margin: 15px !important;
+        padding: 24px 20px !important;
+        border-radius: 0 !important;
+    }
+
+    .modal-title {
+        font-size: 1.25rem !important;
+        margin-bottom: 20px !important;
+        background: transparent !important;
+        /* Ensure no weird highlight */
+        padding: 0 !important;
+    }
+
+    .modal-select {
+        height: 52px !important;
+        /* Slightly taller for mobile tap */
+        padding: 0 12px !important;
+        font-size: 15px !important;
+    }
+
+    .modal-footer {
+        flex-direction: column !important;
+        gap: 12px !important;
+        margin-top: 10px !important;
+    }
+
+    .modal-footer button {
+        width: 100% !important;
+        margin: 0 !important;
+        height: 48px !important;
+        justify-content: center !important;
+    }
+
+    .btn-ghost {
+        order: 2 !important;
+        /* Cancel below Generate */
+    }
+
+    .btn-primary {
+        order: 1 !important;
+    }
+
+    .generation-links-wrapper {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .generation-links-wrapper button {
+        width: 100% !important;
+        text-align: left !important;
+        padding: 5px 0 !important;
+    }
+
+    /* Confirmation Page Mobile Overrides */
+    .confirmation-container {
+        padding: 15px !important;
+        border-radius: 0 !important;
+    }
+
+    .confirmation-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 15px !important;
+    }
+
+    .confirmation-header h3 {
+        font-size: 1.2rem !important;
+    }
+
+    .confirmation-header div {
+        width: 100% !important;
+    }
+
+    .confirmation-header input {
+        width: 100% !important;
+    }
+}
+
+.preonboarding-tabs-wrapper {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+}
+
+/* Premium DatePicker Refinements (Match Onboarding Calendar) */
+.react-datepicker {
+    font-family: 'Outfit', 'Poppins', sans-serif !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: 0 25px 50px -12px rgba(20, 184, 166, 0.25) !important;
+    overflow: hidden !important;
+    background: white !important;
+}
+
+.custom-calendar-header {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    position: relative !important;
+}
+
+.calendar-header-banner {
+    background: #0B3D91 !important;
+    padding: 18px 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    color: white !important;
+}
+
+.header-main-content {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex: 1 !important;
+    justify-content: center !important;
+}
+
+.calendar-header-banner .header-icon {
+    font-size: 1.25rem !important;
+    opacity: 0.9 !important;
+}
+
+.header-text-group {
+    display: flex !important;
+    gap: 10px !important;
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: capitalize !important;
+}
+
+.clickable-header-text {
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    padding: 2px 6px !important;
+    border-radius: 6px !important;
+}
+
+.clickable-header-text:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.header-nav-btn {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border: none !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    font-size: 1.4rem !important;
+    transition: all 0.2s ease !important;
+    line-height: 1 !important;
+}
+
+.header-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.35) !important;
+    transform: scale(1.05) !important;
+}
+
+.react-datepicker__header {
+    background: white !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    padding: 0 !important;
+}
+
+.react-datepicker__day-name {
+    color: #1e293b !important;
+    font-weight: 800 !important;
+    width: 40px !important;
+    margin: 2px !important;
+    font-size: 0.85rem !important;
+}
+
+.react-datepicker__day {
+    width: 40px !important;
+    line-height: 40px !important;
+    border-radius: 14px !important;
+    font-weight: 700 !important;
+    color: #334155 !important;
+    margin: 2px !important;
+    transition: all 0.2s ease !important;
+}
+
+.react-datepicker__day:hover {
+    background-color: #f0fdfa !important;
+    color: #14b8a6 !important;
+    transform: scale(1.1) !important;
+}
+
+.react-datepicker__day--today {
+    background-color: #99f6e4 !important;
+    color: #0d9488 !important;
+    border-radius: 14px !important;
+}
+
+.react-datepicker__day--selected {
+    background: #0B3D91 !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.4) !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+    background-color: #f0fdfa !important;
+    color: #14b8a6 !important;
+}
+
+.react-datepicker__navigation {
+    display: none !important;
+}
+
+.react-datepicker__triangle {
+    display: none !important;
+}
+
+.header-dropdown {
+    position: absolute !important;
+    top: 50px !important;
+    background: white !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    z-index: 100 !important;
+    padding: 8px !important;
+    border: 1px solid #f1f5f9 !important;
+    width: max-content !important;
+}
+
+.month-dropdown {
+    left: 20px !important;
+}
+
+.year-dropdown {
+    left: 80px !important;
+}
+
+.dropdown-scroll-pane {
+    max-height: 200px !important;
+    overflow-y: auto !important;
+}
+
+.dropdown-item {
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    font-size: 15px !important;
+    color: #475569 !important;
+    font-weight: 600 !important;
+}
+
+.dropdown-item:hover {
+    background: #f0fdfa !important;
+    color: #14b8a6 !important;
+}
+
+.dropdown-item.active {
+    background: #14b8a6 !important;
+    color: white !important;
+}
+
+/* Mobile DatePicker Compact Size (Match Onboarding Calendar) */
+@media (max-width: 768px) {
+    .react-datepicker {
+        width: 320px !important;
+        max-width: 90vw !important;
+        font-size: 15px !important;
+    }
+
+    .calendar-header-banner {
+        padding: 10px 8px !important;
+    }
+
+    .header-text-group {
+        font-size: 15px !important;
+        gap: 6px !important;
+    }
+
+    .header-nav-btn {
+        width: 26px !important;
+        height: 26px !important;
+        font-size: 1.1rem !important;
+        border-radius: 8px !important;
+    }
+
+    .calendar-header-banner .header-icon {
+        font-size: 15px !important;
+    }
+
+    .react-datepicker__day {
+        width: 32px !important;
+        line-height: 32px !important;
+        font-size: 15px !important;
+        margin: 1px !important;
+    }
+
+    .react-datepicker__day-name {
+        width: 32px !important;
+        font-size: 15px !important;
+        margin: 1px !important;
+    }
+
+    .header-dropdown {
+        top: 42px !important;
+        font-size: 15px !important;
+    }
+
+    .dropdown-item {
+        padding: 6px 10px !important;
+        font-size: 15px !important;
+    }
+
+    .react-datepicker__month {
+        margin: 0.3rem !important;
+    }
+}

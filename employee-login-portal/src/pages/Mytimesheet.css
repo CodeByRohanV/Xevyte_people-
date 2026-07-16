@@ -1,0 +1,761 @@
+.timesheet-container {
+  padding: 0px;
+  margin-left: 0px;
+}
+
+.timesheet-container h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  padding-left: 0;
+  color: #0f172a;
+  font-weight: normal;
+  font-size: 15px;
+}
+
+.timesheet-container p {
+  font-size: 15px;
+  color: #64748b;
+}
+
+.download-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.modal-content {
+  overflow: visible !important;
+}
+
+.react-datepicker-popper {
+  z-index: 9999 !important;
+}
+
+.download-btn {
+  padding: 0.75rem 1.5rem;
+  background: #00B3A4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 179, 164, 0.2);
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(94, 234, 212, 0.4);
+}
+
+.table1-wrapper,
+.table-wrapper {
+  max-height: calc(100vh - 240px);
+  overflow-y: auto;
+  overflow-x: auto;
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: #5eead4 #f1f5f9;
+}
+
+.table1-wrapper::-webkit-scrollbar,
+.table-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.table1-wrapper::-webkit-scrollbar-track,
+.table-wrapper::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.table1-wrapper::-webkit-scrollbar-thumb,
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #00B3A4;
+  border-radius: 4px;
+}
+
+.timesheet1-table,
+.timesheet-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-left: 0;
+  background: white;
+  border-radius: 8px !important;
+}
+
+.table1-wrapper,
+.table-wrapper {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.timesheet-table thead {
+  position: sticky;
+  top: 0;
+  background: #629AF1 !important;
+  color: white !important;
+  z-index: 10;
+}
+
+.timesheet-table thead th:first-child,
+.timesheet1-table thead th:first-child {
+  border-radius: 8px 0 0 0 !important;
+}
+
+.timesheet-table thead th:last-child,
+.timesheet1-table thead th:last-child {
+  border-radius: 0 8px 0 0 !important;
+}
+
+.timesheet-table tbody tr:last-child td:first-child,
+.timesheet1-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 8px !important;
+}
+
+.timesheet-table tbody tr:last-child td:last-child,
+.timesheet1-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 8px !important;
+}
+
+
+.timesheet-table th,
+.timesheet-table td {
+  padding: 12px;
+  text-align: left;
+  border: none;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.timesheet-table th {
+  padding: 12px;
+  padding-bottom: 8px;
+  font-weight: normal;
+}
+
+.timesheet-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.timesheet-table tbody tr:hover {
+  background-color: rgba(94, 234, 212, 0.05);
+}
+
+.timesheet-table th input,
+.timesheet-table th select {
+  width: 90%;
+  padding: 6px 8px;
+  margin-top: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.timesheet-table th input:focus,
+.timesheet-table th select:focus {
+  outline: none;
+  border-color: white;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+.timesheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-left: 0px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.export-btn {
+  padding: 0.75rem 1.5rem;
+  background: #00B3A4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(94, 234, 212, 0.2);
+}
+
+.export-btn:hover {
+  background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(94, 234, 212, 0.4);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 400px;
+  max-width: 90%;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 1rem;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #0f172a;
+  font-weight: normal;
+  font-size: 15px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #64748b;
+  transition: all 0.3s ease;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.close-btn:hover {
+  background: rgba(94, 234, 212, 0.1);
+  color: #14b8a6;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-body label {
+  font-weight: normal;
+  font-size: 15px;
+  color: #0f172a;
+}
+
+.modal-body input[type="date"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.modal-body input[type="date"]:focus {
+  outline: none;
+  border-color: #5eead4;
+  box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.1);
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 1rem;
+  border-top: 2px solid #e2e8f0;
+}
+
+.modal-footer button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.modal-footer .download-btn {
+  background: linear-gradient(135deg, #5eead4 0%, #2dd4bf 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 2px 8px rgba(94, 234, 212, 0.2);
+}
+
+.modal-footer .download-btn:hover {
+  background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(94, 234, 212, 0.4);
+}
+
+.modal-footer .cancel-btn {
+  background: white;
+  color: #64748b;
+  border: 2px solid #e2e8f0;
+}
+
+.modal-footer .cancel-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+@media (max-width: 768px) {
+
+  /* Responsive Title and Text */
+  .timesheet-container h2,
+  .emp-title {
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .timesheet-container p,
+  .emp-empty,
+  .emp-error {
+    font-size: 12px;
+  }
+
+  .timesheet-header button,
+  .modal-footer button,
+  .modal-header button {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+  }
+
+  .timesheet-table th {
+    padding: 8px 4px !important;
+    font-size: 11px !important;
+    vertical-align: middle !important;
+    white-space: nowrap !important;
+  }
+
+  .timesheet-table th div {
+    justify-content: center !important;
+    gap: 4px !important;
+  }
+
+  .timesheet-table th span {
+    font-size: 11px !important;
+  }
+
+  .timesheet-container {
+    padding: 10px;
+  }
+
+  .timesheet-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .timesheet-header div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .download-btn,
+  .export-btn,
+  .view-btn,
+  .back-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .table1-wrapper,
+  .table-wrapper {
+    max-height: none;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+
+  .timesheet-table {
+    min-width: 900px;
+    /* Force horizontal scroll */
+    width: 100%;
+    display: table;
+  }
+
+  .timesheet-table thead {
+    display: table-header-group;
+    position: sticky;
+    top: 0;
+  }
+
+  .timesheet-table tbody {
+    display: table-row-group;
+  }
+
+  .timesheet-table tr {
+    display: table-row;
+    margin-bottom: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    border: none;
+  }
+
+  .timesheet-table td {
+    display: table-cell;
+    border: none;
+    border-bottom: 1px solid #f1f5f9;
+    position: static;
+    padding: 12px !important;
+    text-align: left !important;
+    min-height: unset;
+  }
+
+  .timesheet-table td:before {
+    display: none;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+
+  .timesheet-container h2,
+  .emp-title {
+    font-size: 14px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  .timesheet-container p,
+  .emp-empty,
+  .emp-error {
+    font-size: 11px;
+  }
+
+  .timesheet-header button,
+  .modal-footer button,
+  .modal-header button {
+    padding: 4px 10px !important;
+    font-size: 11px !important;
+  }
+
+  .timesheet-table th {
+    padding: 6px 2px !important;
+    font-size: 10px !important;
+    vertical-align: middle !important;
+    white-space: nowrap !important;
+  }
+
+  .timesheet-table th div {
+    justify-content: center !important;
+    gap: 2px !important;
+  }
+
+  .timesheet-table th span {
+    font-size: 10px !important;
+  }
+
+  .modal-content h3 {
+    font-size: 16px;
+  }
+}
+
+/* Premium DatePicker Refinements (Match Image 2) */
+.react-datepicker {
+  font-family: 'Outfit', 'Poppins', sans-serif !important;
+  border: none !important;
+  border-radius: 20px !important;
+  box-shadow: 0 25px 50px -12px rgba(20, 184, 166, 0.25) !important;
+  overflow: hidden !important;
+  background: white !important;
+}
+
+.custom-calendar-header {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: white !important;
+  position: relative !important;
+}
+
+.calendar-header-banner {
+  background: linear-gradient(90deg, #4cd7e0 0%, #14b8a6 100%) !important;
+  padding: 18px 15px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  color: white !important;
+}
+
+.header-main-content {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex: 1 !important;
+  justify-content: center !important;
+}
+
+.calendar-header-banner .header-icon {
+  font-size: 1.25rem !important;
+  opacity: 0.9 !important;
+}
+
+.header-text-group {
+  display: flex !important;
+  gap: 10px !important;
+  font-size: 1.15rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+}
+
+.clickable-header-text {
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  padding: 2px 6px !important;
+  border-radius: 6px !important;
+}
+
+.clickable-header-text:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.header-nav-btn {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+  border: none !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  font-size: 1.4rem !important;
+  transition: all 0.2s ease !important;
+  line-height: 1 !important;
+}
+
+.header-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.35) !important;
+  transform: scale(1.05) !important;
+}
+
+.react-datepicker__header {
+  background: white !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  padding: 0 !important;
+}
+
+.react-datepicker__day-name {
+  color: #1e293b !important;
+  font-weight: 800 !important;
+  width: 40px !important;
+  margin: 2px !important;
+  font-size: 0.85rem !important;
+}
+
+.react-datepicker__day {
+  width: 40px !important;
+  line-height: 40px !important;
+  border-radius: 14px !important;
+  font-weight: 700 !important;
+  color: #334155 !important;
+  margin: 2px !important;
+  transition: all 0.2s ease !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: #f0fdfa !important;
+  color: #14b8a6 !important;
+  transform: scale(1.1) !important;
+}
+
+.react-datepicker__day--today {
+  background-color: #99f6e4 !important;
+  color: #0d9488 !important;
+  border-radius: 14px !important;
+}
+
+.react-datepicker__day--selected {
+  background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%) !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(20, 184, 166, 0.4) !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #f0fdfa !important;
+  color: #14b8a6 !important;
+}
+
+.react-datepicker__navigation {
+  display: none !important;
+}
+
+.react-datepicker__triangle {
+  display: none !important;
+}
+
+.header-dropdown {
+  position: absolute !important;
+  top: 50px !important;
+  background: white !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+  z-index: 100 !important;
+  padding: 8px !important;
+  border: 1px solid #f1f5f9 !important;
+  width: max-content !important;
+}
+
+.month-dropdown {
+  left: 20px !important;
+}
+
+.year-dropdown {
+  left: 80px !important;
+}
+
+.dropdown-scroll-pane {
+  max-height: 200px !important;
+  overflow-y: auto !important;
+}
+
+.dropdown-item {
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  font-size: 0.9rem !important;
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+
+.dropdown-item:hover {
+  background: #f0fdfa !important;
+  color: #14b8a6 !important;
+}
+
+.dropdown-item.active {
+  background: #14b8a6 !important;
+  color: white !important;
+}
+
+/* Mobile DatePicker Compact Size */
+@media (max-width: 768px) {
+  .react-datepicker {
+    width: 320px !important;
+    max-width: 90vw !important;
+    font-size: 0.85rem !important;
+  }
+
+  .calendar-header-banner {
+    padding: 10px 8px !important;
+  }
+
+  .header-text-group {
+    font-size: 0.85rem !important;
+    gap: 6px !important;
+  }
+
+  .header-nav-btn {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 1.1rem !important;
+    border-radius: 8px !important;
+  }
+
+  .calendar-header-banner .header-icon {
+    font-size: 0.9rem !important;
+  }
+
+  .react-datepicker__day {
+    width: 32px !important;
+    line-height: 32px !important;
+    font-size: 0.8rem !important;
+    margin: 1px !important;
+  }
+
+  .react-datepicker__day-name {
+    width: 32px !important;
+    font-size: 0.75rem !important;
+    margin: 1px !important;
+  }
+
+  .header-dropdown {
+    top: 42px !important;
+    font-size: 0.85rem !important;
+  }
+
+  .dropdown-item {
+    padding: 6px 10px !important;
+    font-size: 0.85rem !important;
+  }
+
+
+  .react-datepicker__month {
+    margin: 0.3rem !important;
+  }
+}
+
+
+
+/* Desktop Action Buttons Alignment */
+@media (min-width: 769px) {
+  .timesheet-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,191 @@
+/* Employee Remove Button */
+.employee-remove-btn {
+    pointer-events: auto !important;
+}
+
+.employee-remove-btn:hover {
+    background-color: #fecaca !important;
+    color: #dc2626 !important;
+}
+
+.employee-remove-btn:active {
+    background-color: #f87171 !important;
+    transform: scale(0.95);
+}
+
+/* AdminAccessMobile.css */
+
+/* Global Container Tweaks */
+.admin-scroll-section {
+    width: 95%;
+    margin: 20px auto;
+}
+
+/* Card Container */
+.admin-preonboarding-card {
+    flex: 1 1 calc(50% - 12px);
+    min-width: 350px;
+    /* Default desktop */
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid #99f6e4;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* Form Inputs & Selects */
+.admin-input-field {
+    width: 100%;
+    padding: 12px 16px !important;
+    /* Increased padding */
+    border-radius: 8px;
+    border: 2px solid #99f6e4;
+    background: #f0fdfd;
+    outline: none;
+    font-size: 1rem;
+    /* Readable font size */
+    color: #334155;
+    height: 48px;
+    /* Touch target size */
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+    appearance: none;
+    /* Reset native appearance for custom styling */
+}
+
+.admin-input-field:focus {
+    border-color: #14b8a6;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+}
+
+/* File Input specific tweaks */
+input[type="file"].admin-input-field {
+    height: auto;
+    /* Allow auto height for file inputs */
+    padding: 10px;
+}
+
+/* Custom Select Arrow */
+select.admin-input-field {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2314b8a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 40px !important;
+    line-height: normal !important;
+    /* Fix vertical alignment */
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+/* Buttons */
+.admin-btn-primary {
+    flex: 1;
+    background: #0B3D91;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.2);
+    font-size: 1rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.admin-btn-primary:active {
+    transform: scale(0.98);
+}
+
+.admin-btn-secondary {
+    flex: 1;
+    background-color: #f1f5f9;
+    color: #64748b;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.admin-btn-secondary:hover {
+    background-color: #e2e8f0;
+}
+
+/* Status Message */
+.admin-status-msg {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.status-success {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.status-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* Labels */
+.admin-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #14b8a6;
+    font-size: 0.95rem;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .admin-preonboarding-card {
+        min-width: 100% !important;
+        /* Full width on mobile */
+        padding: 16px;
+    }
+
+    .admin-scroll-section {
+        width: 100% !important;
+        margin: 10px auto;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    /* Stack buttons on very small screens */
+    .admin-btn-group {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* Ensure flex container wraps */
+    div[style*="display: flex"][style*="flexWrap: wrap"] {
+        flex-direction: column;
+    }
+}
+
+/* Enforce exactly 30px for the page main title */
+.admin-access-title {
+    font-size: 30px !important;
+}
+
+/* Enforce exactly 15px for all other text/components inside the admin access page */
+.admin-access-page-wrapper *:not(.admin-access-title) {
+    font-size: 15px !important;
+}

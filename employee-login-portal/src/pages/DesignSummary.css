@@ -1,0 +1,35 @@
+.design-summary-container {
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.chart-card {
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .chart-card {
+        padding: 1rem;
+        min-height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chart-card {
+        padding: 0.5rem;
+        min-height: 300px;
+        border-radius: 4px;
+    }
+}

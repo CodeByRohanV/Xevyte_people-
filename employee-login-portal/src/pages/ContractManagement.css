@@ -1,0 +1,112 @@
+/* Contract Management Module Typography Style Guide */
+
+/* Enforce exactly 30px for the page main title */
+.contract-management-title {
+    font-size: 30px !important;
+}
+
+/* Enforce exactly 15px for all other components (labels, inputs, buttons, tables, descriptions, modals) */
+.contract-management-page label,
+.contract-management-page input,
+.contract-management-page select,
+.contract-management-page textarea,
+.contract-management-page button:not(.close-x-btn),
+.contract-management-page th,
+.contract-management-page td,
+.contract-management-page span,
+.contract-management-page p,
+.contract-management-page .react-datepicker-wrapper input,
+.contract-management-page [data-suggestion-item],
+.contract-management-page .dropdown-item,
+.contract-management-page h2:not(.contract-management-title),
+.contract-management-page h3:not(.contract-management-title) {
+    font-size: 15px !important;
+}
+
+/* Enforce exactly 8px border-radius for all field elements, buttons, inputs, selects, and textareas */
+.contract-management-page input,
+.contract-management-page select,
+.contract-management-page textarea,
+.contract-management-page button,
+.contract-management-page .react-datepicker-wrapper input,
+.contract-management-page .datepicker-input,
+.contract-management-page .allocation-input,
+.contract-management-page select.allocation-input,
+.contract-management-page textarea.allocation-input,
+.contract-management-page .allocation-btn,
+.contract-management-page button.allocation-btn,
+.contract-management-page .react-datepicker__input-container input {
+    border-radius: 8px !important;
+}
+
+/* Enforce a consistent, premium teal border style for all input and select dropdown fields */
+.contract-management-page input:not([type="checkbox"]):not([type="radio"]),
+.contract-management-page select,
+.contract-management-page textarea,
+.contract-management-page .react-datepicker-wrapper input,
+.contract-management-page .datepicker-input,
+.contract-management-page .allocation-input,
+.contract-management-page select.allocation-input,
+.contract-management-page textarea.allocation-input,
+.contract-management-page .react-datepicker__input-container input {
+    border: 2px solid #99f6e4 !important;
+}
+
+/* Premium focus visual indicator */
+.contract-management-page input:focus:not([type="checkbox"]):not([type="radio"]),
+.contract-management-page select:focus,
+.contract-management-page textarea:focus,
+.contract-management-page .react-datepicker-wrapper input:focus,
+.contract-management-page .allocation-input:focus,
+.contract-management-page select.allocation-input:focus,
+.contract-management-page textarea.allocation-input:focus,
+.contract-management-page .react-datepicker__input-container input:focus {
+    border-color: #14b8a6 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.15) !important;
+}
+
+/* Direct targeting for modal overlay elements (Submit, Cancel, and fields) across all contract management modals */
+.modal-overlay button:not(.close-x-btn),
+.modal-overlay input,
+.modal-overlay select,
+.modal-overlay textarea,
+.project-modal-form button:not(.close-x-btn),
+.project-modal-form input,
+.project-modal-form select,
+.project-modal-form textarea,
+.sow-modal-content button:not(.close-x-btn),
+.sow-modal-content input,
+.sow-modal-content select,
+.sow-modal-content textarea,
+.allocation-btn {
+    border-radius: 8px !important;
+}
+
+/* Style modal close X buttons with a clean, highly clickable large sizing */
+.contract-management-page button.close-x-btn,
+.close-x-btn {
+    font-size: 28px !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #64748b !important;
+    font-weight: normal !important;
+    border-radius: 0 !important;
+    transition: color 0.2s ease !important;
+}
+
+.contract-management-page button.close-x-btn:hover,
+.close-x-btn:hover {
+    color: #1e293b !important;
+}
+
+
+
+

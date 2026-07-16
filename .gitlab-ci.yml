@@ -1,0 +1,189 @@
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  # Docker build settings
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: "/certs"
+
+# ============================================
+# BACKEND BUILD
+# ============================================
+backend-build:
+  stage: build
+  image: docker:24-dind
+  services:
+    - docker:24-dind
+  before_script:
+    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+  script:
+    - cd employee-login-backend2
+    - docker build -t $CI_REGISTRY_IMAGE/employee-login-backend2:$CI_COMMIT_SHORT_SHA -t $CI_REGISTRY_IMAGE/employee-login-backend2:latest .
+    - docker push $CI_REGISTRY_IMAGE/employee-login-backend2:$CI_COMMIT_SHORT_SHA
+    - docker push $CI_REGISTRY_IMAGE/employee-login-backend2:latest
+  after_script:
+    - docker logout $CI_REGISTRY
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"
+      when: always
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: manual
+
+# ============================================
+# FRONTEND BUILD
+# ============================================
+frontend-build:
+  stage: build
+  image: docker:24-dind
+  services:
+    - docker:24-dind
+  before_script:
+    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+  script:
+    - cd employee-login-portal
+    - docker build -t $CI_REGISTRY_IMAGE/employee-login-portal:$CI_COMMIT_SHORT_SHA -t $CI_REGISTRY_IMAGE/employee-login-portal:latest .
+    - docker push $CI_REGISTRY_IMAGE/employee-login-portal:$CI_COMMIT_SHORT_SHA
+    - docker push $CI_REGISTRY_IMAGE/employee-login-portal:latest
+  after_script:
+    - docker logout $CI_REGISTRY
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"
+      when: always
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: manual
+
+# ============================================
+# BACKEND TEST
+# ============================================
+backend-test:
+  stage: test
+  image: docker:24-dind
+  services:
+    - docker:24-dind
+  before_script:
+    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+  script:
+    - docker pull $CI_REGISTRY_IMAGE/employee-login-backend2:$CI_COMMIT_SHORT_SHA
+
+    # FIX: one-line docker run with env-file
+    - docker run -d --name backend-test --env-file employee-login-backend2/.env -p 8080:8080 $CI_REGISTRY_IMAGE/employee-login-backend2:$CI_COMMIT_SHORT_SHA
+
+    - sleep 10
+    - docker ps
+    - docker logs backend-test
+    - docker stop backend-test
+    - docker rm backend-test
+  after_script:
+    - docker logout $CI_REGISTRY
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"
+      when: on_success
+  allow_failure: true
+
+
+# ============================================
+# FRONTEND TEST
+# ============================================
+frontend-test:
+  stage: test
+  image: docker:24-dind
+  services:
+    - docker:24-dind
+  before_script:
+    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+  script:
+    - docker pull $CI_REGISTRY_IMAGE/employee-login-portal:$CI_COMMIT_SHORT_SHA
+    - docker run -d --name frontend-test -p 8081:80 $CI_REGISTRY_IMAGE/employee-login-portal:$CI_COMMIT_SHORT_SHA
+    - sleep 10
+    - docker ps
+    - docker logs frontend-test
+    - apk add --no-cache curl
+    - curl -f http://localhost:8081 || echo "Health check failed"
+    - docker stop frontend-test
+    - docker rm frontend-test
+  after_script:
+    - docker logout $CI_REGISTRY
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"
+      when: on_success
+  allow_failure: true
+  
+
+
+
+
+# ============================================
+# DEPLOY TO AWS EC2
+# ============================================
+deploy-to-ec2:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    # Install SSH client
+    - apk add --no-cache openssh-client
+    # Setup SSH key
+    - eval $(ssh-agent -s)
+    # Read the key file content since EC2_SSH_PRIVATE_KEY is a File type variable
+    - cat "$EC2_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan -H $EC2_HOST >> ~/.ssh/known_hosts
+  script:
+    # Copy .env to EC2
+    - scp employee-login-backend2/.env $EC2_USER@$EC2_HOST:/home/$EC2_USER/backend.env
+    # SSH into EC2 and deploy
+    - |
+      ssh $EC2_USER@$EC2_HOST << EOF
+        # Login to GitLab Container Registry
+        echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+        
+        # Create Docker network if it doesn't exist
+        docker network create employee-network || true
+        
+        # Stop and remove old containers
+        docker stop employee-backend employee-frontend || true
+        docker rm employee-backend employee-frontend || true
+        
+        # Pull latest images
+        docker pull $CI_REGISTRY_IMAGE/employee-login-backend2:latest
+        docker pull $CI_REGISTRY_IMAGE/employee-login-portal:latest
+        
+        # Run backend container
+        docker run -d \
+          --name employee-backend \
+          --network employee-network \
+          --restart unless-stopped \
+          --env-file /home/$EC2_USER/backend.env \
+          -p 8080:8080 \
+          $CI_REGISTRY_IMAGE/employee-login-backend2:latest
+        
+        # Wait for backend to be ready
+        sleep 5
+        
+        # Get EC2 public IP
+        EC2_PUBLIC_IP=\$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
+        
+        # Run frontend container with backend API URL
+        docker run -d \
+          --name employee-frontend \
+          --network employee-network \
+          --restart unless-stopped \
+          -p 8081:8081 \
+          -e REACT_APP_API_URL=http://\$EC2_PUBLIC_IP:8080 \
+          -e VITE_API_URL=http://\$EC2_PUBLIC_IP:8080 \
+          $CI_REGISTRY_IMAGE/employee-login-portal:latest
+        
+        # Cleanup old images
+        docker image prune -af
+        
+        # Show running containers
+        docker ps
+      EOF
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"
+      when: on_success
+  environment:
+    name: production
+    url: http://$EC2_HOST

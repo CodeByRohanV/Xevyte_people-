@@ -1,0 +1,599 @@
+/* ApprovalRequests.css */
+
+/* Reset any inherited centering */
+.App .approval-requests-container,
+.approval-requests-container {
+    text-align: left !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Override App centering */
+.App {
+    text-align: left !important;
+}
+
+.App .approval-requests-container {
+    text-align: left !important;
+}
+
+@media (max-width: 768px) {
+    .App {
+        text-align: left !important;
+    }
+
+    .App .approval-requests-container,
+    .approval-requests-container {
+        text-align: left !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+.approval-requests-container {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    background-color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    text-align: left !important;
+}
+
+.approval-header {
+    padding: 24px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between !important;
+    text-align: left !important;
+    width: 100%;
+}
+
+.approval-title {
+    font-size: 30px;
+    font-weight: normal;
+    color: #1f2937;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    text-align: left !important;
+    justify-content: flex-start !important;
+}
+
+.approval-content {
+    padding: 0 24px;
+    flex-grow: 1;
+    text-align: left !important;
+    /* Ensure left alignment */
+}
+
+/* Override any potential centering from parent containers */
+.App .approval-requests-container,
+.approval-requests-container,
+.tabs-wrapper,
+.tabs-scroll-container {
+    text-align: left !important;
+}
+
+/* Aggressive override for all child elements - Exclude modal and overlay */
+.approval-requests-container *:not(.approval-header):not(.modal-overlay):not(.modal-content):not(.delegates-modal-overlay):not(.delegates-modal-content):not(.form-group):not(.modal-overlay *):not(.delegates-modal-overlay *),
+.tabs-wrapper *,
+.tabs-scroll-container * {
+    text-align: left !important;
+    justify-content: flex-start !important;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Specifically target the problematic elements */
+.tabs-wrapper,
+.tabs-scroll-container {
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+/* Tabs Container with Scroll Buttons support */
+.tabs-wrapper {
+    position: relative;
+    padding: 0px 24px 0 24px;
+    background: #fff;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e8ecf1;
+    display: block !important;
+    /* Changed from flex to block */
+    width: 100%;
+    /* Ensure full width to align with header */
+    text-align: left !important;
+    /* Ensure text alignment */
+    margin-left: 0 !important;
+    /* Force left margin */
+    margin-right: 0 !important;
+    /* Remove right margin */
+    left: 0 !important;
+    /* Force left positioning */
+    right: auto !important;
+    /* Remove right positioning */
+}
+
+.tabs-scroll-container {
+    display: flex !important;
+    gap: 0 !important;
+    overflow-x: auto;
+    scrollbar-width: none;
+    /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    flex-grow: 1 !important;
+    flex-shrink: 1;
+    white-space: nowrap;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    min-width: 0;
+    max-width: 100% !important;
+    position: relative !important;
+    left: 0 !important;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabs-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-item {
+    cursor: pointer;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    background: #0B3D91;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    gap: 8px;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+    flex: 1 !important;
+    text-align: center !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    border-right: none !important;
+    border-left: none !important;
+    outline: none !important;
+    position: relative !important;
+}
+
+.tab-item.active {
+    font-weight: 600;
+    color: #ffffff;
+    background: #1F6FEB;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    position: relative !important;
+    flex: 1 !important;
+}
+
+/* Force hide scroll-btn and ensure it takes no space on desktop */
+.scroll-btn,
+.tabs-wrapper .scroll-btn {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none;
+    opacity: 0;
+    pointer-events: none;
+    float: none !important;
+    /* Remove float */
+}
+
+/* Base styles for scroll-btn when visible (overridden by desktop rule above, restored by media query below) */
+/* We rely on the media query to restore display:flex which will override the display:none */
+/* BUT we need to ensure the other props (width, etc) are also restored */
+.scroll-btn {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 0;
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #64748b;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    float: none !important;
+    /* Remove float from base styles */
+}
+
+.scroll-btn:hover {
+    background: #f1f5f9;
+    color: #14b8a6;
+    float: none !important;
+    /* Maintain no float on hover */
+}
+
+/* Mobile Changes */
+@media (max-width: 768px) {
+    .approval-header {
+        padding: 16px 0 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start !important;
+        text-align: left !important;
+        width: 100%;
+    }
+
+    .approval-title {
+        font-size: 20px;
+        font-weight: normal;
+        color: #1f2937;
+        /* Reduced font size */
+        gap: 8px;
+        text-align: left !important;
+        /* Ensure left alignment on mobile */
+        justify-content: flex-start !important;
+        /* Ensure left justification on mobile */
+    }
+
+    .approval-content {
+        padding: 0 16px;
+        flex-grow: 1;
+        text-align: left !important;
+        margin-top: 0px !important;
+        /* Ensure left alignment on mobile */
+    }
+
+    .tabs-wrapper {
+        padding: 12px 10px 0 10px;
+        gap: 0 !important;
+        display: block !important;
+        /* Maintain block display on mobile */
+        text-align: left !important;
+        /* Ensure left alignment on mobile */
+        left: 0 !important;
+        /* Force left positioning on mobile */
+        right: auto !important;
+        /* Remove right positioning on mobile */
+        margin-top: 20px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .scroll-btn {
+        display: flex !important;
+        /* Show scroll buttons on mobile */
+        width: 28px !important;
+        height: 28px !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        float: none !important;
+        /* Maintain no float on mobile */
+        justify-content: center !important;
+        /* Center content within button */
+        align-items: center !important;
+        /* Center content within button */
+    }
+
+    .tab-item {
+        padding: 8px 12px;
+        /* Reduced tab padding */
+        font-size: 12px;
+        /* Reduced tab font size */
+        gap: 6px;
+        margin: 0 !important;
+        /* Remove margins on mobile */
+        position: relative !important;
+        /* Ensure relative positioning on mobile */
+    }
+
+    .tab-item.active {
+        font-weight: 600;
+        color: #ffffff;
+        background: #1F6FEB;
+        border-bottom: none;
+        /* Ensure no margins on active */
+        margin: 0 !important;
+        position: relative !important;
+        /* Ensure relative positioning on mobile */
+    }
+
+    .tabs-scroll-container {
+        gap: 0 !important;
+        justify-content: flex-start !important;
+        /* Ensure left alignment on mobile */
+        float: left !important;
+        /* Maintain left float on mobile */
+        position: relative !important;
+        /* Ensure relative positioning on mobile */
+        left: 0 !important;
+        /* Force left positioning on mobile */
+        right: auto !important;
+        /* Remove right positioning on mobile */
+    }
+
+    /* Ensure content takes full width */
+    .approval-requests-container>div:last-child {
+        padding: 0 !important;
+        text-align: left !important;
+        /* Ensure left alignment */
+    }
+}
+
+@media (min-width: 769px) {
+    .approval-tab-content-wrapper {
+        margin-left: -24px !important;
+        margin-right: -24px !important;
+        width: calc(100% + 48px) !important;
+        margin-top: 10px !important;
+    }
+}
+
+/* View Action Button Styling */
+.view-action-btn {
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  font-size: 15px !important;
+  color: #00B3A4 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  box-shadow: none !important;
+  transition: all 0.3s ease !important;
+  user-select: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  border: none !important;
+  text-decoration: none !important;
+  margin: 0 !important;
+}
+
+.view-action-btn:hover {
+  transform: scale(1.2) !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.view-action-btn:active {
+  transform: translateY(0);
+}
+
+/* SmartDatePicker Custom Header Styles */
+.custom-calendar-header {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    position: relative !important;
+}
+
+.calendar-header-banner {
+    background: #0B3D91 !important;
+    padding: 18px 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    color: white !important;
+}
+
+.header-main-content {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex: 1 !important;
+    justify-content: center !important;
+}
+
+.calendar-header-banner .header-icon {
+    font-size: 1.25rem !important;
+    opacity: 0.9 !important;
+}
+
+.header-text-group {
+    display: flex !important;
+    gap: 10px !important;
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+}
+
+.clickable-header-text {
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    padding: 2px 6px !important;
+    border-radius: 0 !important;
+}
+
+.clickable-header-text:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.header-nav-btn {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border: none !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    font-size: 1.4rem !important;
+    transition: all 0.2s ease !important;
+    line-height: 1 !important;
+}
+
+.header-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.35) !important;
+    transform: scale(1.05) !important;
+}
+
+.header-dropdown {
+    position: absolute !important;
+    top: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: white !important;
+    border-radius: 0 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    z-index: 100 !important;
+    padding: 8px !important;
+    border: 1px solid #f1f5f9 !important;
+}
+
+.dropdown-scroll-pane {
+    max-height: 250px !important;
+    overflow-y: auto !important;
+    padding-right: 4px !important;
+}
+
+.dropdown-item {
+    padding: 8px 12px !important;
+    color: #334155 !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    text-align: center !important;
+}
+
+.dropdown-item:hover {
+    background: #f1f5f9 !important;
+    color: #14b8a6 !important;
+}
+
+.dropdown-item.active {
+    background: #e6fffa !important;
+    color: #0d9488 !important;
+}
+
+.date-picker-wrapper {
+    width: 100% !important;
+}
+
+.date-picker-wrapper .react-datepicker {
+    font-family: 'Inter', sans-serif !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+    overflow: hidden !important;
+}
+
+.date-picker-wrapper .react-datepicker__header {
+    background: white !important;
+    border-bottom: none !important;
+    padding: 0 !important;
+}
+
+.date-picker-wrapper .react-datepicker__day-names {
+    background: #f8fafc !important;
+    padding: 10px 0 !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.date-picker-wrapper .react-datepicker__day-name {
+    color: #64748b !important;
+    font-weight: 700 !important;
+    width: 2.2rem !important;
+    font-size: 0.85rem !important;
+}
+
+.date-picker-wrapper .react-datepicker__day {
+    color: #334155 !important;
+    width: 2.2rem !important;
+    line-height: 2.2rem !important;
+    border-radius: 0 !important;
+    margin: 4px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+.date-picker-wrapper .react-datepicker__day:hover {
+    background: #f1f5f9 !important;
+    color: #14b8a6 !important;
+}
+
+.date-picker-wrapper .react-datepicker__day--selected {
+    background: #0B3D91 !important;
+    color: white !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 10px rgba(20, 184, 166, 0.3) !important;
+}
+
+.date-picker-wrapper .react-datepicker__day--keyboard-selected {
+    background: #ccfbf1 !important;
+    color: #0d9488 !important;
+}
+
+.react-datepicker-popper {
+    z-index: 9999 !important;
+}
+
+/* Keep all non-title text to exactly 15px */
+.approval-requests-container :not(.approval-title):not(.approval-title *) {
+    font-size: 15px !important;
+}
+
+/* Center action icon in the column */
+.view-action-cell {
+    text-align: center !important;
+}
+
+.view-action-cell .view-action-btn {
+    margin: 0 auto !important;
+}
+
+/* Responsive modal overlay styles that keep the sidebar uncovered */
+.delegates-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 280px !important;
+    width: calc(100vw - 280px) !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 2000 !important;
+    backdrop-filter: blur(8px) !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+}
+
+@media (max-width: 1024px) {
+    .delegates-modal-overlay {
+        left: 240px !important;
+        width: calc(100vw - 240px) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .delegates-modal-overlay {
+        left: 0 !important;
+        width: 100vw !important;
+    }
+}

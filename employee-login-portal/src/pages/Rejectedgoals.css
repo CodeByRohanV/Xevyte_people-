@@ -1,0 +1,123 @@
+.error-text {
+  color: #d9534f;
+  font-weight: 600;
+}
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+.goal-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px 20px 30px 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+}
+.goal-card:hover {
+  box-shadow: 0 12px 22px rgba(0, 123, 255, 0.3);
+}
+.goal-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #007bff;
+}
+.goal-desc {
+  flex-grow: 1;
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+.goal-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 15px;
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 25px;
+}
+.status-rejected {
+  color: #d9534f;
+  font-weight: 600;
+}
+.btn-reassign {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-reassign:hover {
+  background-color: #0056b3;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.modal-content {
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  width: 450px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+.modal-content h5 {
+  margin-bottom: 20px;
+  color: #333;
+}
+.modal-textarea {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 12px;
+  font-size: 15px;
+  resize: vertical;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+}
+.modal-textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+.btn-cancel, .btn-confirm {
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+.btn-cancel {
+  background-color: #6c757d;
+  color: #fff;
+}
+.btn-cancel:hover {
+  background-color: #565e64;
+}
+.btn-confirm {
+  background-color: #007bff;
+  color: #fff;
+}
+.btn-confirm:hover {
+  background-color: #0056b3;
+}

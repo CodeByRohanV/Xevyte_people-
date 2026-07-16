@@ -1,0 +1,269 @@
+/* PerformanceMobile.css */
+
+/* --- TABS ALIGNMENT & STYLING (Matching Pre-onboarding) --- */
+
+.tabs-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 24px 0;
+    gap: 0;
+}
+
+.performance-tabs-container {
+    display: flex;
+    justify-content: stretch;
+    gap: 0;
+    padding: 0;
+    background: #083D91;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+    flex-grow: 1;
+}
+
+.performance-tabs-container::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar Chrome/Safari */
+}
+
+/* Tab Button Base Style */
+.performance-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 0.625rem;
+    padding: 14px 20px;
+    border-radius: 0px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    box-shadow: none;
+    white-space: nowrap;
+    word-break: keep-all;
+}
+
+/* Active Tab Style */
+.performance-tab.active {
+    background: #1f6feb;
+    color: #fff;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Scroll Buttons (Desktop hidden, Mobile visible via query) */
+.scroll-btn {
+    display: none;
+    /* Hidden by default */
+    background: white;
+    border: 1px solid #14b8a6;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #14b8a6;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(20, 184, 166, 0.2);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.scroll-btn:hover {
+    background: #1f6feb;
+    color: white;
+}
+
+/* --- MOBILE RESPONSIVE STYLES --- */
+@media screen and (max-width: 768px) {
+
+    /* --- Global Performance Page Adjustments --- */
+    .performance-page-container {
+        padding: 10px !important;
+    }
+
+    .performance-page-header h1 {
+        font-size: 20px !important;
+    }
+
+    /* Tab Container Mobile */
+    .tabs-wrapper {
+        width: 100% !important;
+        margin-bottom: 24px !important;
+        max-width: 100% !important;
+    }
+
+    .scroll-btn {
+        display: flex !important;
+        /* Visible on mobile */
+    }
+
+    .performance-tabs-container {
+        width: 100% !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        padding: 0 !important;
+        gap: 0 !important;
+        background: #083D91 !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Tab Buttons Mobile */
+    .performance-tab {
+        padding: 10px 18px !important;
+        font-size: 12px !important;
+        flex-shrink: 0 !important;
+        min-width: max-content !important;
+        border-radius: 0px !important;
+        color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    .performance-tab.active {
+        background: #1f6feb !important;
+        color: #fff !important;
+    }
+
+    /* --- Responsive Table to Card Transformation --- */
+    /* Target tables within the performance module that have the responsive-table class */
+    .responsive-table table,
+    .responsive-table thead,
+    .responsive-table tbody,
+    .responsive-table th,
+    .responsive-table td,
+    .responsive-table tr {
+        display: block !important;
+    }
+
+    .responsive-table table {
+        min-width: 0 !important;
+    }
+
+    /* Hide headers */
+    .responsive-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .responsive-table tr {
+        margin-bottom: 15px !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 8px !important;
+        background: #ffffff !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+        overflow: hidden;
+    }
+
+    .responsive-table td {
+        border: none !important;
+        border-bottom: 1px solid #f1f5f9 !important;
+        position: relative !important;
+        padding: 12px 12px 12px 40% !important;
+        /* Make space for label */
+        text-align: left !important;
+        white-space: normal !important;
+        min-height: 40px;
+        display: flex !important;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        /* Content to the right */
+    }
+
+    .responsive-table td:last-child {
+        border-bottom: none !important;
+    }
+
+    .responsive-table td:before {
+        position: absolute !important;
+        top: 50%;
+        left: 12px;
+        transform: translateY(-50%);
+        width: 35%;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 700;
+        color: #64748b;
+        font-size: 13px;
+        content: attr(data-label);
+    }
+
+    /* Specific Adjustments for textareas and inputs in cells */
+    .responsive-table td textarea,
+    .responsive-table td select,
+    .responsive-table td input {
+        width: 100% !important;
+        margin-top: 5px;
+        max-width: 100% !important;
+    }
+
+    /* Adjust cell content that might be too wide */
+    .responsive-table td {
+        max-width: 100% !important;
+        word-break: break-all !important;
+        /* Force break if needed */
+    }
+
+    /* Handle "Actions" column specifically if needed */
+    .responsive-table td[data-label="Actions"] {
+        justify-content: flex-end;
+        padding-left: 12px !important;
+        /* Reset padding */
+        padding-top: 15px !important;
+    }
+
+    .responsive-table td[data-label="Actions"]:before {
+        position: static !important;
+        transform: none !important;
+        display: block;
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    /* Self Assessment text areas need more space */
+    .responsive-table td[data-label="Self Assessment"],
+    .responsive-table td[data-label="Mgr Comments"],
+    .responsive-table td[data-label="Reviewer Comments"],
+    .responsive-table td[data-label="Description"] {
+        display: block !important;
+        padding-left: 12px !important;
+        text-align: left !important;
+    }
+
+    .responsive-table td[data-label="Self Assessment"]:before,
+    .responsive-table td[data-label="Mgr Comments"]:before,
+    .responsive-table td[data-label="Reviewer Comments"]:before,
+    .responsive-table td[data-label="Description"]:before {
+        position: static !important;
+        transform: none !important;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    /* Myteam / Manager View Toggle */
+    .toggle-container-mobile {
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+
+    .toggle-buttons-mobile {
+        flex-direction: column;
+        width: 100%;
+    }
+}

@@ -1,0 +1,237 @@
+/* Admin IT Declaration Styles */
+
+/* Custom Calendar Implementation (matching Onboarding) */
+.custom-calendar-header {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    position: relative !important;
+}
+
+.calendar-header-banner {
+    background: #0B3D91 !important;
+    padding: 18px 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    color: white !important;
+}
+
+.header-main-content {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex: 1 !important;
+    justify-content: center !important;
+}
+
+.header-text-group {
+    display: flex !important;
+    gap: 10px !important;
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+}
+
+.clickable-header-text {
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    padding: 2px 6px !important;
+    border-radius: 6px !important;
+}
+
+.clickable-header-text:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.header-nav-btn {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border: none !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    font-size: 1.4rem !important;
+    transition: all 0.2s ease !important;
+    line-height: 1 !important;
+}
+
+.header-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.35) !important;
+    transform: scale(1.05) !important;
+}
+
+.react-datepicker__header {
+    background: white !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    padding: 0 !important;
+}
+
+.react-datepicker__day-name {
+    color: #64748b !important;
+    font-weight: 700 !important;
+    width: 40px !important;
+    margin: 2px !important;
+}
+
+.react-datepicker__day {
+    width: 40px !important;
+    line-height: 40px !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    color: #1e293b !important;
+    margin: 2px !important;
+    transition: all 0.2s ease !important;
+}
+
+.react-datepicker__day:hover {
+    background-color: #f0fdfa !important;
+    color: #14b8a6 !important;
+    transform: scale(1.1) !important;
+}
+
+.react-datepicker__day--selected {
+    background: #0B3D91 !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.4) !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+    background-color: #f0fdfa !important;
+    color: #14b8a6 !important;
+}
+
+.header-dropdown {
+    position: absolute !important;
+    top: 50px !important;
+    background: white !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    z-index: 1000 !important;
+    padding: 4px !important;
+    border: 1px solid #f1f5f9 !important;
+    width: max-content !important;
+}
+
+.month-dropdown {
+    left: 45px !important;
+}
+
+.year-dropdown {
+    right: 45px !important;
+    left: auto !important;
+}
+
+.dropdown-scroll-pane {
+    max-height: 200px !important;
+    overflow-y: auto !important;
+}
+
+.dropdown-item {
+    padding: 6px 10px !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    font-size: 0.9rem !important;
+    color: #475569 !important;
+    font-weight: 600 !important;
+}
+
+.dropdown-item:hover {
+    background: #f0fdfa !important;
+    color: #14b8a6 !important;
+}
+
+.dropdown-item.active {
+    background: #14b8a6 !important;
+    color: white !important;
+}
+
+.react-datepicker__navigation,
+.react-datepicker__triangle {
+    display: none !important;
+}
+
+.react-datepicker {
+    width: fit-content !important;
+    min-width: 280px !important;
+    max-width: 350px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 25px 50px -12px rgba(20, 184, 166, 0.25) !important;
+    overflow: hidden !important;
+}
+
+/* DatePicker wrapper to make it look like admin-input-field */
+.admin-datepicker-wrapper {
+    width: 100%;
+}
+
+.admin-datepicker-wrapper .react-datepicker-wrapper {
+    width: 100%;
+}
+
+.admin-datepicker-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+    background: white;
+    box-sizing: border-box;
+}
+
+.admin-datepicker-input:focus {
+    outline: none;
+    border-color: #14b8a6;
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+}
+
+/* IT Declaration Admin Tabs matching Grievance segmented tabs */
+.it-declaration-tabs-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.it-declaration-tab-button {
+    cursor: pointer;
+    padding: 0.65rem 1.5rem;
+    font-size: 15px;
+    border: none;
+    background: #1e3a8a;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+}
+
+.it-declaration-tab-button:first-child {
+    border-radius: 4px 0 0 4px;
+}
+
+.it-declaration-tab-button:last-child {
+    border-radius: 0 4px 4px 0;
+}
+
+.it-declaration-tab-button:hover {
+    background: rgba(30, 58, 138, 0.95);
+    filter: brightness(1.15);
+}
+
+.it-declaration-tab-button.active {
+    background: #3b82f6;
+    color: white;
+    box-shadow: none;
+}
+

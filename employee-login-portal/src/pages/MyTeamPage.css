@@ -1,0 +1,109 @@
+.role-switcher-container1 {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #ffffff;
+    padding: 12px 20px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    width: fit-content;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.role-switcher-label1 {
+    font-weight: normal;
+    color: #475569;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.role-segment-group1 {
+    display: flex;
+    background: transparent !important;
+    padding: 0;
+    gap: 12px;
+}
+
+.role-segment {
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: 1px solid transparent !important;
+    background: #f1f5f9 !important;
+    color: #64748b !important;
+    font-weight: normal;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+}
+
+.role-segment input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.role-segment.active {
+    background: #ffffff !important;
+    color: #14b8a6 !important;
+    border: 1px solid #14b8a6 !important;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.1) !important;
+    transform: scale(1.02);
+}
+
+.role-segment:hover:not(.active) {
+    background: #e2e8f0 !important;
+    color: #1e293b !important;
+}
+
+.role-icon {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit !important; /* Force matching text gray when inactive */
+}
+
+.role-segment.active .role-icon {
+    color: #14b8a6 !important; /* Force brand teal when selected, overriding Travel.css white */
+}
+
+@media (max-width: 768px) {
+    .role-switcher-container1 {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .role-switcher-label1 {
+        margin-bottom: 4px;
+        font-size: 12px;
+    }
+
+    .role-segment-group1 {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .role-segment {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        flex: 1;
+        justify-content: center;
+        padding: 10px 4px;
+        font-size: 13px;
+        white-space: nowrap;
+        gap: 6px;
+        /* Slightly reduced gap for mobile */
+    }
+}

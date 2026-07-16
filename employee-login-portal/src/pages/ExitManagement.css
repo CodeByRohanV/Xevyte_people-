@@ -1,0 +1,717 @@
+.exit-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 100vh;
+    padding: 1rem 1.5rem;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+}
+
+.exit-page-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.exit-page-header .header-icon {
+    font-size: 1.75rem;
+    color: #2dd4bf;
+    background: #ccfbf1;
+    padding: 0.5rem;
+    border-radius: 12px;
+}
+
+.exit-page-header .header-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #115e59;
+    margin: 0;
+}
+
+.exit-tabs-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    background: #f8fafc;
+    padding: 0.4rem;
+    border-radius: 14px;
+    width: fit-content;
+    margin-bottom: 1.25rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.exit-tab-button {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    cursor: pointer;
+    padding: 0.625rem 1.25rem;
+    font-size: 15px;
+    font-weight: 700;
+    color: #475569;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+}
+
+.tab-icon {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.exit-tab-button:hover {
+    color: #0d9488;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.exit-tab-button.active {
+    background: #2dd4bf;
+    color: white;
+    box-shadow: 0 8px 16px rgba(45, 212, 191, 0.25);
+}
+
+.exit-tab-button.active .tab-icon {
+    color: white;
+}
+
+.form-card {
+    background: transparent;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-card::-webkit-scrollbar {
+    width: 8px;
+}
+
+.form-card::-webkit-scrollbar-thumb {
+    background-color: #f4f6f8;
+    border-radius: 4px;
+}
+
+.form-card::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    color: #0d9488;
+    margin-bottom: 0.4rem;
+}
+
+.label-icon {
+    font-size: 0.9rem;
+    color: #2dd4bf;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.6rem 0.875rem;
+    border: 1.5px solid #eef2f6;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    background-color: #fbfcfd;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #1e293b;
+}
+
+.exit-container textarea,
+.exit-container select {
+    width: 100%;
+    padding: 0.6rem 0.875rem;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    background-color: #fbfcfd;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #1e293b;
+}
+
+.input-field:focus {
+    border-color: #2dd4bf;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.1);
+    background-color: #ffffff;
+}
+
+.exit-container textarea:focus,
+.exit-container select:focus {
+    border-color: #2dd4bf;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.1);
+    background-color: #ffffff;
+}
+
+.input-field.readonly {
+    background-color: #f4f6f8;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.note {
+    display: block;
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 5px;
+}
+
+.drafts-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.drafts-table thead tr {
+    background: #f0fdfa;
+    color: #0d9488;
+    text-align: left;
+}
+
+.drafts-table th {
+    font-weight: 700;
+    text-transform: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    padding: 1.25rem 1rem;
+    border-bottom: 2px solid #ccfbf1;
+}
+
+.drafts-table th,
+.drafts-table td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.drafts-table td button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+
+.drafts-table .edit-btn {
+    background: linear-gradient(135deg, #5eead4 0%, #2dd4bf 100%);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.drafts-table .edit-btn:hover {
+    background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(94, 234, 212, 0.4);
+}
+
+.drafts-table .delete-btn {
+    background-color: #D9534F;
+    color: white;
+}
+
+.error-text {
+    color: red;
+    text-align: center;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+.success-text {
+    color: green;
+    text-align: center;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.main-action-btn {
+    background: #14b8a6;
+    color: white;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.2);
+}
+
+.main-action-btn:hover {
+    background: #0d9488;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(13, 148, 136, 0.3);
+}
+
+.secondary-action-btn {
+    background: #ffffff;
+    color: #64748b;
+    padding: 0.75rem 2rem;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.secondary-action-btn:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    color: #1e293b;
+}
+
+
+.form-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.tabs-centering-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0.75rem;
+}
+
+.tabs-centering-wrapper .exit-tabs-container {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .exit-container {
+        padding: 0.8rem;
+        gap: 1rem;
+        height: auto;
+        min-height: 100vh;
+        background-color: #f4f6f8;
+    }
+
+
+
+    .header-tab-button {
+        flex: 0 0 auto;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        background-color: #f4f6f8;
+        margin-right: 0;
+    }
+
+    .form-card {
+        width: 100%;
+        padding: 1rem;
+        margin: 0 auto;
+        max-height: 75vh;
+    }
+
+    .input-field,
+    textarea,
+    select {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+        padding-bottom: 20px;
+    }
+
+    .main-action-btn,
+    .secondary-action-btn {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px;
+        border-radius: 6px;
+        margin-left: 0 !important;
+    }
+
+    .form-card table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        min-width: 600px;
+        border-collapse: collapse;
+    }
+
+    .drafts-table th,
+    .drafts-table td {
+        white-space: nowrap;
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+}
+
+.custom-file-upload-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.875rem 1.25rem;
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.25rem;
+}
+
+.custom-file-upload-box:hover {
+    border-color: #2dd4bf;
+    background: #f0fdfa;
+}
+
+.upload-icon {
+    color: #14b8a6;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.file-name-text {
+    font-size: 0.875rem;
+    color: #64748b;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.native-file-input {
+    display: none;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-top: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.mytask-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    min-width: 1400px;
+    background: white;
+}
+
+.mytask-table th,
+.mytask-table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mytask-table input[type="text"],
+.mytask-table textarea {
+    width: 160px;
+    max-width: 160px;
+}
+
+.actions-column {
+    white-space: nowrap;
+    display: flex;
+    gap: 8px;
+}
+
+@media (max-width: 768px) {
+
+    /* 🔧 FIX: Better container padding and background */
+    .exit-container {
+        margin-top: 0;
+        padding: 1rem;
+        gap: 1rem;
+        height: auto;
+        min-height: 100vh;
+        background-color: #f8fafc;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    /* Header adjustments */
+    .exit-page-header {
+        margin-bottom: 1rem;
+    }
+
+    .exit-page-header .header-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #115e59;
+    }
+
+    .exit-page-header .header-icon {
+        font-size: 1.25rem;
+        padding: 0.5rem;
+    }
+
+    /* Tabs styling for mobile */
+    /* Tabs styling for mobile */
+    /* .tabs-navigation-wrapper removed as it is now handled via inline styles for consistency */
+
+    /* .exit-tabs-container styles for mobile are largely handled by inline styles now to match PayrollManagement */
+
+
+    .exit-tab-button {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        border-radius: 8px;
+        flex: 1;
+        justify-content: center;
+    }
+
+    /* Form Card Mobile */
+    .form-card {
+        padding: 1.25rem !important;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        margin-top: 5px;
+        animation: none !important;
+        transform: none !important;
+    }
+
+    .form-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    /* Inputs & Typography - Sized for readability */
+    .form-label {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #1e293b !important;
+        /* Force dark color */
+        font-weight: 800;
+    }
+
+    .label-icon {
+        font-size: 0.7rem;
+        color: #1e293b !important;
+        /* Also darken the icon if needed, or keep it teal if preferred, but let's match label for uniformity if requested */
+    }
+
+    .input-field,
+    textarea {
+        font-size: 16px !important;
+        /* Prevents iOS zoom */
+        padding: 12px 14px !important;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid #cbd5e1;
+        color: #1e293b !important;
+        background-color: #ffffff !important;
+        opacity: 1 !important;
+        -webkit-text-fill-color: #1e293b !important;
+    }
+
+    /* Targeted fix for Mobile Exit Reason Select */
+    select.input-field.exit-reason-select {
+        font-size: 16px !important;
+        /* Force height and line-height for vertical centering */
+        height: 50px !important;
+        min-height: 50px !important;
+        line-height: 1.5 !important;
+
+        padding: 0 40px 0 16px !important;
+        /* No vertical padding, rely on flex/height alignment */
+
+        border-radius: 10px !important;
+        border: 1px solid #cbd5e1 !important;
+
+        /* Force Text Visibility */
+        color: #111827 !important;
+        /* Almost black */
+        background-color: #ffffff !important;
+        -webkit-text-fill-color: #111827 !important;
+        opacity: 1 !important;
+
+        /* Fix display */
+        display: block !important;
+        width: 100% !important;
+        box-shadow: none !important;
+
+        /* Reset Native Appearance */
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+
+        /* Custom Arrow */
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23334155' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 14px center !important;
+        background-size: 16px !important;
+    }
+
+    /* File Upload Box */
+    .custom-file-upload-box {
+        padding: 1rem;
+        border-width: 2px;
+        border-radius: 12px;
+        background-color: #f0fdfa;
+        border-color: #99f6e4;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.75rem;
+    }
+
+    .upload-icon {
+        font-size: 1.5rem;
+        color: #0d9488;
+    }
+
+    .file-name-text {
+        font-size: 0.85rem;
+        color: #0f766e;
+        word-break: break-all;
+        /* Breaks long words/paths */
+        white-space: normal;
+        /* Allows wrapping to multiple lines */
+        overflow-wrap: break-word;
+        /* Standard property for wrapping */
+        text-align: center;
+        /* Centers the text since it's now wrapped */
+        width: 100%;
+        /* Ensure it takes full width for wrapping */
+    }
+
+    /* Buttons */
+    .button-group {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 1.5rem;
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .main-action-btn,
+    .secondary-action-btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 1rem;
+        border-radius: 12px;
+        margin-left: 0 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-action-btn {
+        order: 1;
+        /* Ensure submit is consistent */
+        box-shadow: 0 4px 6px -1px rgba(20, 184, 166, 0.2);
+    }
+
+    .secondary-action-btn {
+        order: 2;
+    }
+
+    /* Table Adjustments */
+    .table-wrapper {
+        border-radius: 10px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .drafts-table th,
+    .drafts-table td {
+        white-space: nowrap;
+        padding: 12px 16px;
+        font-size: 0.85rem;
+    }
+
+    .drafts-table th {
+        background-color: #f8fafc;
+        color: #334155;
+    }
+
+    /* Force React Select Placeholder Centering & Sizing */
+}
+
+/* Consistency fix for form borders - applying to both Desktop and Mobile */
+.leave-input,
+.leave-select,
+.leave-textarea {
+    border: 1.5px solid #e2e8f0 !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+.leave-input:focus,
+.leave-select:focus,
+.leave-textarea:focus {
+    border-color: #14b8a6 !important;
+    box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.08) !important;
+}
+
+/* Exit Tabs 50/50 Split & Color Settings */
+.exit-tabs {
+    background: #083D91 !important;
+    display: flex !important;
+    width: 100% !important;
+}
+
+.exit-tabs .leave-tab-btn {
+    flex: 1 1 50% !important;
+    width: 50% !important;
+    max-width: 50% !important;
+}
+
+.exit-tabs .leave-tab-btn.active {
+    background: #1f6feb !important;
+}
+
+/* Exit form 50/50 Grid Layout */
+.exit-form-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+}
+
+.exit-form-grid .leave-form-full {
+    grid-column: span 2 !important;
+}

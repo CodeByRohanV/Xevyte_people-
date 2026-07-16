@@ -1,0 +1,925 @@
+.allocation-wrapper {
+    padding: 1rem 1.5rem;
+    min-height: 100vh;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.allocation-content-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.allocation-page-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.allocation-header-icon {
+    font-size: 1.75rem;
+    color: #1F6FEB;
+    background: #E8F0FE;
+    padding: 0.5rem;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.allocation-header-title {
+    font-size: 30px;
+    font-weight: 500;
+    color: #1F2937;
+    margin: 0;
+}
+
+.allocation-tabs-container {
+    display: flex;
+    width: 100%;
+    gap: 0;
+    padding: 0;
+    background: transparent;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    border: none;
+    box-shadow: none;
+}
+
+.allocation-tab-button {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 12px 24px;
+    border: none;
+    background: #0B3D91;
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.allocation-tab-button:hover {
+    background: #1453b8;
+    color: white;
+}
+
+.allocation-tab-button.active {
+    background: #1F6FEB;
+    color: white;
+    box-shadow: none;
+}
+
+.allocation-card {
+    background: transparent;
+    border-radius: 8px;
+    padding: 0;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    box-shadow: none;
+    border: none;
+}
+
+.allocation-input {
+    padding: 0.6rem 0.875rem;
+    border: 1.5px solid #eef2f6;
+    border-radius: 0;
+    font-size: 15px;
+    background-color: #fbfcfd;
+    color: #334155;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.allocation-input:focus {
+    border-color: #1F6FEB;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(31, 111, 235, 0.1);
+}
+
+.allocation-form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+    color: #1F2937;
+    font-size: 15px;
+}
+
+.allocation-btn {
+    padding: 0.6rem 1.25rem;
+    border-radius: 0;
+    font-weight: normal;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.allocation-btn-primary {
+    background: #00B3A4;
+    color: white;
+}
+
+.allocation-btn-primary:hover {
+    background: #008B80;
+    transform: translateY(-2px);
+}
+
+.allocation-btn-outline {
+    background: white;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+}
+
+.allocation-btn-outline:hover {
+    background: #f8fafc;
+    color: #0d9488;
+    border-color: #cbd5e1;
+}
+
+.allocation-table-wrapper {
+    width: 100%;
+    border: 1px solid #f1f5f9;
+    border-radius: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: white;
+}
+
+.allocation-main-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.allocation-main-table thead th {
+    background: #629AF1;
+    padding: 0.75rem 1rem;
+    color: white;
+    font-weight: normal;
+    font-size: 15px;
+    text-transform: none;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.allocation-main-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.allocation-main-table tbody tr:hover {
+    background-color: #f0fdfa;
+}
+
+.allocation-main-table tbody td {
+    padding: 0.75rem 1rem;
+    color: #334155;
+    font-size: 15px;
+    border-bottom: 1px solid #f1f5f9;
+    white-space: nowrap;
+    background-color: #F5F7F8;
+}
+
+.allocation-filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.allocation-status-filters {
+    display: flex;
+    gap: 1.5rem;
+    background: transparent;
+    padding: 0 0 0.75rem 0;
+    border-radius: 8px;
+    border: none;
+}
+
+.allocation-filter-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+.allocation-filter-label:hover {
+    color: #0d9488;
+}
+
+.allocation-filter-input {
+    width: 1rem;
+    height: 1rem;
+    accent-color: #1F6FEB;
+    cursor: pointer;
+}
+
+.scrollbar-hidden {
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    /* Container and Layout */
+    .allocation-wrapper {
+        padding: 10px;
+    }
+
+    .allocation-content-wrapper {
+        padding: 0;
+    }
+
+    /* Header Mobile Optimization */
+    .allocation-page-header {
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        justify-content: center;
+        background: #f0f7ff;
+        padding: 15px;
+        border-radius: 0;
+        border: 1px solid #b9d6fe;
+    }
+
+    .allocation-header-icon {
+        font-size: 1.25rem;
+        padding: 0.4rem;
+    }
+
+    .allocation-header-title {
+        font-size: 1.1rem;
+    }
+
+    /* Tabs Mobile - Single Row with Proper Constraints */
+    .allocation-tabs-container {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 !important;
+        background: #0B3D91;
+        gap: 0 !important;
+        margin-bottom: 1rem;
+        border-radius: 0;
+    }
+
+    .allocation-tabs-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .allocation-tab-button {
+        padding: 10px 20px !important;
+        font-size: 12px !important;
+        flex-shrink: 0 !important;
+        flex-grow: 0 !important;
+        flex-basis: auto !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: auto !important;
+        min-width: max-content !important;
+        max-width: none !important;
+        white-space: nowrap !important;
+        gap: 0.5rem !important;
+        border-radius: 20px;
+    }
+
+    .allocation-tab-button svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    /* Card Mobile */
+    .allocation-card {
+        padding: 1rem;
+        border-radius: 0;
+        margin-bottom: 1rem;
+    }
+
+    /* Filter Container Mobile */
+    .allocation-filter-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Status Filters Mobile - Vertical Stack */
+    .allocation-status-filters {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .allocation-toggle-item {
+        padding: 0.75rem;
+        width: 100%;
+        justify-content: space-between;
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 0;
+    }
+
+    .allocation-toggle-item.active {
+        background: rgba(45, 212, 191, 0.05);
+        border-color: #2dd4bf;
+    }
+
+    .allocation-toggle-switch {
+        width: 48px;
+        height: 24px;
+    }
+
+    .allocation-toggle-switch::after {
+        width: 18px;
+        height: 18px;
+    }
+
+    .active .allocation-toggle-switch::after {
+        left: 27px;
+    }
+
+    .allocation-toggle-label {
+        font-size: 14px;
+        order: -1;
+        flex: 1;
+    }
+
+    /* Table Mobile - Horizontal Scroll */
+    .allocation-table-wrapper {
+        border-radius: 0;
+        overflow-x: auto;
+        margin-top: 1rem;
+        width: 100%;
+        display: block;
+    }
+
+    .allocation-main-table {
+        min-width: 800px;
+        font-size: 12px;
+    }
+
+    .allocation-main-table thead th {
+        padding: 12px 10px;
+        font-size: 10px;
+        position: sticky;
+        top: 0;
+        background: #14b8a6;
+        color: white;
+        z-index: 1;
+    }
+
+    .allocation-main-table tbody td {
+        padding: 12px 10px;
+        font-size: 12px;
+    }
+
+    /* Form Elements Mobile */
+    .allocation-input {
+        padding: 14px 16px !important;
+        font-size: 16px !important;
+        min-height: 50px !important;
+        border-radius: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Fix Select Dropdown Display on Mobile - Clean Design with Native Dropdown */
+    select.allocation-input {
+        /* Use native appearance for better mobile functionality */
+        -webkit-appearance: menulist;
+        -moz-appearance: menulist;
+        appearance: menulist;
+        background-color: white !important;
+        border: 2px solid #1F6FEB !important;
+        border-radius: 0 !important;
+        padding: 0 1.25rem !important;
+        cursor: pointer;
+        font-weight: 500 !important;
+        color: #1e293b !important;
+        text-align: left !important;
+        height: 50px !important;
+        line-height: normal !important;
+        display: block !important;
+        width: 100% !important;
+        font-size: 16px !important;
+        box-sizing: border-box !important;
+    }
+
+    select.allocation-input:focus {
+        border-color: #0B3D91 !important;
+        background-color: white !important;
+        box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.15) !important;
+        outline: none !important;
+    }
+
+    /* Ensure dropdown options are visible and styled */
+    select.allocation-input option {
+        background-color: white !important;
+        color: #1e293b !important;
+        padding: 14px 16px !important;
+        font-size: 16px !important;
+        font-weight: 500 !important;
+        line-height: 1.5 !important;
+    }
+
+    .allocation-form-label {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    /* Buttons Mobile */
+    .allocation-btn {
+        padding: 14px 20px !important;
+        font-size: 15px !important;
+        min-height: 50px !important;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    /* Loading Spinner Mobile */
+    .loading-spinner-container {
+        padding: 2rem 1rem;
+    }
+
+    .loading-spinner {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Message Banner Mobile */
+    .message-banner {
+        padding: 12px 16px;
+        font-size: 13px;
+        margin-bottom: 1rem;
+        border-radius: 0;
+    }
+
+    /* Modal Mobile */
+    .modal-overlay {
+        padding: 0.5rem;
+    }
+}
+
+.loading-spinner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #E8F0FE;
+    border-top: 4px solid #1F6FEB;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.message-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 2rem;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.allocation-status-filters {
+    display: flex;
+    gap: 1.5rem;
+    background: transparent;
+    padding: 0 0 0.75rem 0;
+    border-radius: 8px;
+    border: none;
+    align-items: center;
+}
+
+.allocation-toggle-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    user-select: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0;
+    transition: all 0.2s ease;
+}
+
+.allocation-toggle-item:hover {
+    background-color: rgba(45, 212, 191, 0.05);
+}
+
+.allocation-toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 22px;
+    background-color: #cbd5e1;
+    border-radius: 100px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.allocation-toggle-switch::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    top: 3px;
+    left: 3px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.active .allocation-toggle-switch {
+    background-color: #1F6FEB;
+}
+
+.active .allocation-toggle-switch::after {
+    left: 25px;
+}
+
+.allocation-toggle-label {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    transition: all 0.3s ease;
+}
+
+.active .allocation-toggle-label {
+    color: #0B3D91;
+}
+
+/* Enhanced Mobile Responsive Styles for Allocation Module */
+@media (max-width: 768px) {
+
+    /* Grid Layout Mobile */
+    .allocation-form-grid,
+    .allocation-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    /* Form Group Mobile */
+    .allocation-form-group {
+        margin-bottom: 1rem;
+    }
+
+    /* Select Dropdowns Mobile */
+    select.allocation-input {
+        height: 50px !important;
+        font-size: 16px !important;
+        padding: 14px 16px !important;
+    }
+
+    /* Date Picker Mobile */
+    .react-datepicker-wrapper,
+    .react-datepicker__input-container {
+        width: 100% !important;
+    }
+
+    .react-datepicker__input-container input {
+        width: 100% !important;
+        height: 50px !important;
+        font-size: 16px !important;
+        padding: 14px 16px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Action Buttons Container Mobile */
+    .allocation-actions,
+    .allocation-button-group {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        width: 100% !important;
+    }
+
+    .allocation-actions button,
+    .allocation-button-group button {
+        width: 100% !important;
+        min-height: 50px !important;
+    }
+
+    /* Search Bar Mobile */
+    .allocation-search-bar {
+        width: 100% !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .allocation-search-bar input {
+        width: 100% !important;
+        height: 50px !important;
+        font-size: 16px !important;
+    }
+
+    /* Filter Section Mobile */
+    .allocation-filters {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+
+    /* Pagination Mobile */
+    .allocation-pagination {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        align-items: stretch !important;
+    }
+
+    .allocation-pagination button {
+        width: 100% !important;
+        min-height: 48px !important;
+    }
+
+    /* Status Badge Mobile */
+    .allocation-status-badge {
+        padding: 4px 10px !important;
+        font-size: 10px !important;
+    }
+
+    /* Modal Content Mobile */
+    .allocation-modal-content {
+        width: 95% !important;
+        max-width: 95% !important;
+        padding: 1rem !important;
+        border-radius: 0 !important;
+        max-height: 90vh !important;
+        overflow-y: auto !important;
+    }
+
+    .allocation-modal-header {
+        padding: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .allocation-modal-header h3 {
+        font-size: 1.1rem !important;
+    }
+
+    .allocation-modal-body {
+        padding: 1rem !important;
+    }
+
+    .allocation-modal-footer {
+        flex-direction: column-reverse !important;
+        gap: 0.75rem !important;
+        padding: 1rem !important;
+    }
+
+    .allocation-modal-footer button {
+        width: 100% !important;
+        min-height: 50px !important;
+    }
+
+    /* Details View Mobile */
+    .allocation-details-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .allocation-detail-item {
+        padding: 0.75rem !important;
+    }
+
+    .allocation-detail-label {
+        font-size: 12px !important;
+    }
+
+    .allocation-detail-value {
+        font-size: 14px !important;
+    }
+
+    /* Empty State Mobile */
+    .allocation-empty-state {
+        padding: 2rem 1rem !important;
+    }
+
+    .allocation-empty-state h3 {
+        font-size: 1.1rem !important;
+    }
+
+    .allocation-empty-state p {
+        font-size: 14px !important;
+    }
+
+    /* Error Message Mobile */
+    .allocation-error {
+        padding: 1rem !important;
+        font-size: 13px !important;
+        border-radius: 0 !important;
+    }
+
+    /* Info Cards Mobile */
+    .allocation-info-card {
+        padding: 1rem !important;
+        margin-bottom: 1rem !important;
+        border-radius: 0 !important;
+    }
+
+    .allocation-info-card h4 {
+        font-size: 1rem !important;
+    }
+
+    /* Stats Container Mobile */
+    .allocation-stats {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .allocation-stat-card {
+        padding: 1rem !important;
+    }
+
+    /* Checkbox and Radio Mobile */
+    input[type="checkbox"],
+    input[type="radio"] {
+        width: 20px !important;
+        height: 20px !important;
+        min-width: 20px !important;
+        min-height: 20px !important;
+    }
+
+    /* Label with Checkbox Mobile */
+    label.allocation-checkbox-label {
+        font-size: 14px !important;
+        padding: 0.75rem !important;
+    }
+
+    /* Textarea Mobile */
+    textarea.allocation-input {
+        min-height: 100px !important;
+        font-size: 16px !important;
+        padding: 14px 16px !important;
+    }
+}
+
+/* Allocation Module - Mobile UI Fixes */
+@media (max-width: 768px) {
+
+    /* Header - Full Width and Centered */
+    .allocation-page-header {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+
+    /* Card - Better Padding and Spacing */
+    .allocation-card {
+        padding: 1.5rem 1rem !important;
+        margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Form Labels - Consistent Styling */
+    .allocation-form-label,
+    label {
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        color: #0d9488 !important;
+        margin-bottom: 8px !important;
+        display: block !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    /* Select Dropdowns - Consistent Teal Border */
+    select.allocation-input,
+    .allocation-input[type="select"],
+    select {
+        width: 100% !important;
+        height: 50px !important;
+        padding: 14px 16px !important;
+        font-size: 16px !important;
+        border: 2px solid #99f6e4 !important;
+        border-radius: 12px !important;
+        background-color: white !important;
+        color: #334155 !important;
+        box-sizing: border-box !important;
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2314b8a6' d='M6 9L1 4h10z'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 16px center !important;
+        background-size: 12px !important;
+    }
+
+    select.allocation-input:focus,
+    select:focus {
+        border-color: #14b8a6 !important;
+        outline: none !important;
+        box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1) !important;
+    }
+
+    /* Form Groups - Proper Spacing */
+    .allocation-form-group {
+        margin-bottom: 1.5rem !important;
+        width: 100% !important;
+    }
+
+    /* New Allocation Button - Full Width */
+    .allocation-btn,
+    button.allocation-btn {
+        width: 100% !important;
+        min-height: 50px !important;
+        padding: 14px 20px !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        border-radius: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.5rem !important;
+        margin-top: 1rem !important;
+    }
+
+    /* Remove any max-width constraints */
+    .allocation-content-wrapper>* {
+        max-width: 100% !important;
+    }
+
+    /* Ensure proper box-sizing */
+    .allocation-wrapper *,
+    .allocation-card * {
+        box-sizing: border-box !important;
+    }
+}

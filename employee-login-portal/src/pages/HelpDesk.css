@@ -1,0 +1,69 @@
+/* Help Desk Module Typography Style Guide */
+
+/* Enforce exactly 30px for the page main title */
+.helpdesk-title {
+    font-size: 30px !important;
+}
+
+/* Enforce exactly 15px for all other components (labels, inputs, buttons, tables, descriptions, modals, text) */
+.helpdesk-page label,
+.helpdesk-page input,
+.helpdesk-page select,
+.helpdesk-page textarea,
+.helpdesk-page button:not(.close-x-btn),
+.helpdesk-page th,
+.helpdesk-page td,
+.helpdesk-page span,
+.helpdesk-page p,
+.helpdesk-page small,
+.helpdesk-page a,
+.helpdesk-page li,
+.helpdesk-page .react-datepicker-wrapper input,
+.helpdesk-page [data-suggestion-item],
+.helpdesk-page .dropdown-item,
+.helpdesk-page h2:not(.helpdesk-title),
+.helpdesk-page h3:not(.helpdesk-title),
+.helpdesk-page h4:not(.helpdesk-title),
+.helpdesk-page h5:not(.helpdesk-title) {
+    font-size: 15px !important;
+}
+
+/* Style preview modal elements globally */
+.preview-modal-content label,
+.preview-modal-content input,
+.preview-modal-content select,
+.preview-modal-content textarea,
+.preview-modal-content button,
+.preview-modal-content h3,
+.preview-modal-content p,
+.preview-modal-content div,
+.preview-modal-content span {
+    font-size: 15px !important;
+}
+
+/* Enforce normal default black color and normal font weight for all form labels in the Help Desk module */
+.helpdesk-page label {
+    color: #000000 !important;
+    font-weight: normal !important;
+}
+
+/* Remove default focus outlines and shadow on all helpdesk page buttons */
+.helpdesk-page button {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Specific styling for the helpdesk cancel button */
+.helpdesk-cancel-button {
+    border: 1.5px solid #00b3a4 !important;
+    color: #00b3a4 !important;
+    background-color: #ffffff !important;
+}
+
+.helpdesk-cancel-button:hover {
+    border-color: #00b3a4 !important;
+    background-color: #00b3a4 !important;
+    color: #ffffff !important;
+}
+
+

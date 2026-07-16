@@ -1,0 +1,83 @@
+.main-content {
+  flex-grow: 1;
+  background-color: #f4f6f8;
+  padding: 20px 40px;
+}
+.goal-container3 {
+  padding: 25px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.08);
+  height: calc(100vh - 100px); 
+  display: flex;
+  flex-direction: column;
+}
+.goal-container3 .table-wrapper {
+  flex-grow: 1;
+  overflow-y: auto;
+  height: calc(100vh - 300px);
+}
+thead th {
+  position: sticky;
+  top: 0;
+  background: #fff; 
+  z-index: 2;
+}
+.goals-table1 {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top:0;
+  color: black;
+}
+.table-wrapper .goals-table1{
+  margin: 0 0 0 0; 
+}
+.goals-table1 th,
+.goals-table1 td {
+  border: 1px solid #ddd;
+  margin: 0;
+  padding: 10px;
+  vertical-align: top;
+    position: sticky; 
+}
+.goals-table1 th {
+  background-color: rgb(27, 31, 121);
+  font-weight: 700;
+    position: sticky; 
+  text-align: left;
+}
+.text-input,
+.quarter-input,
+.textarea-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+.textarea-input {
+  resize: vertical;
+}
+.goal-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 1rem;
+}
+.add-btn,
+.save-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: #007bff;
+  transition: background-color 0.2s ease-in-out;
+}
+.add-btn:hover,
+.save-btn:hover {
+  background-color: #0056b3;
+}

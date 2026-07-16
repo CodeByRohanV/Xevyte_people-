@@ -1,0 +1,12 @@
+/.apt_generated_tests/
+target/
+*.log
+.classpath
+.project
+.settings/
+.DS_Store
+uploads/
+temp_pdf_conversion_work_area/
+.env
+**/.env
+token.txt

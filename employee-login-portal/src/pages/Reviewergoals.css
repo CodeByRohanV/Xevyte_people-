@@ -1,0 +1,52 @@
+/* Reviewergoals.css */
+
+/* This container handles the desktop and mobile scroll behavior */
+.mobile-table-container {
+    display: block;
+    width: 100%;
+    max-height: calc(100vh - 380px);
+    overflow-y: auto;
+    overflow-x: auto;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    scrollbar-width: thin;
+    scrollbar-color: #2dd4bf #f1f5f9;
+}
+
+/* Custom Scrollbar for Chrome/Safari */
+.mobile-table-container::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+.mobile-table-container::-webkit-scrollbar-thumb {
+    background: #2dd4bf;
+    border-radius: 4px;
+}
+
+/* Mobile Specific Fixes */
+@media (max-width: 768px) {
+    .mobile-table-container {
+        overflow-x: auto !important;
+        width: 100% !important;
+        -webkit-overflow-scrolling: touch;
+        max-height: calc(100vh - 400px) !important;
+    }
+
+    /* This ensures the table stays wide enough to require scrolling */
+    .mobile-table-container table {
+        min-width: 1100px !important;
+        width: 1100px !important;
+        table-layout: fixed !important;
+    }
+
+    .mobile-table-container thead th {
+        font-size: 12px !important;
+        padding: 10px 12px !important;
+        white-space: normal !important;
+    }
+
+    .mobile-table-container td {
+        font-size: 12px !important;
+    }
+}

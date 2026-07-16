@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+
+  <!-- App Icon -->
+  <link rel="icon" href="%PUBLIC_URL%/scalozTab.png" />
+
+  <!-- Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Description -->
+  <meta name="description" content="Scaloz People - Employee Portal built with React" />
+
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/scalozTab.png" />
+
+  <!-- Manifest -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  <!-- ✅ GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <title>Scaloz People</title>
+
+  <!-- XevTicket Support Widget Integration Code -->
+  <script>
+    // 1. Configure the origin application name showing on tickets
+    window.XEV_TICKET_APP_NAME = "Scaloz People"; // Change to "MyShop", "HrPortal", etc.
+    // 2. Set the base URL of your XevTicket environment
+    window.XEV_TICKET_BASE_URL = "https://xevticket.xevyte.com";
+   
+    // 3. Load the integration script asynchronously only after the page loads
+    window.addEventListener('load', function() {
+      var s = document.createElement('script');
+      s.src = window.XEV_TICKET_BASE_URL + "/embed.js";
+      s.async = true;
+      document.body.appendChild(s);
+    });
+  </script>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+</body>
+
+</html>

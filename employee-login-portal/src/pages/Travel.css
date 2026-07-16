@@ -1,0 +1,1631 @@
+.dashboard-container {
+    display: flex;
+    font-family: sans-serif;
+}
+
+.travel-management {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    height: calc(100vh - 120px);
+    box-sizing: border-box;
+    overflow-y: auto;
+    min-height: 0;
+    scrollbar-width: thin;
+    scrollbar-color: #629AF1 #f1f5f9;
+}
+
+.travel-management::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    display: block !important;
+}
+
+.travel-management::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 0;
+}
+
+.travel-management::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+.travel-management::-webkit-scrollbar-thumb:hover {
+    background: #629AF1;
+}
+
+.travel-content {
+    padding: 0 0 0px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.travel-header {
+    padding: 1.25rem 12px 0.625rem 10px;
+    border-bottom: 1px solid #e8ecf1;
+    margin-bottom: 0.75rem;
+    width: 100% !important;
+    text-align: left !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+}
+
+.travel-title-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+
+    gap: 0.5rem !important;
+    text-align: left !important;
+    width: 100%;
+}
+
+.travel-header-icon {
+    color: #629AF1;
+    flex-shrink: 0;
+}
+
+.travel-title-section h1 {
+    font-size: 30px;
+    font-weight: normal;
+    color: #1F2937;
+    margin: 0;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    text-align: left !important;
+}
+
+.travel-title-section p {
+    color: #00B3A4;
+    margin: 0.25rem 0 0 0;
+    font-weight: normal;
+    font-size: 15px;
+    text-align: left !important;
+}
+
+.tabs-container {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.tabs {
+    display: flex;
+    gap: 0;
+    background: #0B3D91;
+    padding: 0;
+    border-radius: 0;
+    width: fit-content;
+    border: none;
+    align-items: center;
+}
+
+.tab {
+    background: transparent;
+    border: none;
+    font-weight: normal;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px 22px;
+    border-radius: 0;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab.active {
+    color: white;
+    background: #1F6FEB;
+    box-shadow: none;
+}
+
+.tab:hover:not(.active) {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.travelform-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 0;
+    margin-bottom: 24px;
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
+}
+
+.travelform-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Allow container to handle direct children if columns are removed */
+.travelform-container>.travel-field-label {
+    width: 100%;
+}
+
+.travel-field-label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.travel-field-label span {
+    font-weight: normal;
+    color: #1F2937;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+}
+
+.travelform-container input,
+.travel-field-label select,
+.travel-field-label input,
+.travel-field-label textarea,
+.custom-datepicker-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 0;
+    font-size: 15px;
+    background-color: #f8fafc;
+    transition: all 0.2s ease;
+    outline: none;
+    height: 48px;
+    color: #1F2937;
+}
+
+textarea {
+    min-height: 48px;
+    resize: none;
+    line-height: 1.5;
+}
+
+.travelform-container input:focus,
+.travelform-container select:focus,
+.travelform-column input:focus,
+.travelform-column select:focus,
+textarea:focus,
+.react-datepicker__input-container input:focus {
+    border-color: #629AF1 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(98, 154, 241, 0.1) !important;
+}
+
+.submit-button-container {
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+    margin-top: 24px !important;
+    padding-bottom: 24px !important;
+    width: 100% !important;
+}
+
+.submit-button,
+.submited-button,
+.cancel-button,
+.reject-button {
+    padding: 10px 24px;
+    border-radius: 0 !important;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: normal;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    border: none;
+}
+
+.submit-button {
+    background: #00b3a4 !important;
+    color: white !important;
+    box-shadow: none !important;
+}
+
+.submit-button:hover {
+    background: #00998c !important;
+}
+
+.submited-button {
+    background: white !important;
+    color: #00b3a4 !important;
+    border: 1.5px solid #00b3a4 !important;
+}
+
+.submited-button:hover {
+    background: #00b3a4 !important;
+    color: white !important;
+    border-color: #00b3a4 !important;
+}
+
+.cancel-button {
+    background: white !important;
+    color: #00b3a4 !important;
+    border: 1.5px solid #00b3a4 !important;
+}
+
+.cancel-button:hover {
+    background: #00b3a4 !important;
+    border-color: #00b3a4 !important;
+    color: white !important;
+}
+
+.reject-button {
+    background: #ef4444;
+    color: white;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+}
+
+.reject-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.35);
+    background: #dc2626;
+}
+
+.warning-text {
+    color: #991b1b;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 12px;
+    background-color: #fef2f2;
+    border-radius: 0;
+    border: 1px solid #fee2e2;
+    font-size: 15px;
+}
+
+.welcome-text {
+    background-color: #629AF1;
+    color: #ffffff;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 12px;
+    border-radius: 0;
+    border: none;
+    font-size: 15px;
+}
+
+.travel-table-container {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    overflow-x: auto;
+    width: 100%;
+    margin-top: 0;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.columns-header th {
+    background: #629AF1 !important;
+    color: white !important;
+    font-weight: normal;
+    font-size: 15px !important;
+    padding: 10px 8px;
+    text-align: left;
+    white-space: normal;
+    border: none !important;
+}
+
+.table-row td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    font-size: 15px;
+    background: white;
+}
+
+.table-row:hover td {
+    background: #f8fafc;
+}
+
+.table-action-button {
+    background: #00B3A4;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 0;
+    font-size: 15px;
+    font-weight: normal;
+    transition: all 0.2s ease;
+}
+
+.table-action-button:hover {
+    background: #009B8E;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 0;
+    font-size: 15px;
+    font-weight: 400;
+    display: inline-block;
+    text-transform: none !important;
+}
+
+.status-pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-approved {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status-rejected {
+    background: #fef2f2;
+    color: #991b1b;
+}
+
+.status-booked {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.status-cancelled {
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+@media (max-width: 768px) {
+
+    /* Container and Layout */
+    .travel-management {
+        padding: 0 10px 20px 10px;
+        height: auto;
+    }
+
+    .travel-content {
+        padding: 0 0 20px 0;
+    }
+
+    /* Header Mobile Optimization */
+    .travel-header {
+        padding: 1rem 0 0.75rem 0;
+        margin-bottom: 1rem;
+    }
+
+    .travel-title-section {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        gap: 0.5rem;
+        padding: 0;
+        background: transparent;
+        border: none;
+    }
+
+    .travel-header-icon {
+        font-size: 2rem;
+        color: #1F2937;
+    }
+
+    .travel-title-section h1 {
+        font-size: 26px;
+        font-weight: normal;
+        color: #1F2937;
+        margin: 0;
+    }
+
+    .travel-title-section p {
+        font-size: 14px;
+        color: #00B3A4;
+        line-height: 1.5;
+        margin: 0;
+        max-width: 100%;
+    }
+
+    /* Tabs Mobile - Single Row with Proper Constraints */
+    .tabs-container {
+        margin-bottom: 1rem;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .tabs {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 !important;
+        gap: 0 !important;
+        border-radius: 0;
+        background: #0B3D91 !important;
+        border: none !important;
+    }
+
+    .tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tab {
+        padding: 10px 18px !important;
+        font-size: 12px !important;
+        flex-shrink: 0 !important;
+        flex-grow: 0 !important;
+        flex-basis: auto !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: auto !important;
+        min-width: max-content !important;
+        max-width: none !important;
+        white-space: nowrap !important;
+        border-radius: 0;
+    }
+
+    /* Role Switcher Mobile */
+    .role-switcher-container,
+    .role-switcher-container1 {
+        width: 100% !important;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 12px 15px;
+        margin-bottom: 1rem;
+    }
+
+    .role-switcher-label,
+    .role-switcher-label1 {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .role-segment-group,
+    .role-segment-group1 {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .role-segment {
+        padding: 10px 16px;
+        font-size: 12px;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .role-icon {
+        font-size: 14px;
+        margin-right: 6px;
+    }
+
+    /* Form Container Mobile */
+    .travelform-container {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 18px !important;
+        padding: 20px 15px;
+        margin-bottom: 1rem;
+    }
+
+    .travelform-column {
+        gap: 18px !important;
+        margin-bottom: 0 !important;
+    }
+
+    .travel-field-label {
+        gap: 8px;
+    }
+
+    .travel-field-label span {
+        font-size: 14px;
+    }
+
+    /* Form Inputs Mobile - Professional Consistent Design */
+    .travelform-container input,
+    .travelform-container select,
+    .travelform-column input,
+    .travelform-column select,
+    .modal-content-travel input,
+    .modal-content-travel select,
+    .custom-datepicker-input,
+    textarea {
+        height: 50px !important;
+        font-size: 16px !important;
+        padding: 14px 16px !important;
+        border-radius: 0 !important;
+        border: 1.5px solid #e2e8f0 !important;
+        background-color: white !important;
+        color: #1F2937 !important;
+        font-weight: 400 !important;
+        box-sizing: border-box !important;
+    }
+
+    .travelform-container input:focus,
+    .travelform-container select:focus,
+    .travelform-column input:focus,
+    .travelform-column select:focus,
+    .modal-content-travel input:focus,
+    .modal-content-travel select:focus,
+    .custom-datepicker-input:focus,
+    textarea:focus {
+        border-color: #629AF1 !important;
+        box-shadow: 0 0 0 3px rgba(98, 154, 241, 0.1) !important;
+        outline: none !important;
+    }
+
+    .travelform-container input::placeholder,
+    .travelform-column input::placeholder,
+    .modal-content-travel input::placeholder,
+    textarea::placeholder {
+        color: #94a3b8 !important;
+        font-weight: 400 !important;
+    }
+
+    textarea {
+        min-height: 50px !important;
+        height: 50px !important;
+    }
+
+    /* Select Dropdown Mobile - Professional Consistent Design */
+    .travelform-container select,
+    .travelform-column select,
+    .modal-content-travel select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        background-color: white !important;
+        border: 1.5px solid #e2e8f0 !important;
+        border-radius: 0 !important;
+
+        height: 50px !important;
+        padding: 0 40px 0 16px !important;
+
+        font-size: 16px !important;
+        line-height: 1.4 !important;
+        /* ⭐ IMPORTANT FIX - Changed from 50px to proper line-height */
+        display: block;
+
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B3D91' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        background-size: 18px;
+    }
+
+    .travelform-column select:focus,
+    .modal-content-travel select:focus {
+        border-color: #629AF1 !important;
+        background-color: white !important;
+        box-shadow: 0 0 0 3px rgba(98, 154, 241, 0.1) !important;
+        outline: none !important;
+    }
+
+    .travelform-container select option,
+    .travelform-column select option,
+    .modal-content-travel select option {
+        background-color: white !important;
+        color: #1F2937 !important;
+        padding: 8px 12px !important;
+        font-size: 16px !important;
+        font-weight: 400 !important;
+        min-height: 44px !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Additional mobile dropdown fixes */
+    .travelform-container select:hover,
+    .travelform-column select:hover,
+    .modal-content-travel select:hover {
+        border-color: #94a3b8 !important;
+    }
+
+    .travelform-container select:active,
+    .travelform-column select:active,
+    .modal-content-travel select:active {
+        border-color: #629AF1 !important;
+    }
+
+    /* Ensure dropdown overlay is visible */
+    .travelform-container select:focus,
+    .travelform-column select:focus,
+    .modal-content-travel select:focus {
+        position: relative;
+        z-index: 1000 !important;
+        /* Increased z-index for mobile dropdown visibility */
+    }
+
+    /* Mobile dropdown option fixes */
+    .travelform-container select option:hover,
+    .travelform-column select option:hover,
+    .modal-content-travel select option:hover {
+        background-color: #f0f7ff !important;
+        color: #629AF1 !important;
+    }
+
+    .travelform-container select option:checked,
+    .travelform-column select option:checked,
+    .modal-content-travel select option:checked {
+        background-color: #629AF1 !important;
+        color: white !important;
+    }
+
+    /* Ensure proper dropdown rendering on mobile */
+    @media (max-width: 768px) {
+
+        .travelform-container select,
+        .travelform-column select,
+        .modal-content-travel select {
+            -webkit-appearance: menulist !important;
+            /* Restore native dropdown on mobile */
+            appearance: menulist !important;
+            background-image: none !important;
+            /* Remove custom arrow on mobile */
+            padding: 12px 16px !important;
+            /* Adjust padding for native dropdown */
+        }
+    }
+
+    /* DatePicker Mobile - Professional Consistent Design */
+    .react-datepicker__input-container input {
+        height: 50px !important;
+        font-size: 16px !important;
+        padding: 14px 16px !important;
+        border-radius: 0 !important;
+        border: 1.5px solid #e2e8f0 !important;
+        background-color: white !important;
+        color: #1F2937 !important;
+        font-weight: 400 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Admin Action Buttons Row Mobile Fix */
+    .admin-actions-row {
+        gap: 5px !important;
+    }
+
+    .admin-actions-row button {
+        min-width: 0 !important;
+        width: auto !important;
+        padding: 8px 4px !important;
+        font-size: 12px !important;
+        min-height: 40px !important;
+        /* Allow slightly shorter height */
+        line-height: normal !important;
+    }
+
+    .react-datepicker__input-container input:focus {
+        border-color: #629AF1 !important;
+        box-shadow: 0 0 0 3px rgba(98, 154, 241, 0.1) !important;
+        outline: none !important;
+    }
+
+    /* Submit Button Container Mobile */
+    .submit-button-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .submit-button,
+    .submited-button,
+    .cancel-button,
+    .reject-button {
+        width: 100% !important;
+        min-height: 50px !important;
+        font-size: 15px !important;
+        padding: 14px 20px !important;
+        margin: 0 !important;
+        border-radius: 0;
+    }
+
+    .cancel-button {
+        background: #f1f5f9 !important;
+        color: #64748b !important;
+        border: 1px solid #e2e8f0 !important;
+        font-size: 15px !important;
+        padding: 14px 20px !important;
+    }
+
+    .cancel-button:hover {
+        background: #e2e8f0 !important;
+    }
+
+    /* Message Banners Mobile */
+    .warning-text,
+    .welcome-text {
+        padding: 12px 16px;
+        font-size: 13px;
+        margin-bottom: 1rem;
+        border-radius: 0;
+    }
+
+    /* Table Container Mobile */
+    .travel-table-container {
+        border-radius: 0;
+        margin-top: 0;
+    }
+
+    .travel-content>div:has(table) {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+    }
+
+    table {
+        min-width: 900px;
+        width: auto;
+        font-size: 12px;
+    }
+
+    .columns-header th {
+        padding: 10px 8px !important;
+        font-size: 11px !important;
+        white-space: nowrap;
+    }
+
+    .table-row td,
+    .table-cell {
+        padding: 10px 8px !important;
+        font-size: 12px !important;
+        min-width: 80px;
+    }
+
+    .remarks-cell {
+        min-width: 150px;
+    }
+
+    /* Table Action Buttons Mobile */
+    .table-action-button {
+        padding: 8px 12px !important;
+        font-size: 11px !important;
+        white-space: nowrap;
+    }
+
+    .table-cell button {
+        font-size: 11px !important;
+        padding: 6px 10px !important;
+    }
+
+    /* Status Badges Mobile */
+    .status-badge {
+        padding: 5px 10px;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    /* Modal Mobile */
+    .modal-overlay-travel {
+        padding: 10px;
+    }
+
+    .modal-travel {
+        width: 95%;
+        max-width: 95%;
+        padding: 20px 15px;
+        max-height: 85vh;
+    }
+
+    .modal-close-travel {
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+    }
+
+    .detail-row-travel {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .detail-row-travel b {
+        display: block;
+        margin-bottom: 4px;
+        min-width: auto;
+    }
+
+    .modal-actions-travel {
+        margin-top: 20px;
+        padding-top: 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modal-actions-travel button {
+        width: 100%;
+        min-height: 48px;
+    }
+
+    /* Drafts Container Mobile */
+    .drafts-container {
+        padding: 0;
+    }
+
+    /* Label Spacing Fix */
+    label[style*="margin-top: 0"] {
+        margin-top: 20px !important;
+    }
+
+    /* Travel History Detail Modal Mobile */
+    .travel-content div[style*="position: fixed"][style*="zIndex: 1000"] {
+        padding: 10px !important;
+    }
+
+    /* Travel Detail Modal Container */
+    .travel-content div[style*="position: fixed"]>div[style*="backgroundColor: white"] {
+        max-width: 95% !important;
+        width: 95% !important;
+        max-height: 90vh !important;
+        border-radius: 0 !important;
+    }
+
+    /* Travel Detail Modal Header */
+    .travel-content div[style*="position: fixed"]>div>div[style*="background: linear-gradient"] {
+        padding: 16px !important;
+        padding-right: 50px !important;
+        border-radius: 0 16px 0 0 !important;
+        position: relative !important;
+    }
+
+    .travel-content div[style*="position: fixed"]>div>div[style*="background: linear-gradient"] h3 {
+        font-size: 1.1rem !important;
+        line-height: 1.3 !important;
+        padding-right: 0 !important;
+    }
+
+    .travel-content div[style*="position: fixed"]>div>div[style*="background: linear-gradient"] button {
+        position: absolute !important;
+        top: 16px !important;
+        right: 16px !important;
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 20px !important;
+    }
+
+    /* Travel Detail Modal Content */
+    .travel-content div[style*="position: fixed"]>div>div[style*="padding: 24px"] {
+        padding: 16px !important;
+    }
+
+    /* Travel Detail Fields */
+    .travel-content div[style*="position: fixed"] div[style*="borderBottom: 1px solid"] {
+        padding-bottom: 10px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .travel-content div[style*="position: fixed"] div[style*="fontSize: 0.75rem"] {
+        font-size: 11px !important;
+        margin-bottom: 4px !important;
+    }
+
+    .travel-content div[style*="position: fixed"] div[style*="fontSize: 0.9375rem"] {
+        font-size: 14px !important;
+    }
+
+    /* Travel Detail Modal Actions */
+    .travel-content div[style*="position: fixed"]>div>div>div[style*="marginTop: 24px"] {
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-top: 16px !important;
+        padding-top: 12px !important;
+    }
+
+    .travel-content div[style*="position: fixed"]>div>div>div[style*="marginTop: 24px"] button {
+        width: 100% !important;
+        flex: none !important;
+        min-height: 48px !important;
+        padding: 14px 16px !important;
+        font-size: 14px !important;
+    }
+
+    /* Status Flow Modal Mobile */
+    div[style*="zIndex: 1100"] {
+        padding: 10px !important;
+    }
+
+    div[style*="zIndex: 1100"]>div {
+        width: 95% !important;
+        max-width: 95% !important;
+        padding: 20px 16px !important;
+    }
+
+    div[style*="zIndex: 1100"] h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 16px !important;
+    }
+
+    div[style*="zIndex: 1100"] div[style*="display: flex"][style*="gap: 15px"] {
+        gap: 12px !important;
+    }
+
+    div[style*="zIndex: 1100"] p {
+        font-size: 13px !important;
+    }
+
+    div[style*="zIndex: 1100"] button {
+        padding: 12px 20px !important;
+        font-size: 14px !important;
+        min-height: 48px !important;
+    }
+}
+
+.drafts-container {
+    -ms-overflow-style: none;
+    scrollbar-width: thin;
+}
+
+.drafts-container::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.role-switcher-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+    padding: 12px 20px;
+    background: #f8fafc;
+    border-radius: 0;
+    width: fit-content;
+    border: 1px solid #e2e8f0;
+}
+
+.role-switcher-label {
+    font-weight: normal;
+    color: #475569;
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+}
+
+.role-segment-group {
+    display: flex;
+    background: #e2e8f0;
+    padding: 4px;
+    border-radius: 0;
+    gap: 4px;
+}
+
+.role-segment {
+    position: relative;
+    padding: 8px 24px;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: #64748b;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    display: flex;
+    align-items: center;
+    border: 1px solid transparent;
+}
+
+.role-segment input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.role-segment.active {
+    background: #1F6FEB;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border-color: #1F6FEB;
+}
+
+.role-segment:hover:not(.active) {
+    color: #1F6FEB;
+    background: rgba(31, 111, 235, 0.05);
+}
+
+.role-segment.active .role-icon {
+    color: white;
+}
+
+.role-icon {
+    font-size: 1.1rem;
+    margin-right: 8px;
+    color: #94a3b8;
+}
+
+.loading-spinner-small {
+    width: 18px;
+    height: 18px;
+    border: 2.5px solid #e2e8f0;
+    border-top-color: #629AF1;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.role-switcher-container1 {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #ffffff;
+    padding: 12px 20px;
+    border-radius: 0;
+    margin-bottom: 24px;
+    width: fit-content;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.role-switcher-label1 {
+    font-weight: normal;
+    color: #475569;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    margin-right: 8px;
+}
+
+.role-segment-group1 {
+    display: flex;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: 0;
+    gap: 4px;
+}
+
+/* Modal Styles for MyTeamTravel Detailed View */
+.modal-overlay-travel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-travel {
+    background: white;
+    padding: 30px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 0;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-close-travel {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #64748b;
+    font-weight: normal;
+    transition: color 0.2s;
+}
+
+.modal-close-travel:hover {
+    color: #1F2937;
+}
+
+.modal-content-travel {
+    line-height: 1.8;
+}
+
+.detail-row-travel {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.detail-row-travel b {
+    color: #475569;
+    min-width: 150px;
+    display: inline-block;
+}
+
+.modal-actions-travel {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   Premium DatePicker Styles (Matching Onboarding Module)
+   ========================================= */
+.react-datepicker {
+    font-family: 'Outfit', 'Poppins', sans-serif !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: 0 25px 50px -12px rgba(20, 184, 166, 0.25) !important;
+    overflow: visible !important;
+    /* Changed to visible for dropdowns */
+    background: white !important;
+}
+
+.custom-calendar-header {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    position: relative !important;
+}
+
+.calendar-header-banner {
+    background: #0B3D91 !important;
+    padding: 18px 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    color: white !important;
+    border-radius: 0 20px 0 0 !important;
+}
+
+.header-main-content {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex: 1 !important;
+    justify-content: center !important;
+}
+
+.calendar-header-banner .header-icon {
+    font-size: 1.25rem !important;
+    opacity: 0.9 !important;
+}
+
+.header-text-group {
+    display: flex !important;
+    gap: 10px !important;
+    font-size: 1.15rem !important;
+    font-weight: normal;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+}
+
+.clickable-header-text {
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    padding: 2px 6px !important;
+    border-radius: 0 !important;
+}
+
+.clickable-header-text:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.header-nav-btn {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border: none !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    font-size: 1.4rem !important;
+    transition: all 0.2s ease !important;
+    line-height: 1 !important;
+}
+
+.header-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.35) !important;
+    transform: scale(1.05) !important;
+}
+
+.header-dropdown {
+    position: absolute !important;
+    top: 50px !important;
+    background: white !important;
+    border-radius: 0 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    z-index: 100 !important;
+    padding: 8px !important;
+    border: 1px solid #f1f5f9 !important;
+    width: max-content !important;
+}
+
+.month-dropdown {
+    left: 20px !important;
+}
+
+.year-dropdown {
+    left: 80px !important;
+}
+
+.dropdown-scroll-pane {
+    max-height: 200px !important;
+    overflow-y: auto !important;
+}
+
+.dropdown-item {
+    padding: 8px 12px !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    font-size: 0.9rem !important;
+    color: #475569 !important;
+    font-weight: normal;
+}
+
+.dropdown-item:hover {
+    background: #f0fdfa !important;
+    color: #629AF1 !important;
+}
+
+.dropdown-item.active {
+    background: #1F6FEB !important;
+    color: white !important;
+}
+
+.react-datepicker__day-name {
+    color: #1F2937 !important;
+    font-weight: normal;
+    width: 40px !important;
+    margin: 2px !important;
+    font-size: 0.85rem !important;
+}
+
+.react-datepicker__day {
+    width: 40px !important;
+    line-height: 40px !important;
+    border-radius: 0 !important;
+    font-weight: normal;
+    color: #334155 !important;
+    margin: 2px !important;
+    transition: all 0.2s ease !important;
+}
+
+.react-datepicker__day:hover {
+    background-color: #f1f5f9 !important;
+    color: #1F6FEB !important;
+    transform: scale(1.1) !important;
+}
+
+.react-datepicker__day--today {
+    background-color: white !important;
+    color: #0B3D91 !important;
+    border: 1px solid #0B3D91 !important;
+    border-radius: 0 !important;
+}
+
+.react-datepicker__day--selected {
+    background: #0B3D91 !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(11, 61, 145, 0.3) !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+    background-color: white !important;
+    color: #1F6FEB !important;
+}
+
+.react-datepicker__header {
+    background: white !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    padding: 0 !important;
+}
+
+.react-datepicker__navigation {
+    display: none !important;
+}
+
+.react-datepicker__triangle {
+    display: none !important;
+}
+
+/* Mobile Responsive Styles for DatePicker */
+@media (max-width: 480px) {
+    .react-datepicker {
+        width: 300px !important;
+        font-size: 0.9rem !important;
+        margin: 0 auto !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+
+    .react-datepicker__day {
+        width: 34px !important;
+        line-height: 34px !important;
+    }
+
+    .react-datepicker__day-name {
+        width: 34px !important;
+    }
+
+    /* Ensure header is fully visible on mobile */
+    .calendar-header-banner {
+        padding: 14px 10px !important;
+    }
+
+    .header-text-group {
+        font-size: 0.95rem !important;
+        gap: 8px !important;
+    }
+
+    .header-nav-btn {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 1.2rem !important;
+    }
+
+    .calendar-header-banner .header-icon {
+        font-size: 1rem !important;
+    }
+
+    /* File Upload Mobile Styles */
+    .booking-upload-container {
+        margin: 15px 0;
+        text-align: left;
+        align-items: flex-start;
+        justify-content: flex-start !important;
+    }
+
+    /* Override parent modal-actions-travel flex-end alignment on mobile */
+    .modal-actions-travel .booking-upload-container {
+        justify-content: flex-start !important;
+        align-self: flex-start !important;
+        margin-right: auto !important;
+    }
+
+    .upload-title {
+        font-size: 14px;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+
+    .custom-file-upload-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 10px;
+        justify-content: flex-start;
+    }
+
+    .custom-choose-btn {
+        padding: 12px 20px;
+        font-size: 15px;
+        text-align: left;
+        width: auto;
+    }
+
+    .file-status-text {
+        font-size: 13px;
+        text-align: left;
+        margin-top: 5px;
+    }
+}
+
+/* File Upload Component Styles */
+.booking-upload-container {
+    margin: 20px 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    text-align: left;
+    align-items: flex-start;
+    justify-content: flex-start !important;
+    width: 100%;
+}
+
+/* Override parent modal-actions-travel flex-end alignment */
+.modal-actions-travel .booking-upload-container {
+    justify-content: flex-start !important;
+    align-self: flex-start !important;
+    margin-right: auto !important;
+}
+
+.upload-title {
+    display: block;
+    font-weight: normal;
+    color: #1F2937;
+    font-size: 0.75rem;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+}
+
+.custom-file-upload-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    margin-bottom: 8px;
+    justify-content: flex-start;
+}
+
+.hidden-file-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.custom-choose-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #629AF1;
+    color: white;
+    border-radius: 0;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: none;
+    white-space: nowrap;
+}
+
+.custom-choose-btn:hover {
+    background: #4A85D9;
+}
+
+.file-status-text {
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: normal;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+}
+
+/* Remove default browser file input styling */
+input[type="file"]::-webkit-file-upload-button,
+input[type="file"]::file-selector-button {
+    display: none;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* Custom overrides to match Grievance & Leaves layout, radii, split tabs and button branding */
+
+/* 1. Welcoming box & table header radius 8px */
+.welcome-text {
+    border-radius: 8px !important;
+}
+
+.travel-table-container {
+    border-radius: 8px !important;
+    border: 1px solid #edf2f7 !important;
+    overflow: auto !important;
+    box-shadow: none !important;
+}
+
+.columns-header th {
+    background: #629AF1 !important;
+    border-radius: 0 !important;
+}
+
+.columns-header th:first-child {
+    border-top-left-radius: 8px !important;
+}
+
+.columns-header th:last-child {
+    border-top-right-radius: 8px !important;
+}
+
+/* 2. Main tabs split to 33.3% full width screen */
+.tabs-container {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+}
+
+.tabs {
+    width: 100% !important;
+    display: flex !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+}
+
+.tab {
+    flex: 1 !important;
+    width: 33.333% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    border-radius: 0 !important;
+}
+
+/* 3. Fields & inputs to 8px radius */
+.travelform-container input,
+.travel-field-label select,
+.travel-field-label input,
+.travel-field-label textarea,
+.custom-datepicker-input,
+.react-datepicker__input-container input,
+.modal-content-travel input,
+.modal-content-travel select,
+textarea {
+    border-radius: 8px !important;
+}
+
+/* 4. Button coloring and radius */
+.submit-button {
+    background: #00b3a4 !important;
+    color: white !important;
+    border-radius: 8px !important;
+}
+
+.submit-button:hover {
+    background: #00998c !important;
+}
+
+.submited-button {
+    background: white !important;
+    color: #00b3a4 !important;
+    border: 1.5px solid #00b3a4 !important;
+    border-radius: 8px !important;
+}
+
+.submited-button:hover {
+    background: #00b3a4 !important;
+    color: white !important;
+    border-color: #00b3a4 !important;
+}
+
+.cancel-button {
+    border-radius: 8px !important;
+}
+
+.reject-button {
+    border-radius: 8px !important;
+}
+
+.table-action-button {
+    border-radius: 8px !important;
+}
+
+.status-badge {
+    border-radius: 8px !important;
+    text-transform: none !important;
+}
+
+.custom-choose-btn {
+    border-radius: 8px !important;
+}
+
+.custom-file-input-button {
+    border-radius: 8px !important;
+}
+
+/* Unify Travel Management typography to 15px and normal weight (except the page title) */
+.travel-management :not(.travel-title-section h1):not(.travel-title-section h1 *) {
+    font-size: 15px !important;
+    font-weight: normal !important;
+}

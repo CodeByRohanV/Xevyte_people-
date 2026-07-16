@@ -1,0 +1,330 @@
+# spring:
+#   application:
+#     name: ${SPRING_APPLICATION_NAME:employee-login-backend2}
+ 
+#   datasource:
+#     url: ${SPRING_DATASOURCE_URL}
+#     username: ${SPRING_DATASOURCE_USERNAME}
+#     password: ${SPRING_DATASOURCE_PASSWORD}
+ 
+#   jpa:
+#     hibernate:
+#       ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
+#     show-sql: ${SPRING_JPA_SHOW_SQL:false}
+#     properties:
+#       hibernate:   # ✅ FIXED INDENTATION
+#         dialect: ${SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT:org.hibernate.dialect.MySQL8Dialect}
+#         show_sql: false
+#         format_sql: false
+#         use_sql_comments: false
+ 
+#   mail:
+#     host: ${SPRING_MAIL_HOST}
+#     port: ${SPRING_MAIL_PORT}
+#     username: ${SPRING_MAIL_USERNAME}
+#     password: ${SPRING_MAIL_PASSWORD}
+#     properties:
+#       mail:
+#         smtp:
+#           auth: ${SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH:true}
+#           starttls:
+#             enable: ${SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE:true}
+ 
+#   servlet:
+#     multipart:
+#       max-file-size: ${SPRING_SERVLET_MULTIPART_MAX_FILE_SIZE:5MB}
+#       max-request-size: ${SPRING_SERVLET_MULTIPART_MAX_REQUEST_SIZE:5MB}
+ 
+# server:
+#   port: ${SERVER_PORT:8082}
+#   error:
+#     include-message: always
+#     include-binding-errors: always
+ 
+# springdoc:
+#   api-docs:
+#     enabled: ${SPRINGDOC_API_DOCS_ENABLED:true}
+#     path: ${SPRINGDOC_API_DOCS_PATH:/v3/api-docs}
+#   swagger-ui:
+#     enabled: ${SPRINGDOC_SWAGGER_UI_ENABLED:true}
+#     path: ${SPRINGDOC_SWAGGER_UI_PATH:/swagger-ui.html}
+#     operationsSorter: ${SPRINGDOC_SWAGGER_UI_OPERATIONS_SORTER:alpha}
+#     tagsSorter: ${SPRINGDOC_SWAGGER_UI_TAGS_SORTER:alpha}
+#     display-request-duration: ${SPRINGDOC_SWAGGER_UI_DISPLAY_REQUEST_DURATION:true}
+#     doc-expansion: ${SPRINGDOC_SWAGGER_UI_DOC_EXPANSION:none}
+ 
+# grievances:
+#   file:
+#     storage-dir: ${GRIEVANCES_FILE_STORAGE_DIR:files/grievances}
+#     encryption-key: ${GRIEVANCES_FILE_ENCRYPTION_KEY:A9f2Lm73Qp19Zx04Rb56Nt82Vc31KdWq}
+ 
+# # === COMPANY BRANDING ===
+# company:
+#   name: ${COMPANY_NAME:Xevyte Technologies}
+#   portal-url: ${COMPANY_PORTAL_URL:https://scaloz.com}
+#   support-email: ${COMPANY_SUPPORT_EMAIL:admin@xevyte.com}
+ 
+# # === EMPLOYEE ID CONFIG ===
+# employee:
+#   id:
+#     prefix: ${EMPLOYEE_ID_PREFIX:X}
+#     start-number: ${EMPLOYEE_ID_START_NUMBER:100001}
+ 
+# # === EMPLOYEE HANDBOOK CONFIGURATION ===
+# handbook:
+#   upload:
+#     folder: ${HANDBOOK_UPLOAD_FOLDER:files/handbooks/}
+ 
+# # === BASE URL ===
+# app:
+#   base:
+#     url: ${APP_BASE_URL:https://hrmstest.scaloz.com}
+ 
+# # ======================================================
+# # EXTERNAL API SECURITY
+# # ======================================================
+
+ 
+# # ======================================================
+# # SCALOZ INTEGRATION CONFIGURATION
+# # ======================================================
+# scaloz:
+#   api:
+#     url: ${SCALOZ_API_URL:https://workspacetest.scaloz.com/api/tenant-users/sync-from-hrms}
+    
+# # ======================================================
+# # E-SIGN INTEGRATION CONFIGURATION
+# # ======================================================
+# esign:
+#   api:
+#     url: ${ESIGN_API_URL:https://signtest.scaloz.com}
+
+    
+# # ======================================================
+# # LOGGING CONFIGURATION
+# # ======================================================
+# logging:
+#   file:
+#     name: logs/application.log
+#   logback:
+#     rollingpolicy:
+#       max-file-size: 10MB
+#       max-history: 7
+#   level:
+#     root: INFO
+#     org.hibernate: OFF
+#     org.hibernate.SQL: OFF
+#     org.hibernate.type.descriptor.sql: OFF
+#     com.register.example: INFO
+#     com.register.example.aspect.LoggingAspect: INFO
+#     com.register.example.service.AuditService: INFO
+#     com.register.example.aspect.AuditAspect: INFO
+#     com.register.example.service.HikeLetterService: DEBUG
+#     com.register.example.service.CalcStructureService: DEBUG
+#   pattern:
+#     console: "%d{yyyy-MM-dd HH:mm:ss} - [%5level] - %logger{36} - %msg%n"
+#     file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+
+
+
+ 
+ 
+spring:
+ 
+  application:
+ 
+    name: employee-login-backend2
+ 
+ 
+ 
+  # ---------------- DATABASE ----------------
+ 
+  # Credentials injected from AWS Secrets Manager: peopleproduction/environment/database
+ 
+  datasource:
+ 
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/employee_login_db}
+ 
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+ 
+    password: ${SPRING_DATASOURCE_PASSWORD:Laya@123}
+ 
+ 
+ 
+  # ---------------- JPA / HIBERNATE ----------------
+ 
+  jpa:
+ 
+    hibernate:
+ 
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
+ 
+    show-sql: false
+ 
+    properties:
+ 
+      hibernate:
+ 
+        dialect: org.hibernate.dialect.MySQL8Dialect
+ 
+        show_sql: false
+ 
+        format_sql: false
+ 
+        use_sql_comments: false
+ 
+        jdbc:
+ 
+          time_zone: Asia/Kolkata
+ 
+ 
+ 
+  # ---------------- MAIL ----------------
+ 
+  # Credentials injected from AWS Secrets Manager: peopleproduction/environment/data
+ 
+  mail:
+ 
+    host: smtp.gmail.com
+ 
+    port: 587
+ 
+    username: ${SPRING_MAIL_USERNAME:testadmin@xevyte.com}
+ 
+    password: ${SPRING_MAIL_PASSWORD:moyfxbwpghirmfpg}
+ 
+    properties:
+ 
+      mail:
+ 
+        smtp:
+ 
+          auth: true
+ 
+          starttls:
+ 
+            enable: true
+ 
+ 
+ 
+  # ---------------- MULTIPART ----------------
+ 
+  servlet:
+ 
+    multipart:
+ 
+      enabled: true
+ 
+      max-file-size: ${SPRING_SERVLET_MULTIPART_MAX_FILE_SIZE:100MB}
+ 
+      max-request-size: ${SPRING_SERVLET_MULTIPART_MAX_REQUEST_SIZE:100MB}
+ 
+ 
+ 
+  # ---------------- JACKSON (JSON TIMEZONE) ----------------
+ 
+  jackson:
+ 
+    time-zone: Asia/Kolkata
+ 
+    date-format: yyyy-MM-dd
+ 
+    serialization:
+ 
+      write-dates-as-timestamps: false
+ 
+ 
+ 
+server:
+ 
+  address: 0.0.0.0
+ 
+  port: ${SERVER_PORT:8082}
+ 
+  error:
+ 
+    include-message: always
+ 
+    include-binding-errors: always
+ 
+ 
+ 
+ 
+FRONTEND_URL: http://localhost:3000
+ 
+BASE_DOMAIN: localhost
+ 
+ 
+ 
+# ======================================================
+ 
+# SCALOZ INTEGRATION
+ 
+# SCALOZ_API_URL → AWS Secrets Manager: peopleproduction/environment/data
+ 
+# Used in: EmployeeService (@Value)
+ 
+# ======================================================
+ 
+scaloz:
+ 
+  api:
+ 
+    url: ${SCALOZ_API_URL:http://localhost:8085/api/tenant-users/sync-from-hrms}
+
+groq:
+  api:
+    key: ${GROQ_API_KEY:}
+
+ 
+ 
+ 
+# ======================================================
+ 
+# LOGGING CONFIGURATION
+ 
+# ======================================================
+ 
+logging:
+ 
+  file:
+ 
+    name: logs/application.log
+ 
+  logback:
+ 
+    rollingpolicy:
+ 
+      max-file-size: 10MB
+ 
+      max-history: 7
+ 
+  level:
+ 
+    root: INFO
+ 
+    org.hibernate: OFF
+ 
+    org.hibernate.SQL: OFF
+ 
+    org.hibernate.type.descriptor.sql: OFF
+ 
+    com.register.example: INFO
+ 
+    com.register.example.aspect.LoggingAspect: INFO
+ 
+    com.register.example.service.AuditService: INFO
+ 
+    com.register.example.aspect.AuditAspect: INFO
+ 
+    com.register.example.service.HikeLetterService: DEBUG
+ 
+    com.register.example.service.CalcStructureService: DEBUG
+ 
+  pattern:
+ 
+    console: "%d{yyyy-MM-dd HH:mm:ss} - [%5level] - %logger{36} - %msg%n"
+ 
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+ 

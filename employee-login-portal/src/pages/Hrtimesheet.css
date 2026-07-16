@@ -1,0 +1,178 @@
+.button-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.action-buttons-group {
+    display: flex;
+    gap: 12px;
+}
+
+.export-btn {
+    white-space: nowrap;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    border: 2px solid #5eead4;
+    background: linear-gradient(135deg, #5eead4 0%, #2dd4bf 100%);
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(94, 234, 212, 0.2);
+}
+
+.export-btn:hover {
+    background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(94, 234, 212, 0.4);
+}
+
+.back-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    border: 2px solid #5eead4;
+    background: white;
+    color: #14b8a6;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: linear-gradient(135deg, #5eead4 0%, #2dd4bf 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(94, 234, 212, 0.3);
+}
+
+.timesheet-table {
+    border-collapse: collapse;
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.timesheet-table thead {
+    background: linear-gradient(135deg, #5eead4 0%, #2dd4bf 100%);
+    color: white;
+}
+
+.timesheet-table thead th {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 2px solid #14b8a6;
+}
+
+.timesheet-table tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+.timesheet-table tbody tr:hover {
+    background: rgba(94, 234, 212, 0.05);
+}
+
+.timesheet-table tbody td {
+    padding: 0.875rem 1rem;
+    color: #0f172a;
+}
+
+.timesheet-table input[type="text"],
+.timesheet-table select,
+.modal-content input[type="text"],
+.modal-content input[type="search"],
+.modal-content select {
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.9375rem;
+    transition: all 0.3s ease;
+}
+
+.timesheet-table input[type="text"]:focus,
+.timesheet-table select:focus,
+.modal-content input[type="text"]:focus,
+.modal-content input[type="search"]:focus,
+.modal-content select:focus {
+    outline: none;
+    border-color: #5eead4;
+    box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.1);
+}
+
+@media (max-width: 768px) {
+    .button-header-container {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .timesheet-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .timesheet-actions {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .action-buttons-group {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .export-btn,
+    .back-btn {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* Standard table layout with scroll instead of card view */
+    .table-responsive-container {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-top: 10px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    table {
+        min-width: 800px;
+        /* Force scroll */
+    }
+}
+
+/* Desktop Action Buttons Alignment */
+@media (min-width: 769px) {
+    .timesheet-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .timesheet-actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
+        margin-left: auto;
+        white-space: nowrap;
+    }
+}

@@ -1,0 +1,33 @@
+/* View Action Button Styling */
+.view-action-btn {
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  font-size: 15px !important;
+  color: #00B3A4 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  box-shadow: none !important;
+  transition: all 0.3s ease !important;
+  user-select: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  border: none !important;
+  text-decoration: none !important;
+  margin: 0 !important;
+}
+
+.view-action-btn:hover {
+  transform: scale(1.2) !important;
+  box-shadow: none !important;
+}
+
+.view-action-btn:active {
+  transform: translateY(0);
+}

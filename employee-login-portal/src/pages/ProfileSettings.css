@@ -1,0 +1,944 @@
+:root {
+    --teal-primary: #5eead4;
+    --teal-medium: #2dd4bf;
+    --teal-accent: #14b8a6;
+    --teal-light: #99f6e4;
+    --gradient-teal: linear-gradient(135deg, #5eead4 0%, #2dd4bf 100%);
+    --white: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --shadow-sm: 0 2px 8px rgba(94, 234, 212, 0.08);
+    --shadow-md: 0 4px 16px rgba(94, 234, 212, 0.12);
+    --shadow-lg: 0 8px 32px rgba(94, 234, 212, 0.16);
+}
+
+.module-header {
+    margin-bottom: 1.25rem;
+    padding: 20px 0 10px 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    border-left: none;
+    border-bottom: 1px solid #e8ecf1;
+    animation: fadeIn 0.6s ease-out;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.module-header h2 {
+    color: #1F2937;
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.module-header p {
+    color: #00B3A4;
+    font-size: 15px;
+    margin: 0.25rem 0 0 0;
+}
+
+.profile-settings-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden;
+}
+
+.profile-settings-wrapper label {
+    text-transform: none !important;
+    font-weight: normal !important;
+}
+
+.profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 2rem 2rem 0;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-header {
+    background: #357bef;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow-lg);
+    animation: slideDown 0.8s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.profile-header h1 {
+    color: white;
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-header p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-size: 1.125rem;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-picture-section {
+    display: flex;
+    flex-direction: row;
+    /* Desktop default */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding: 1.25rem;
+    background: #F5F7F8;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 1.25rem;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.profile-picture-wrapper {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--teal-primary);
+    box-shadow: 0 8px 24px rgba(94, 234, 212, 0.3);
+    transition: all 0.4s ease;
+    animation: profilePulse 3s ease-in-out infinite;
+}
+
+@keyframes profilePulse {
+
+    0%,
+    100% {
+        box-shadow: 0 8px 24px rgba(94, 234, 212, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 12px 32px rgba(94, 234, 212, 0.5);
+    }
+}
+
+.profile-picture-wrapper:hover {
+    transform: scale(1.05);
+    border-color: var(--teal-medium);
+}
+
+.profile-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upload-button {
+    background: #236fee;
+    color: #1f2937;
+    border: none;
+    padding: 0.875rem 1.75rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.upload-button:hover {
+    background: #1a4fa8;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.upload-button i {
+    font-size: 1.125rem;
+}
+
+.tab-navigation {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    background: white;
+    padding: 0.75rem 0.75rem 0.75rem 0;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    animation: slideUp 0.8s ease-out 0.2s both;
+    overflow-x: auto;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-button {
+    flex: 1;
+    min-width: 150px;
+    padding: 0.875rem 1.5rem;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #1f2937;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.tab-button i {
+    font-size: 1.125rem;
+}
+
+.tab-button:hover {
+    background: rgba(94, 234, 212, 0.1);
+    color: var(--teal-accent);
+}
+
+.tab-button.active {
+    background: #357bef;
+    color: #1f2937;
+    box-shadow: var(--shadow-md);
+    animation: tabPop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes tabPop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.form-section {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem 2rem 2rem 0;
+    box-shadow: var(--shadow-md);
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.form-label {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.form-label i {
+    color: var(--teal-primary);
+    font-size: 1.125rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 0.875rem 12px 0.875rem 12px !important;
+    font-size: 0.9375rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #F5F7F8;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    color: #1e293b;
+    box-sizing: border-box;
+    margin: 0;
+    text-indent: 0 !important;
+}
+
+/* Scoped to profile page only — overrides Leave.css global !important rules */
+.profile-settings-wrapper input,
+.profile-settings-wrapper select,
+.profile-settings-wrapper textarea,
+.profile-settings-wrapper .react-datepicker__input-container input {
+    padding-left: 12px !important;
+    text-indent: 0px !important;
+    border-radius: 8px !important;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--teal-primary);
+    box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.1);
+    background-color: #F5F7F8;
+}
+
+.form-input:read-only {
+    background-color: #F5F7F8;
+    cursor: not-allowed;
+}
+
+.form-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Profile page buttons — scoped to override Leave.css global !important */
+.profile-settings-wrapper .btn-primary,
+.profile-settings-wrapper .btn-secondary {
+    padding: 0.875rem 1.75rem !important;
+    border-radius: 8px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+.profile-settings-wrapper .btn-primary {
+    background: #357bef !important;
+    color: white !important;
+    border: none !important;
+}
+
+.profile-settings-wrapper .btn-primary:hover {
+    background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+.profile-settings-wrapper .btn-secondary {
+    background: white !important;
+    color: var(--teal-accent) !important;
+    border: 2px solid var(--teal-primary) !important;
+}
+
+.profile-settings-wrapper .btn-secondary:hover {
+    background: rgba(94, 234, 212, 0.1) !important;
+    transform: translateY(-2px) !important;
+}
+
+.profile-settings-wrapper .btn-primary i,
+.profile-settings-wrapper .btn-secondary i {
+    font-size: 1.125rem;
+}
+
+/* Table container — scoped to profile page to override Leave.css !important */
+.profile-settings-wrapper .table-container {
+    width: 100% !important;
+    overflow-x: auto !important;
+    position: relative !important;
+    border-radius: 8px !important;
+    border: none !important;
+}
+
+.insurance-table {
+    width: 100%;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+
+    table-layout: fixed;
+
+    box-shadow: none !important;
+    animation: none;
+}
+
+@keyframes tableSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.insurance-table thead {
+    background: #629af1;
+}
+
+.insurance-table th {
+    padding: 1rem;
+    text-align: left;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    border-radius: 0;
+}
+
+.insurance-table th:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.insurance-table th:last-child {
+    border-radius: 0 8px 8px 0;
+}
+
+.insurance-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.insurance-table tbody tr:hover {
+    background: rgba(94, 234, 212, 0.05);
+}
+
+.insurance-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.success-message,
+.error-message {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    animation: messageSlide 0.5s ease-out;
+}
+
+@keyframes messageSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error-message {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.success-message i,
+.error-message i {
+    font-size: 1.5rem;
+}
+
+/* Tabs Wrapper with Arrows */
+.tabs-wrapper {
+    position: relative;
+    padding: 0 10px;
+    background: #fff;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e8ecf1;
+    display: flex;
+    align-items: center;
+}
+
+.tabs-scroll-container {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    flex-grow: 1;
+    white-space: nowrap;
+    margin-top: 20px;
+}
+
+.tabs-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-item {
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+.scroll-btn {
+    display: none;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #64748b;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.scroll-btn:hover {
+    background: #f1f5f9;
+    color: #14b8a6;
+}
+
+@media (max-width: 768px) {
+
+    .profile-container,
+    .profile-settings-wrapper {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    /* Target the content area specifically to give it padding */
+    .profile-settings-wrapper>div:not(.tabs-wrapper) {
+        padding: 1rem !important;
+    }
+
+    .profile-picture-section {
+        border-radius: 8px !important;
+        padding: 1rem !important;
+        margin-bottom: 0.75rem !important;
+        flex-direction: column !important;
+        /* Stack on mobile */
+    }
+
+    .profile-header h1 {
+        font-size: 1.4rem !important;
+    }
+
+    .module-header {
+        border-radius: 0 !important;
+        margin-bottom: 0.75rem !important;
+        padding: 14px 0 8px 0 !important;
+        border-left: none !important;
+        border-bottom: 1px solid #e8ecf1 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .module-header h2 {
+        font-size: 30px !important;
+    }
+
+    .module-header p {
+        font-size: 15px !important;
+    }
+
+    /* Force all grids to single column on mobile */
+    div[style*="display: grid"],
+    div[style*="display:grid"] {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    /* Reset grid column spans to prevent overflow */
+    div[style*="grid-column"] {
+        grid-column: span 1 !important;
+    }
+
+    /* Prevent tabs and their wrapper from stacking vertically */
+    .tabs-wrapper,
+    .tabs-scroll-container,
+    .tabs-scroll-container button {
+        flex-direction: row !important;
+    }
+
+    .scroll-btn {
+        display: flex !important;
+    }
+
+    /* Force other flex containers to stack vertically for form fields */
+    .action-buttons {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        align-items: stretch !important;
+    }
+
+    .tab-item {
+        padding: 8px 12px !important;
+        font-size: 13px !important;
+        white-space: nowrap !important;
+        height: auto !important;
+    }
+
+    /* Table optimization for mobile */
+    .table-container {
+        display: block;
+        width: 100%;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        margin-bottom: 2rem;
+        border: 1px solid #eee;
+        padding-bottom: 5px;
+        /* Space for scrollbar */
+        scrollbar-width: thin;
+        scrollbar-color: var(--teal-medium) #f1f5f9;
+    }
+
+    /* Custom scrollbar for mobile table */
+    .table-container::-webkit-scrollbar {
+        height: 10px !important;
+        display: block !important;
+        -webkit-appearance: none;
+    }
+
+    .table-container::-webkit-scrollbar-track {
+        background: #f1f5f9 !important;
+        border-radius: 8px !important;
+        border: 1px solid #e2e8f0;
+    }
+
+    .table-container::-webkit-scrollbar-thumb {
+        background: var(--teal-medium) !important;
+        border-radius: 8px !important;
+        border: 2px solid #f1f5f9;
+    }
+
+    .table-container::-webkit-scrollbar-thumb:hover {
+        background: var(--teal-accent) !important;
+    }
+
+
+    .insurance-table {
+        min-width: 600px;
+        /* Force minimum width to trigger scroll */
+        table-layout: auto !important;
+        /* Allow columns to take necessary space */
+    }
+
+
+    .insurance-table th,
+    .insurance-table td {
+        padding: 12px 10px !important;
+        font-size: 13px !important;
+        white-space: nowrap !important;
+        /* Force width to trigger scroll */
+    }
+
+
+    /* Button and Input sizing */
+    .btn-primary,
+    .btn-secondary {
+        width: 100% !important;
+        padding: 0.6rem !important;
+        font-size: 0.95rem !important;
+        border-radius: 8px !important;
+        justify-content: center !important;
+    }
+
+    input,
+    select,
+    textarea {
+        padding: 0.6rem !important;
+        font-size: 16px !important;
+        /* Prevents auto-zoom on iOS */
+    }
+
+    div[style*="flex: 1"] {
+        width: 100% !important;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #357bef;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+}
+
+.react-datepicker-input {
+    width: 100%;
+    padding: 8px 6px 8px 12px !important;
+    font-size: 0.9375rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #F5F7F8;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    color: #1e293b;
+    box-sizing: border-box;
+    margin: 0;
+    text-indent: 0 !important;
+}
+
+.react-datepicker-input:focus {
+    outline: none;
+    border-color: var(--teal-primary);
+    box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.1);
+}
+
+.react-datepicker-popper {
+    z-index: 9999 !important;
+}
+
+.react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle {
+    border-bottom-color: var(--teal-primary) !important;
+}
+
+.react-datepicker__month-container {
+    background: white !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    padding: 10px !important;
+}
+
+.react-datepicker {
+    border-radius: 8px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: var(--shadow-lg) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.react-datepicker__header {
+    background: #357bef !important;
+    border-bottom: none !important;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+
+    padding: 15px 0 !important;
+    position: relative !important;
+    display: block !important;
+
+}
+
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header {
+    color: white !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    margin: 0 !important;
+    text-align: center !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+.react-datepicker__day-name {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 600 !important;
+    width: 2.5rem !important;
+    line-height: 2.5rem !important;
+    margin: 0.2rem !important;
+}
+
+.react-datepicker__day {
+    width: 2.5rem !important;
+    line-height: 2.5rem !important;
+    margin: 0.2rem !important;
+    border-radius: 8px !important;
+    color: #1e293b !important;
+    font-weight: 500 !important;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+    background: var(--teal-accent) !important;
+    color: white !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 6px rgba(20, 184, 166, 0.2);
+}
+
+.react-datepicker__navigation {
+    top: 15px !important;
+    position: absolute !important;
+    z-index: 10 !important;
+}
+
+.react-datepicker__navigation--previous {
+    left: 10px !important;
+}
+
+.react-datepicker__navigation--next {
+    right: 10px !important;
+}
+
+.react-datepicker__navigation-icon::before {
+    border-color: white !important;
+}
+
+.react-datepicker__month-container {
+    background: white !important;
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+}
+
+.react-datepicker__day:hover {
+    background-color: var(--teal-light) !important;
+}
+
+.react-datepicker-popper {
+    z-index: 9999 !important;
+}
+
+.react-datepicker {
+    z-index: 9999 !important;
+}
+
+/* Table container scrollbar styling for mobile */
+@media (max-width: 768px) {
+    .table-container {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: var(--teal-medium) #f1f5f9;
+    }
+    
+    .table-container::-webkit-scrollbar {
+        height: 10px !important;
+        display: block !important;
+    }
+    
+    .table-container::-webkit-scrollbar-track {
+        background: #f1f5f9 !important;
+        border-radius: 8px !important;
+        border: 1px solid #e2e8f0;
+    }
+    
+    .table-container::-webkit-scrollbar-thumb {
+        background: var(--teal-medium) !important;
+        border-radius: 8px !important;
+        border: 2px solid #f1f5f9;
+    }
+    
+    .table-container::-webkit-scrollbar-thumb:hover {
+        background: var(--teal-accent) !important;
+    }
+}
+.insurance-table input,
+.insurance-table select {
+    border-radius: 8px !important;
+}
+
+/* Already handled in scoped selectors above — this block is intentionally removed to avoid duplication */

@@ -1,0 +1,232 @@
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: normal;
+  font-size: 28px;
+  color: #222;
+}
+
+.draftss-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0;
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+.draftss-table th,
+.draftss-table td {
+  border: 1px solid #ddd;
+  padding: 14px 12px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 15px;
+  color: #333;
+}
+
+.draftss-table th,
+.columns-header th {
+  background: #629AF1 !important;
+  color: white !important;
+  font-weight: normal;
+  border: none !important;
+  padding: 16px 12px;
+}
+
+.drafts-table td {
+  background-color: transparent;
+}
+
+.status {
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 13px;
+  font-weight: normal;
+  display: inline-block;
+  min-width: 90px;
+  text-align: center;
+}
+
+.status.pending {
+  background-color: #FFC107;
+  color: white;
+}
+
+.status.approved {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.status.rejected {
+  background-color: #F44336;
+  color: white;
+}
+
+.add-new-link {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  color: #007BFF;
+  font-weight: normal;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.add-new-link:hover {
+  text-decoration: underline;
+}
+
+table td,
+table th {
+  vertical-align: middle;
+}
+
+.drafts-table td button {
+  margin-right: 10px;
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.action-buttons button {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.approve-btn {
+  background-color: #4caf50;
+}
+
+.reject-btn {
+  background-color: #f44336;
+}
+
+.download-btn {
+  background-color: #2196f3;
+}
+
+.action-buttons button:hover {
+  opacity: 0.9;
+}
+
+.tableas-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.tableas-scroll::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+}
+
+.draftss-table thead th {
+  position: sticky;
+  top: 0;
+  background: #629AF1 !important;
+  color: white;
+  z-index: 2;
+  border: none !important;
+  text-align: center;
+}
+
+.transparent-table {
+  background-color: transparent !important;
+  border-collapse: collapse;
+}
+
+.transparent-table tbody,
+.transparent-table tr,
+.transparent-table td {
+  background-color: transparent !important;
+}
+
+.draftss-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0;
+  word-wrap: break-word;
+}
+
+.draftss-table td {
+  border: none;
+  border-bottom: 1px solid #f1f5f9;
+  padding: 16px 12px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 15px;
+  color: #334155;
+}
+
+.tableas-scroll {
+  height: calc(100vh - 250px);
+  overflow-y: auto;
+  overflow-x: auto;
+  margin-top: 0px;
+  width: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+@media (max-width: 1024px) {
+  .tableas-scroll {
+    max-height: 60vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .tableas-scroll {
+    max-height: 70vh;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+    width: 100%;
+    overflow-x: auto !important;
+    scrollbar-width: thin !important;
+  }
+
+  .draftss-table {
+    width: 100%;
+    min-width: 850px;
+  }
+
+  .draftss-table th,
+  .draftss-table td {
+    padding: 10px 8px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .draftss-table {
+    min-width: 750px;
+  }
+}
+.view-claim-btn {
+  background: #00B3A4;
+  color: #ffffff;
+  border: 1px solid #00B3A4;
+  padding: 6px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: normal;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.view-claim-btn:hover {
+  background: #009B8D;
+  color: white;
+  border-color: #009B8D;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 179, 164, 0.2);
+}

@@ -1,0 +1,2324 @@
+/* =========================================
+LEAVE MANAGEMENT MODULE - PREMIUM EDITION
+Theme: Luxury Teal with Glassmorphism
+========================================= */
+
+:root {
+    /* Premium Teal Palette */
+    --teal-50: #f0fdfa;
+    --teal-100: #ccfbf1;
+    --teal-200: #99f6e4;
+    --teal-300: #5eead4;
+    --teal-400: #2dd4bf;
+    --teal-500: #14b8a6;
+    --teal-600: #0d9488;
+    --teal-700: #0f766e;
+
+    /* Premium Navy/Slate */
+    --navy-900: #0f172a;
+    --navy-800: #1e293b;
+    --navy-700: #334155;
+    --slate-600: #475569;
+    --slate-500: #64748b;
+    --slate-400: #94a3b8;
+    --slate-300: #cbd5e1;
+    --slate-200: #e2e8f0;
+    --slate-100: #f1f5f9;
+    --slate-50: #f8fafc;
+
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.18);
+
+    /* Premium Shadows */
+    --shadow-premium-sm: 0 2px 8px rgba(45, 212, 191, 0.08), 0 1px 4px rgba(0, 0, 0, 0.03);
+    --shadow-premium-md: 0 8px 24px rgba(45, 212, 191, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
+    --shadow-premium-lg: 0 16px 48px rgba(45, 212, 191, 0.15), 0 8px 24px rgba(0, 0, 0, 0.08);
+    --shadow-premium-xl: 0 24px 64px rgba(45, 212, 191, 0.18), 0 12px 32px rgba(0, 0, 0, 0.1);
+
+    /* Status Colors */
+    --status-success: #10b981;
+    --status-warning: #f59e0b;
+    --status-error: #ef4444;
+    --status-info: #3b82f6;
+}
+
+/* Premium Layout */
+.leave-container {
+    max-height: calc(100vh - 100px);
+    /* Matching Help Desk layout height */
+    /* Internal scroll to prevent sidebar header overlap */
+    /* Internal scroll matching Help Desk logic */
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: transparent !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 20px 40px 20px;
+    /* Removed top padding to match Help Desk alignment precisely */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(45, 212, 191, 0.3) transparent;
+}
+
+.leave-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.leave-container::-webkit-scrollbar-thumb {
+    background: rgba(45, 212, 191, 0.3);
+    border-radius: 0;
+}
+
+/* Subtle animated background pattern */
+.leave-container::before {
+    display: none;
+}
+
+.leave-content-wrapper {
+    flex: 0 0 auto;
+    padding: 0;
+    /* Horizontal padding moved to container to match Help Desk layout */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    overflow: visible !important;
+    /* Allow children like tabs to lift/glow without clipping */
+}
+
+/* Premium Header - Matching Help Desk Exactly */
+.page-header {
+    padding: 20px 0 10px 0;
+    /* Exact Help Desk header padding */
+    border-bottom: 1px solid #e8ecf1;
+    /* Restored border to match Help Desk precisely */
+    animation: slideDown 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 12px;
+    /* Created space between title line and tabs to match Help Desk exactly */
+    z-index: 2;
+}
+
+.page-title {
+    font-size: 30px;
+    font-weight: 400;
+    color: #1F2937;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Remove the old before icon */
+.page-title::before {
+    display: none !important;
+}
+
+.page-subtitle {
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Premium Tabs - Matching Help Desk Exactly */
+.leave-tabs {
+    display: flex;
+    gap: 0;
+    padding: 0;
+    background: #0B3D91;
+    border-bottom: none;
+    margin-bottom: 24px;
+    margin-top: 0;
+    width: 100%;
+    overflow: hidden !important;
+    white-space: nowrap;
+    border-radius: 8px;
+}
+
+.leave-tab-btn {
+    cursor: pointer;
+    padding: 0 30px;
+    height: 48px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    white-space: nowrap;
+    flex: 0 0 25%;
+    width: 25%;
+    position: relative;
+    z-index: 3;
+    line-height: 1;
+}
+
+/* Remove old pseudo icons */
+.leave-tab-btn::before {
+    display: none !important;
+}
+
+/* Handle inline SVG icons in tabs */
+.leave-tab-btn svg {
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+/* Apply for Leave - Plus Circle Icon like Help Desk */
+.leave-tab-btn.tab-apply::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cline x1='12' y1='8' x2='12' y2='16'%3E%3C/line%3E%3Cline x1='8' y1='12' x2='16' y2='12'%3E%3C/line%3E%3C/svg%3E");
+}
+
+/* Drafts - File Icon */
+.leave-tab-btn.tab-drafts::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'%3E%3C/path%3E%3Cpolyline points='14 2 14 8 20 8'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+/* History - Clock Icon like Help Desk */
+.leave-tab-btn.tab-history::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpolyline points='12 6 12 12 16 14'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+/* My Tasks - Check Circle Icon matching My Tasks in Help Desk */
+.leave-tab-btn.tab-tasks::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'%3E%3C/path%3E%3Cpolyline points='22 4 12 14.01 9 11.01'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+/* Balances - Wallet/Credit Card Icon */
+.leave-tab-btn.tab-balances::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='1' y='4' width='22' height='16' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='1' y1='10' x2='23' y2='10'%3E%3C/line%3E%3C/svg%3E");
+}
+
+/* Policy Requests - Shield Icon */
+.leave-tab-btn.tab-policy::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.leave-tab-btn:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.leave-tab-btn:hover:not(.active) svg {
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.leave-tab-btn.active svg {
+    color: #ffffff;
+}
+
+.leave-tab-btn.active {
+    color: #ffffff;
+    background: #1F6FEB;
+    box-shadow: none;
+    transform: none;
+    font-weight: 700;
+}
+
+/* Tab Navigation Arrows */
+.leave-tabs-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.tab-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    color: #64748b;
+}
+
+.tab-arrow:hover {
+    background: #f8fafc;
+    border-color: #2dd4bf;
+    color: #14b8a6;
+    box-shadow: 0 4px 12px rgba(45, 212, 191, 0.2);
+}
+
+.tab-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.tab-arrow-left {
+    left: 0;
+}
+
+.tab-arrow-right {
+    right: 0;
+}
+
+.tab-arrow svg {
+    flex-shrink: 0;
+}
+
+/* Premium Glass Cards */
+.leave-card {
+    background: transparent;
+    backdrop-filter: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0 0 1.25rem 0;
+    border: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    animation: fadeIn 0.6s ease-out 0.2s both;
+}
+
+.leave-card:hover {
+    box-shadow: none;
+    border-color: transparent;
+    transform: none;
+}
+
+.leave-card-title {
+    display: none;
+    /* Removed redundant internal header */
+}
+
+/* Premium Balance Grid */
+.balance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding-bottom: 1rem;
+    overflow-y: auto;
+}
+
+.balance-item {
+    background: transparent;
+    /* Removed 'card' background for flat Help Desk look */
+    backdrop-filter: none;
+    padding: 1.25rem;
+    border-radius: 0;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    /* Simple elegant border instead of card */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: none;
+    /* No cards */
+    position: relative;
+    overflow: hidden;
+}
+
+.balance-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal-500) 0%, var(--teal-300) 100%);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.balance-item:hover {
+    border-color: var(--teal-300);
+    transform: none;
+    box-shadow: var(--shadow-premium-sm);
+}
+
+.balance-item:hover::before {
+    transform: scaleX(1);
+}
+
+.balance-label {
+    font-size: 0.75rem;
+    color: var(--slate-500);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+}
+
+.balance-value {
+    font-size: 2.25rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--teal-600) 0%, var(--teal-400) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.balance-total {
+    font-size: 0.8125rem;
+    color: var(--slate-500);
+    font-weight: 500;
+}
+
+/* Premium Forms */
+.leave-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+.leave-form-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 8px;
+    padding-bottom: 1rem;
+}
+
+.leave-form-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.leave-form-scroll::-webkit-scrollbar-track {
+    background: var(--slate-100);
+    border-radius: 0;
+}
+
+.leave-form-scroll::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--teal-400) 0%, var(--teal-500) 100%);
+    border-radius: 0;
+}
+
+.leave-form-scroll::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--teal-500) 0%, var(--teal-600) 100%);
+}
+
+.leave-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.leave-form-grid.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.leave-form-full {
+    grid-column: span 3;
+}
+
+.leave-form-grid.grid-4 .leave-form-full {
+    grid-column: span 4;
+}
+
+.leave-form-2 {
+    grid-column: span 2;
+}
+
+/* Policy Note Banner - For Static UI */
+.policy-note-container {
+    background: #629AF1;
+    border-left: 5px solid #0B3D91;
+    padding: 10px 20px;
+    border-radius: 8px !important;
+    margin-bottom: 24px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    animation: fadeIn 0.5s ease-out;
+    border: 1px solid #629AF1;
+    box-shadow: none;
+}
+
+.policy-note-icon {
+    background: white;
+    color: #629AF1;
+    min-width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.policy-note-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+}
+
+.leave-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.leave-label {
+    font-size: 0.875rem;
+    font-weight: normal;
+    color: #1F2937;
+    /* Matching Help Desk label color */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: none;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+
+
+.leave-input,
+.leave-select,
+.leave-textarea {
+    padding: 10px 14px;
+    border: 2px solid #99f6e4;
+    /* Matching Help Desk border */
+    border-radius: 8px !important;
+    /* Matching Help Desk radius */
+    font-size: 14px;
+    color: #0f172a;
+    background: #ffffff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    font-family: inherit;
+    height: 45px;
+    box-sizing: border-box;
+}
+
+.leave-input:hover,
+.leave-select:hover,
+.leave-textarea:hover {
+    border-color: #5eead4;
+    background: white;
+}
+
+.leave-input:focus,
+.leave-select:focus,
+.leave-textarea:focus {
+    outline: none;
+    border-color: #14b8a6;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.1);
+    transform: translateY(-1px);
+}
+
+.leave-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Premium Buttons */
+.leave-card-actions {
+    position: sticky;
+    bottom: 0;
+    background: transparent;
+    /* Removed 'white card' footer background */
+    padding: 20px 0 0 0;
+    border-top: none;
+    /* Removed line above buttons */
+    margin-top: auto;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.btn-primary {
+    background: #00b3a4;
+    color: white;
+    padding: 10px 22px !important;
+    border-radius: 8px !important;
+    font-weight: 700;
+    font-size: 14px !important;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn-primary:hover {
+    background: #00998c;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.leave-container .btn-secondary {
+    background: #ffffff !important;
+    color: #00b3a4 !important;
+    border: 2px solid #00b3a4 !important;
+    padding: 10px 22px !important;
+    border-radius: 8px !important;
+    font-weight: 700;
+    font-size: 14px !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+.leave-container .btn-secondary:hover {
+    background: #00b3a4 !important;
+    border-color: #00b3a4 !important;
+    color: #ffffff !important;
+    transform: none;
+    box-shadow: none;
+}
+
+.leave-container .btn-secondary:active {
+    transform: translateY(0);
+}
+
+.leave-container .btn-cancel {
+    background: #ffffff !important;
+    color: #00b3a4 !important;
+    border: 2px solid #00b3a4 !important;
+    padding: 10px 22px !important;
+    border-radius: 8px !important;
+    font-weight: 700;
+    font-size: 14px !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+.leave-container .btn-cancel:hover {
+    background: #00b3a4 !important;
+    border-color: #00b3a4 !important;
+    color: #ffffff !important;
+    transform: none;
+    box-shadow: none;
+}
+
+.leave-container .btn-cancel:active {
+    transform: translateY(0);
+}
+
+/* Premium Tables - Corporate Flat Style */
+.table-container,
+.leave-table-wrapper {
+    overflow: hidden;
+    background: white;
+    border-radius: 8px !important;
+    border: 1.5px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    margin-top: 1rem;
+}
+
+.leave-main-table,
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+    background: transparent;
+    /* Removed white table card */
+}
+
+.leave-main-table thead,
+.data-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.leave-main-table th,
+.data-table th {
+    background: #629af1 !important;
+    /* Force theme color for headers */
+    color: #ffffff !important;
+    font-weight: 600;
+    text-align: left;
+    padding: 1rem;
+    font-size: 0.9375rem;
+    text-transform: none;
+    letter-spacing: normal;
+    border-bottom: 2px solid #508be3;
+    border-right: none;
+    white-space: nowrap;
+}
+
+.leave-main-table th:last-child,
+.data-table th:last-child {
+    border-right: none;
+}
+
+.leave-main-table td,
+.data-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    border-right: none;
+    color: #334155;
+    font-size: 0.875rem;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+.leave-main-table td:last-child,
+.data-table td:last-child {
+    border-right: none;
+}
+
+.leave-main-table tr:hover td,
+.data-table tr:hover td {
+    background-color: #f0fdf9;
+    /* Very light teal highlight */
+}
+
+.leave-main-table tr:last-child td,
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Premium Status Badges */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.375rem 0.875rem;
+    border-radius: 8px !important;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: normal;
+    gap: 0.375rem;
+}
+
+.status-badge::before {
+    display: none;
+}
+
+.status-badge.pending {
+    background: #fffbeb;
+    color: #92400e;
+    border: none;
+}
+
+.status-badge.pending::before {
+    background: #d97706;
+}
+
+.status-badge.approved {
+    background: #f0fdf4;
+    color: #166534;
+    border: none;
+}
+
+.status-badge.approved::before {
+    background: #22c55e;
+}
+
+.status-badge.rejected {
+    background: #fef2f2;
+    color: #991b1b;
+    border: none;
+}
+
+.status-badge.rejected::before {
+    background: #ef4444;
+}
+
+.status-badge.cancelled {
+    background: #f1f5f9;
+    color: #475569;
+    border: none;
+}
+
+.status-badge.cancelled::before {
+    background: #64748b;
+}
+
+/* Utilities */
+.text-center {
+    text-align: center;
+}
+
+.error-msg {
+    color: var(--status-error);
+    font-size: 0.8125rem;
+    margin-top: 0.375rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+/* When error-msg is used for asterisk inside labels, make it inline */
+.leave-label .error-msg {
+    display: inline;
+    margin: 0;
+    margin-left: 2px;
+}
+
+.success-msg {
+    color: var(--status-success);
+    font-size: 0.8125rem;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.helper-text {
+    font-size: 0.75rem;
+    color: var(--slate-500);
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS - COMPREHENSIVE
+   ========================================= */
+@media (max-width: 768px) {
+
+    /* Container and Layout - Remove Nested Scrolls and Optimize Height */
+    .leave-container {
+        padding: 0 16px 40px 16px;
+        /* Reduced bottom padding since buttons are now in page flow */
+        max-height: none !important;
+        height: auto !important;
+        overflow: visible !important;
+        display: block !important;
+    }
+
+    .leave-content-wrapper {
+        padding: 0;
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    /* Header Mobile Optimization */
+    .page-header {
+        padding: 16px 0 12px 0;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 20px;
+        align-items: flex-start;
+        border-bottom: 1px solid #f1f5f9;
+        width: 100%;
+    }
+
+    .page-title {
+        font-size: 24px;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .page-title svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .page-subtitle {
+        font-size: 13px;
+        display: block;
+        margin-top: 4px;
+        width: 100%;
+    }
+
+    /* Tabs Mobile Optimization */
+    .leave-tabs-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .tab-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        background: rgba(11, 61, 145, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: none;
+        transition: all 0.3s ease;
+        color: #ffffff;
+    }
+
+    .tab-arrow:active {
+        transform: translateY(-50%) scale(0.9);
+        box-shadow: 0 1px 4px rgba(45, 212, 191, 0.2);
+    }
+
+    .tab-arrow-left {
+        left: 0;
+    }
+
+    .tab-arrow-right {
+        right: 0;
+    }
+
+    .leave-tabs {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 0;
+        padding: 0 !important;
+        margin-bottom: 0;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scrollbar-width: none;
+        /* Hide scrollbar */
+        -webkit-overflow-scrolling: touch;
+        border-bottom: none;
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        background: #0B3D91 !important;
+        border-radius: 8px !important;
+    }
+
+    .leave-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .leave-tab-btn {
+        padding: 0 20px !important;
+        height: 44px !important;
+        font-size: 13px !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+        flex-grow: 0 !important;
+        flex-basis: auto !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        color: rgba(255, 255, 255, 0.8) !important;
+        min-width: max-content !important;
+        max-width: none !important;
+        width: auto !important;
+    }
+
+    .leave-tab-btn.active {
+        background: #1F6FEB !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+    }
+
+    .leave-tab-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .leave-tab-btn.active {
+        border: none;
+        box-shadow: 0 4px 12px rgba(94, 234, 212, 0.3);
+        background: linear-gradient(135deg, #5eead4 0%, #2dd4bf 100%);
+        color: white;
+    }
+
+    /* Card Mobile Optimization */
+    .leave-card {
+        padding: 0;
+        overflow: visible !important;
+        height: auto !important;
+        background: transparent;
+        box-shadow: none;
+        border: none;
+    }
+
+    /* Form Grid Mobile - Single Column */
+    .leave-form {
+        overflow: visible !important;
+        height: auto !important;
+        display: block !important;
+    }
+
+    .leave-form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding-bottom: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .leave-form-full {
+        width: 100%;
+    }
+
+    .leave-form-scroll {
+        padding-right: 0;
+        padding-bottom: 0;
+        overflow: visible !important;
+        flex: none;
+        height: auto !important;
+    }
+
+    .leave-form-group {
+        gap: 8px;
+        width: 100%;
+    }
+
+    /* Labels Mobile */
+    .leave-label {
+        font-size: 11px;
+        margin-bottom: 6px;
+        color: #0f766e;
+        /* Darker teal for contrast */
+        letter-spacing: 0.03em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Mobile-Optimized Inputs & Dropdowns */
+    .leave-input,
+    .leave-select,
+    .leave-textarea {
+        padding: 13px 16px !important;
+        font-size: 14px !important;
+        min-height: 50px !important;
+        line-height: 1.5 !important;
+        border-radius: 8px !important;
+        border: 2px solid #cbd5e1;
+        background-color: #fff;
+        width: 100%;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+    }
+
+    .leave-input:focus,
+    .leave-select:focus,
+    .leave-textarea:focus {
+        border-color: #14b8a6;
+        box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+        transform: none;
+    }
+
+    /* Custom Dropdown Arrow */
+    .leave-select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314b8a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-position: right 16px center;
+        background-size: 20px;
+        background-repeat: no-repeat;
+        appearance: none;
+        -webkit-appearance: none;
+        padding-right: 48px !important;
+        /* Ensure text doesn't overlap arrow */
+    }
+
+    /* Textarea Mobile */
+    .leave-textarea {
+        min-height: 100px !important;
+    }
+
+    /* DatePicker Mobile */
+    .react-datepicker-wrapper {
+        width: 100%;
+        display: block;
+    }
+
+    .react-datepicker__input-container {
+        display: block;
+        width: 100%;
+    }
+
+    .react-datepicker__input-container input {
+        font-size: 16px !important;
+        padding: 14px 16px !important;
+        min-height: 50px !important;
+        width: 100%;
+        border-radius: 8px !important;
+        border: 1px solid #cbd5e1;
+        box-sizing: border-box;
+    }
+
+    .react-datepicker-popper {
+        z-index: 9999 !important;
+    }
+
+    .react-datepicker {
+        font-size: 1rem !important;
+        border: none;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        border-radius: 0;
+        width: 100%;
+    }
+
+    .react-datepicker__header {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        padding-top: 16px;
+    }
+
+    .react-datepicker__month-container {
+        width: 100%;
+    }
+
+    .react-datepicker__day-name,
+    .react-datepicker__day,
+    .react-datepicker__time-name {
+        width: 2.5rem !important;
+        line-height: 2.5rem !important;
+        margin: 0.2rem;
+    }
+
+    /* File Upload */
+    input[type="file"]+label,
+    .file-upload-label {
+        padding: 12px 16px !important;
+        font-size: 13px !important;
+        min-height: 44px !important;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        background-color: #f1f5f9;
+        border: 1px dashed #cbd5e1;
+        color: #475569;
+        justify-content: center;
+        border-radius: 0;
+    }
+
+    /* Buttons Mobile - Directly on page (not fixed) */
+    .leave-card-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        /* Forces vertical stack in HTML order */
+        gap: 12px !important;
+        padding: 16px 0 20px 0 !important;
+        position: relative !important;
+        width: 100% !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        margin: 16px 0 0 0 !important;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 12px !important;
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        min-height: 44px !important;
+        width: 100%;
+        border-radius: 8px !important;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+    }
+
+    /* Ensure primary button pops */
+    .btn-primary {
+        box-shadow: none !important;
+    }
+
+    /* Balance Grid Mobile */
+    .balance-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding-bottom: 20px;
+        overflow: visible !important;
+        height: auto !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .balance-item {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .balance-item h4 {
+        margin-bottom: 8px;
+        font-size: 13px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+
+    .balance-value {
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+
+    .balance-total,
+    .helper-text {
+        display: none !important;
+        /* Clean layout */
+    }
+
+    /* Tables Mobile Generic */
+    .table-container,
+    .leave-table-wrapper {
+        margin-top: 16px;
+        border-radius: 0;
+        overflow-x: auto;
+        border: 1px solid #e2e8f0;
+        box-shadow: none;
+        width: 100%;
+        display: block;
+        white-space: nowrap;
+        background: white;
+    }
+
+    .leave-main-table {
+        width: 100%;
+        min-width: 650px;
+        border: none;
+    }
+
+    /* Modals Mobile */
+    .leave-modal,
+    div[role="dialog"] {
+        width: 92% !important;
+        max-width: 92% !important;
+        height: auto !important;
+        max-height: 85vh !important;
+        padding: 20px !important;
+    }
+
+    /* Global Reset for Content Wrapper on Mobile */
+    .leave-history-container,
+    .leave-content-wrapper>div {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    /* Checkbox Alignment */
+    input[type="checkbox"] {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* =========================================
+DRAFTS SECTION - COMPACT & PREMIUM
+========================================= */
+
+/* Remove vertical spacing and align to top */
+.leave-content-wrapper>div[style*="minHeight"] {
+    min-height: auto !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    justify-content: flex-start !important;
+}
+
+/* Additional aggressive spacing removal for all nested divs */
+.leave-content-wrapper>div,
+.leave-content-wrapper>div>div {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Force all flex containers to top */
+div[style*="flexDirection: 'column'"][style*="marginTop"],
+div[style*="display: 'flex'"][style*="flexDirection"],
+div[style*="marginLeft: \"0px\""] {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    gap: 0 !important;
+}
+
+/* Remove spacing from table wrappers */
+div[style*="borderRadius: '8px'"],
+div[style*="overflowX: 'auto'"][style*="overflowY"] {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* History Container - Zero spacing */
+.leave-history-container {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* History Table Wrapper - Zero spacing */
+.leave-table-wrapper {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Target minHeight variations */
+div[style*="minHeight: \"50vh\""],
+div[style*="minHeight: '50vh'"],
+div[style*="min-height: 50vh"],
+div[style*="marginTop: '0'"][style*="paddingTop: '0'"] {
+    min-height: 0 !important;
+    max-height: none !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+}
+
+/* Override any flex centering in parent containers */
+.leave-content-wrapper>div[style*="display: 'flex'"],
+.leave-content-wrapper>div[style*="display: \"flex\""],
+div[style*="flexDirection: 'column'"],
+div[style*="flexDirection: \"column\""] {
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    align-content: flex-start !important;
+}
+
+/* Force History and Drafts containers to top */
+.leave-history-container,
+.leave-history-container>div,
+div[style*="marginLeft: \"0px\""]>div {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* UNIVERSAL OVERRIDE - Force ALL children to top */
+/* Full Page Table Layouts */
+.full-page-table-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 0;
+}
+
+.table-content-area {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.leave-content-wrapper>* {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+}
+
+/* Force all nested divs */
+.leave-content-wrapper>div>* {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Remove min-height from all divs */
+.leave-content-wrapper div {
+    min-height: 0 !important;
+}
+
+/* Position wrapper and first child */
+.leave-content-wrapper {
+    position: relative !important;
+}
+
+.leave-content-wrapper>div:first-child {
+    position: relative !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Search Bar Container - Centered Positioning */
+.tasks-controls-bar {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    margin-bottom: 24px;
+    margin-top: 8px;
+    padding: 0;
+    gap: 1rem;
+    width: 100%;
+}
+
+/* Centered Search Positioning across all modules */
+.leave-history-container .tasks-controls-bar,
+.leave-history-container>.tasks-controls-bar,
+div[class*="tasks"] .tasks-controls-bar,
+div[class*="team"] .tasks-controls-bar {
+    justify-content: center !important;
+    margin-bottom: 24px;
+}
+
+.search-wrapper {
+    position: relative;
+    flex: 0 1 auto;
+    max-width: 600px;
+    width: 50%;
+    min-width: 300px;
+    z-index: 10;
+    margin: 0 auto;
+}
+
+/* Premium Search Input */
+.task-search-input {
+    width: 100%;
+    padding: 0.5rem 0.875rem;
+    border: 1.5px solid var(--slate-200);
+    border-radius: 8px !important;
+    font-size: 0.8125rem;
+    color: var(--navy-700);
+    background: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: inherit;
+    box-shadow: var(--shadow-premium-sm);
+}
+
+.task-search-input::placeholder {
+    color: var(--slate-400);
+    font-weight: 500;
+}
+
+.task-search-input:hover {
+    border-color: var(--teal-300);
+    background: white;
+}
+
+.task-search-input:focus {
+    outline: none;
+    border-color: var(--teal-500);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.1), var(--shadow-premium-md);
+    transform: translateY(-1px);
+}
+
+/* Table Container - Remove Extra Spacing */
+.leave-main-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.875rem;
+    margin-top: 0;
+}
+
+/* Table Wrapper - Compact Spacing */
+div[style*="overflowX"][style*="overflowY"] {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+.leave-main-table thead tr {
+    background: #629af1 !important;
+    color: white;
+}
+
+.leave-main-table th {
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-transform: none;
+    letter-spacing: normal;
+    border: none;
+    border-bottom: 2px solid #508be3;
+    white-space: nowrap;
+    border-radius: 0 !important;
+}
+
+.leave-main-table th:first-child {
+    border-top-left-radius: 8px !important;
+}
+
+.leave-main-table th:last-child {
+    border-top-right-radius: 8px !important;
+}
+
+.leave-main-table tbody tr {
+    transition: all 0.2s ease;
+    border-bottom: 1px solid var(--slate-100);
+}
+
+.leave-main-table tbody tr:hover {
+    background: linear-gradient(90deg, rgba(45, 212, 191, 0.04) 0%, transparent 100%);
+}
+
+.leave-main-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.leave-main-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 0;
+}
+
+.leave-main-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 0;
+}
+
+.leave-main-table td {
+    padding: 0.875rem 1rem;
+    color: var(--navy-700);
+    border: none;
+    vertical-align: middle;
+}
+
+/* Action Buttons in Table */
+.leave-main-table button {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.leave-main-table button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-premium-sm);
+}
+
+/* No Drafts Message */
+.leave-main-table+div,
+div[style*="textAlign: 'center'"] {
+    padding: 3rem 1.5rem;
+    margin-top: 1rem;
+    background: linear-gradient(135deg, rgba(45, 212, 191, 0.03) 0%, transparent 100%);
+    border-radius: 0;
+    border: 2px dashed var(--slate-200);
+    color: var(--slate-500);
+    font-weight: 600;
+    font-size: 0.9375rem;
+}
+
+/* =========================================
+   DRAFTS & HISTORY MOBILE OPTIMIZATION
+   ========================================= */
+@media (max-width: 768px) {
+
+    /* Drafts/History Controls */
+    .tasks-controls-bar {
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 20px;
+        gap: 16px;
+    }
+
+    .search-wrapper {
+        max-width: 100%;
+        width: 100%;
+        min-width: auto;
+    }
+
+    .task-search-input {
+        font-size: 16px !important;
+        /* Prevents iOS zoom */
+        padding: 12px 16px !important;
+        min-height: 48px;
+        border-radius: 0;
+    }
+
+    /* Drafts/History Table Mobile - Consistent with Main Table */
+    .leave-main-table {
+        font-size: 0.8125rem;
+        min-width: 650px;
+    }
+
+    .leave-main-table th,
+    .leave-main-table td {
+        padding: 12px 14px;
+    }
+
+    .leave-main-table th {
+        font-size: 0.75rem;
+        padding: 12px 14px;
+    }
+
+    .leave-main-table td {
+        font-size: 0.8125rem;
+    }
+
+    /* Table buttons mobile */
+    .leave-main-table button {
+        padding: 10px 14px;
+        font-size: 0.8125rem;
+        min-height: 40px;
+        white-space: nowrap;
+        border-radius: 0;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+
+    /* Enhanced mobile table row styling */
+    .leave-main-table tbody tr {
+        border-bottom: 2px solid #f1f5f9;
+    }
+
+    .leave-main-table tbody tr:last-child {
+        border-bottom: none;
+    }
+
+    /* Mobile status badges */
+    .status-badge {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+        border-radius: 0;
+        font-weight: 600;
+        min-width: 80px;
+        text-align: center;
+    }
+
+    /* No data message mobile */
+    .leave-main-table+div,
+    .no-data-message {
+        padding: 2.5rem 1.5rem;
+        font-size: 0.9375rem;
+        margin-top: 1rem;
+        border-radius: 0;
+        text-align: center;
+        background: linear-gradient(135deg, rgba(45, 212, 191, 0.05) 0%, transparent 100%);
+        border: 2px dashed #cbd5e1;
+    }
+
+    /* Mobile-specific utility classes */
+    .mobile-hidden {
+        display: none !important;
+    }
+
+    .mobile-visible {
+        display: block !important;
+    }
+
+    .mobile-flex {
+        display: flex !important;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    /* Enhanced mobile search bar */
+    .mobile-search-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .mobile-search-input {
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 16px;
+        border: 2px solid #cbd5e1;
+        border-radius: 8px !important;
+        background: white;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-search-input:focus {
+        border-color: #14b8a6;
+        box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.1);
+        outline: none;
+    }
+}
+
+/* =========================================
+   DATEPICKER HOLIDAY & WEEKEND HIGHLIGHTING
+   ========================================= */
+
+/* Highlight holidays in green */
+.react-datepicker__day--highlighted-holiday {
+    background: linear-gradient(135deg, #fff7b3 0%, #ffffb3 100%) !important;
+    color: #065f46 !important;
+    font-weight: 700 !important;
+    border-radius: 50% !important;
+    position: relative;
+    cursor: not-allowed !important;
+}
+
+.react-datepicker__day--highlighted-holiday:hover {
+    background: linear-gradient(135deg, #fde047 0%, #facc15 100%) !important;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(250, 204, 21, 0.4);
+}
+
+/* ✅ Tooltip for holiday dates */
+.react-datepicker__day--highlighted-holiday::after {
+    content: 'Holiday';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 0;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 10000;
+    letter-spacing: 0.02em;
+}
+
+.react-datepicker__day--highlighted-holiday:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-4px);
+}
+
+/* ✅ Tooltip arrow for holidays */
+.react-datepicker__day--highlighted-holiday::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(2px);
+    border: 5px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 10001;
+}
+
+.react-datepicker__day--highlighted-holiday:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-2px);
+}
+
+/* Highlight weekends in red */
+.react-datepicker__day--highlighted-weekend {
+    background: linear-gradient(135deg, #ffcccc 0%, #ffcccc 100%) !important;
+    color: #7f1d1d !important;
+    font-weight: 700 !important;
+    border-radius: 50% !important;
+    position: relative;
+    cursor: not-allowed !important;
+}
+
+.react-datepicker__day--highlighted-weekend:hover {
+    background: linear-gradient(135deg, #fca5a5 0%, #f87171 100%) !important;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+/* ✅ Tooltip for weekend dates */
+.react-datepicker__day--highlighted-weekend::after {
+    content: 'Weekend';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 0;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 10000;
+    letter-spacing: 0.02em;
+}
+
+.react-datepicker__day--highlighted-weekend:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-4px);
+}
+
+/* ✅ Tooltip arrow for weekends */
+.react-datepicker__day--highlighted-weekend::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(2px);
+    border: 5px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 10001;
+}
+
+.react-datepicker__day--highlighted-weekend:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-2px);
+}
+
+/* ✅ Highlight dates with already applied leave in orange */
+.react-datepicker__day--highlighted-applied {
+    background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%) !important;
+    color: #9a3412 !important;
+    font-weight: 700 !important;
+    border-radius: 50% !important;
+    position: relative;
+    cursor: not-allowed !important;
+}
+
+.react-datepicker__day--highlighted-applied:hover {
+    background: linear-gradient(135deg, #fb923c 0%, #f97316 100%) !important;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+
+/* ✅ Tooltip for already applied dates */
+.react-datepicker__day--highlighted-applied::after {
+    content: 'Already Applied';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 0;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 10000;
+    letter-spacing: 0.02em;
+}
+
+.react-datepicker__day--highlighted-applied:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-4px);
+}
+
+/* ✅ Tooltip arrow */
+.react-datepicker__day--highlighted-applied::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(2px);
+    border: 5px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 10001;
+}
+
+.react-datepicker__day--highlighted-applied:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-2px);
+}
+
+/* Ensure selected dates override holiday/weekend styling when needed */
+.react-datepicker__day--selected.react-datepicker__day--highlighted-holiday,
+.react-datepicker__day--selected.react-datepicker__day--highlighted-weekend {
+    background: linear-gradient(135deg, #5eead4 0%, #2dd4bf 100%) !important;
+    color: white !important;
+}
+
+/* Datepicker wrapper styling to match Leave module theme */
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+.react-datepicker__input-container input {
+    padding: 10px 14px;
+    border: 2px solid #99f6e4;
+    border-radius: 8px !important;
+    font-size: 14px;
+    color: #0f172a;
+    background: #ffffff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    font-family: inherit;
+    height: 45px;
+    box-sizing: border-box;
+}
+
+.react-datepicker__input-container input:hover {
+    border-color: #5eead4;
+    background: white;
+}
+
+.react-datepicker__input-container input:focus {
+    outline: none;
+    border-color: #14b8a6;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.1);
+    transform: translateY(-1px);
+}
+
+/* ✅ Datepicker popper positioning */
+.react-datepicker-popper {
+    z-index: 9999 !important;
+}
+
+.react-datepicker {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    border: 2px solid var(--teal-200);
+    border-radius: 0;
+    box-shadow: var(--shadow-premium-lg);
+}
+
+.react-datepicker__header {
+    background: linear-gradient(135deg, #5eead4 0%, #2dd4bf 100%);
+    border-bottom: none;
+    border-radius: 0 10px 0 0;
+    padding-top: 12px;
+}
+
+.react-datepicker__current-month,
+.react-datepicker-time__header {
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.react-datepicker__day-name {
+    color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.react-datepicker__day {
+    color: var(--navy-700);
+    font-weight: 500;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.react-datepicker__day:hover {
+    background-color: var(--teal-100);
+    border-radius: 50%;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+    background: linear-gradient(135deg, #5eead4 0%, #2dd4bf 100%);
+    color: white;
+    font-weight: 700;
+    border-radius: 50%;
+}
+
+.react-datepicker__navigation-icon::before {
+    border-color: white;
+}
+
+.react-datepicker__navigation:hover *::before {
+    border-color: var(--teal-100);
+}
+
+/* Disabled dates styling */
+.react-datepicker__day--disabled {
+    color: var(--slate-300);
+    cursor: not-allowed;
+}
+
+.react-datepicker__day--disabled:hover {
+    background-color: transparent;
+}
+
+/* =========================================
+   SMALL MOBILE DEVICES (480px and below)
+   ========================================= */
+@media (max-width: 480px) {
+
+    /* Further reduce padding for small screens */
+    .leave-container {
+        padding: 0 12px 30px 12px;
+    }
+
+    /* Even more compact header */
+    .page-header {
+        padding: 12px 0 8px 0;
+        margin-bottom: 16px;
+    }
+
+    .page-title {
+        font-size: 20px;
+    }
+
+    .page-title svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* More compact tabs */
+    .leave-tabs {
+        padding: 2px 0 12px 0;
+        margin-bottom: 16px;
+    }
+
+    .leave-tab-btn {
+        padding: 0 12px;
+        height: 36px;
+        font-size: 12px;
+    }
+
+    .leave-tab-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    /* Compact form elements */
+    .leave-form-group {
+        gap: 6px;
+    }
+
+    .leave-label {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .leave-input,
+    .leave-select,
+    .leave-textarea {
+        padding: 14px 16px !important;
+        font-size: 16px !important;
+        min-height: 48px !important;
+        border-radius: 8px !important;
+    }
+
+    /* Smaller buttons */
+    .btn-primary,
+    .btn-secondary,
+    .btn-cancel {
+        padding: 14px !important;
+        font-size: 16px !important;
+        min-height: 50px !important;
+        border-radius: 8px !important;
+        width: 100%;
+        /* Full width on mobile */
+    }
+
+    /* Compact table view */
+    .leave-main-table th,
+    .leave-main-table td {
+        padding: 10px 12px;
+    }
+
+    .leave-main-table button {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        min-height: 36px;
+        border-radius: 0;
+    }
+
+    /* Smaller status badges */
+    .status-badge {
+        padding: 4px 10px;
+        font-size: 0.7rem;
+        min-width: 70px;
+    }
+
+    /* Compact balance items */
+    .balance-item {
+        padding: 16px;
+    }
+
+    .balance-value {
+        font-size: 28px;
+    }
+
+    /* Smaller search input */
+    .mobile-search-input {
+        padding: 12px 14px;
+        font-size: 15px;
+    }
+
+    /* Adjust action bar for small screens - directly on page */
+    .leave-card-actions {
+        padding: 16px 20px 20px 20px;
+        margin: 16px 0 0 0;
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+/* =========================================
+   PREMIUM DATEPICKER CALENDAR STYLES
+   Matching Onboarding Date of Birth Calendar
+   ========================================= */
+
+/* Premium DatePicker Refinements */
+.react-datepicker {
+    font-family: 'Outfit', 'Poppins', sans-serif !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: 0 25px 50px -12px rgba(20, 184, 166, 0.25) !important;
+    overflow: visible !important;
+    background: white !important;
+}
+
+.custom-calendar-header {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    position: relative !important;
+}
+
+.calendar-header-banner {
+    background: #0B3D91 !important;
+    padding: 18px 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    color: white !important;
+}
+
+.header-main-content {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex: 1 !important;
+    justify-content: center !important;
+}
+
+.calendar-header-banner .header-icon {
+    font-size: 1.25rem !important;
+    opacity: 0.9 !important;
+}
+
+.header-text-group {
+    display: flex !important;
+    gap: 10px !important;
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+}
+
+.clickable-header-text {
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    padding: 2px 6px !important;
+    border-radius: 0 !important;
+}
+
+.clickable-header-text:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.header-nav-btn {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border: none !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    font-size: 1.4rem !important;
+    transition: all 0.2s ease !important;
+    line-height: 1 !important;
+}
+
+.header-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.35) !important;
+    transform: scale(1.05) !important;
+}
+
+.react-datepicker__header {
+    background: white !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    padding: 0 !important;
+}
+
+.react-datepicker__day-name {
+    color: #1e293b !important;
+    font-weight: 800 !important;
+    width: 40px !important;
+    margin: 2px !important;
+    font-size: 0.85rem !important;
+}
+
+.react-datepicker__day {
+    width: 40px !important;
+    line-height: 40px !important;
+    border-radius: 0 !important;
+    font-weight: 700 !important;
+    color: #334155 !important;
+    margin: 2px !important;
+    transition: all 0.2s ease !important;
+}
+
+.react-datepicker__day:hover {
+    background-color: #f0fdfa !important;
+    color: #14b8a6 !important;
+    transform: scale(1.1) !important;
+}
+
+.react-datepicker__day--today {
+    background-color: #99f6e4 !important;
+    color: #0d9488 !important;
+    border-radius: 0 !important;
+}
+
+.react-datepicker__day--selected {
+    background: #0B3D91 !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.4) !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+    background-color: #f0fdfa !important;
+    color: #14b8a6 !important;
+}
+
+.react-datepicker__navigation {
+    display: none !important;
+}
+
+.react-datepicker__triangle {
+    display: none !important;
+}
+
+.relative-dropdown-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.header-dropdown {
+    position: absolute !important;
+    top: calc(100% + 10px) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: white !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+    z-index: 1050 !important;
+    padding: 8px !important;
+    border: 1px solid #f1f5f9 !important;
+    min-width: 100% !important;
+    width: max-content !important;
+}
+
+.dropdown-scroll-pane {
+    max-height: 200px !important;
+    overflow-y: auto !important;
+}
+
+.dropdown-item {
+    padding: 8px 12px !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    font-size: 0.9rem !important;
+    color: #475569 !important;
+    font-weight: 600 !important;
+}
+
+.dropdown-item:hover {
+    background: #f0fdfa !important;
+    color: #14b8a6 !important;
+}
+
+.dropdown-item.active {
+    background: #14b8a6 !important;
+    color: white !important;
+}
+
+/* Mobile DatePicker Compact Size */
+@media (max-width: 768px) {
+    .react-datepicker {
+        width: 100% !important;
+        max-width: 320px !important;
+        font-size: 0.85rem !important;
+        overflow: visible !important;
+        /* Allow custom dropdowns to show */
+    }
+
+    .react-datepicker__month-container {
+        width: 100% !important;
+        overflow: visible !important;
+        /* Allow custom dropdowns to show */
+    }
+
+    .calendar-header-banner {
+        padding: 12px 10px !important;
+    }
+
+    .header-text-group {
+        font-size: 0.9rem !important;
+        gap: 6px !important;
+    }
+
+    .header-nav-btn {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 1.2rem !important;
+        border-radius: 0 !important;
+    }
+
+    .calendar-header-banner .header-icon {
+        font-size: 1rem !important;
+    }
+
+    .react-datepicker__day {
+        width: 38px !important;
+        height: 38px !important;
+        line-height: 38px !important;
+        font-size: 0.85rem !important;
+        margin: 2px !important;
+        border-radius: 0 !important;
+    }
+
+    .react-datepicker__day-name {
+        width: 38px !important;
+        font-size: 0.75rem !important;
+        margin: 2px !important;
+    }
+
+    .header-dropdown {
+        top: 48px !important;
+        font-size: 0.85rem !important;
+    }
+
+    .dropdown-item {
+        padding: 8px 12px !important;
+        font-size: 0.85rem !important;
+    }
+
+    .react-datepicker__month {
+        margin: 0.4rem !important;
+    }
+
+    .react-datepicker__week {
+        display: flex !important;
+        justify-content: space-between !important;
+    }
+
+    .react-datepicker__day-names {
+        display: flex !important;
+        justify-content: space-between !important;
+        margin-bottom: 0 !important;
+    }
+}

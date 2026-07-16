@@ -1,0 +1,844 @@
+/* ── ORG CHART STRUCTURE CSS ── */
+
+.org-header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: #ffffff;
+  padding: 16px 24px;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.02);
+  margin-bottom: 24px;
+}
+
+.hierarchy-for-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.hierarchy-for-label {
+  font-weight: 500;
+}
+
+.hierarchy-user-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f3f4f6;
+  padding: 4px 12px 4px 6px;
+  border-radius: 20px;
+}
+
+.user-pill-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.user-pill-text {
+  font-size: 13px;
+  color: #1f2937;
+}
+
+.org-toolbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4b5563;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+  height: 38px;
+}
+
+.toolbar-btn:hover {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
+  color: #111827;
+}
+
+.toolbar-btn.fit-view {
+  gap: 6px;
+}
+
+.toolbar-zoom-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 0 12px;
+  height: 38px;
+}
+
+.zoom-icon-label {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-right: 6px;
+}
+
+.zoom-select {
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  outline: none;
+  cursor: pointer;
+  padding-right: 4px;
+}
+
+.toolbar-btn.zoom-btn {
+  width: 38px;
+  padding: 0;
+}
+
+.toolbar-btn.download-btn {
+  width: 38px;
+  padding: 0;
+}
+
+.icon-margin {
+  margin-right: 6px;
+}
+
+/* Status block layout (loading, error, empty) */
+.org-status-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 60px 40px;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  margin-top: 40px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(99, 102, 241, 0.1);
+  border-radius: 50%;
+  border-top-color: #6366f1;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.org-status-box.error {
+  color: #dc2626;
+}
+
+.error-icon, .empty-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.empty-icon {
+  color: #9ca3af;
+}
+
+.retry-btn {
+  margin-top: 16px;
+  padding: 8px 20px;
+  background-color: #6366f1;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.retry-btn:hover {
+  background-color: #4f46e5;
+}
+
+/* ── ORG TREE RENDER & CONNECTIONS ── */
+
+.org-chart-main-layout {
+  display: flex;
+  gap: 24px;
+  position: relative;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.org-chart-tree-area {
+  flex: 1;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.org-chart-sidebar-panel {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.org-side-panel-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(229, 231, 235, 0.7);
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+  text-align: left;
+}
+
+.panel-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #f3f4f6;
+  padding-bottom: 10px;
+}
+
+.panel-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+
+.panel-row:last-child {
+  margin-bottom: 0;
+}
+
+.panel-row-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.panel-row-value {
+  font-weight: 700;
+  color: #111827;
+  font-size: 14px;
+}
+
+.legend-line-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.legend-line-container:last-child {
+  margin-bottom: 0;
+}
+
+.legend-line-solid {
+  width: 36px;
+  height: 2px;
+  background-color: #cbd5e1;
+}
+
+.legend-line-dashed {
+  width: 36px;
+  height: 2px;
+  border-top: 2px dashed #cbd5e1;
+}
+
+.org-chart-scrollable {
+  overflow-x: auto;
+  overflow-y: auto;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+}
+
+.org-tree-root-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: fit-content;
+  margin: 0 auto;
+}
+
+.zoom-transition {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.org-children-container {
+  display: flex;
+  position: relative;
+  padding-top: 40px;
+  justify-content: center;
+}
+
+.org-tree-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 0 16px;
+}
+
+/* ── TREE CONNECTOR LINES ──
+   Geometry:
+   - org-card-wrapper padding-bottom: 24px  → parent vertical covers this 24px
+   - org-children-container padding-top: 40px → horizontal bar and vertical drops are in this 40px gap
+   - All child pseudo-elements use top: -40px to draw ABOVE child tree-nodes (inside the 40px gap)
+*/
+
+/* 1. Vertical drop: from horizontal bar level down to each child card top */
+.org-children-container > .org-tree-node::after {
+  content: '';
+  position: absolute;
+  top: -40px;           /* start at horizontal bar level (children-container top) */
+  left: 50%;
+  transform: translateX(-1px);
+  width: 0;
+  border-left: 2px solid #cbd5e1;
+  height: 40px;         /* spans the full 40px gap to child card */
+}
+
+/* 2a. Horizontal: first child (non-only) → from own center rightward */
+.org-children-container > .org-tree-node:first-child:not(:only-child)::before {
+  content: '';
+  position: absolute;
+  top: -40px;           /* at horizontal bar level */
+  left: 50%;
+  right: 0;
+  height: 0;
+  border-top: 2px solid #cbd5e1;
+}
+
+/* 2b. Horizontal: middle children → full-width spanning between siblings */
+.org-children-container > .org-tree-node:not(:first-child):not(:last-child)::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-top: 2px solid #cbd5e1;
+}
+
+/* 2c. Horizontal: last child (non-only) → from left edge to own center */
+.org-children-container > .org-tree-node:last-child:not(:only-child)::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 0;
+  right: 50%;
+  height: 0;
+  border-top: 2px solid #cbd5e1;
+}
+
+/* 3. Single child: no horizontal bar needed */
+.org-children-container > .org-tree-node:only-child::before {
+  display: none;
+}
+
+/* 4. Vertical line from parent card content bottom to horizontal bar level */
+.org-card-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;            /* starts at card content bottom (top of 24px padding) */
+  left: 50%;
+  transform: translateX(-1px);
+  width: 0;
+  border-left: 2px solid #cbd5e1;
+  height: 24px;         /* covers the 24px padding-bottom to wrapper bottom */
+  z-index: 1;
+}
+
+/* Hide downward line for leaf nodes */
+.org-card-wrapper.leaf::after {
+  display: none;
+}
+
+/* ── PREMIUM CARD LOOKS ── */
+
+.org-card-wrapper {
+  position: relative;
+  padding-bottom: 24px;
+  z-index: 10;
+}
+
+.org-card-wrapper.leaf {
+  padding-bottom: 0;
+}
+
+.org-card {
+  display: flex;
+  align-items: center;
+  width: 260px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(229, 231, 235, 0.7);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+}
+
+.org-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+.org-card-wrapper.highlighted .org-card {
+  border: 2px solid #6366f1;
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.2);
+  background-color: #f5f3ff;
+}
+
+.avatar-container {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  overflow: hidden;
+  border: 2px solid #ffffff;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-initials {
+  letter-spacing: 0.5px;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.node-name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.node-id {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 1px;
+  font-family: monospace;
+}
+
+.node-designation {
+  font-size: 12px;
+  color: #4f46e5;
+  font-weight: 500;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.node-dept {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Expand Collapse Button styling */
+.expand-btn {
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+  z-index: 20;
+  transition: all 0.2s ease;
+  font-size: 10px;
+}
+
+.expand-btn:hover {
+  background-color: #6366f1;
+  border-color: #6366f1;
+  color: #ffffff;
+  transform: translateX(-50%) scale(1.1);
+}
+
+.expand-btn:focus {
+  outline: none;
+}
+
+/* ── LOGGED IN USER HIGHLIGHT ── */
+
+.org-card.is-logged-in {
+  border: 2px solid #00b3a4;
+  box-shadow: 0 0 16px rgba(0, 179, 164, 0.3);
+  background-color: #f0fdfa;
+  transform: scale(1.03);
+}
+
+.org-card.is-logged-in:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 20px -3px rgba(0, 179, 164, 0.4), 0 0 16px rgba(0, 179, 164, 0.3);
+  border-color: #00b3a4;
+}
+
+.logged-in-badge {
+  position: absolute;
+  top: -10px;
+  right: 12px;
+  background-color: #00b3a4;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 30;
+}
+
+/* ── MODAL OVERLAY AND CONTENT ── */
+/* ── MODAL OVERLAY ── */
+.org-modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* ── MODAL CARD ── */
+.org-modal-content {
+  background: #ffffff;
+  max-width: 95vw;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.16), 0 8px 16px rgba(0,0,0,0.08);
+  animation: slideUp 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.org-modal-content.layout-2col {
+  width: 580px;
+}
+
+.org-modal-content.layout-3col {
+  width: 860px;
+}
+
+/* ── HEADER BAND ── */
+.org-modal-header {
+  background: linear-gradient(135deg, #0bc5b0 0%, #0891b2 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 24px 28px;
+  position: relative;
+  text-align: center;
+}
+
+.org-modal-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 13px;
+}
+.org-modal-close:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+.modal-avatar {
+  width: 76px; height: 76px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 26px;
+  border: 3px solid rgba(255,255,255,0.6);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.modal-avatar-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+.modal-name {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+}
+
+.modal-role-badge {
+  background: rgba(255,255,255,0.22);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+}
+
+/* ── BODY FIELDS ── */
+.org-modal-body {
+  padding: 24px 28px 10px;
+  display: grid;
+  gap: 16px 20px;
+}
+
+.org-modal-content.layout-2col .org-modal-body {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.org-modal-content.layout-3col .org-modal-body {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.detail-field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+.detail-field:hover {
+  border-color: #0bc5b0;
+  background: #f0fdfa;
+}
+
+.field-icon {
+  width: 36px; height: 36px;
+  background: #f0fdf9;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0bc5b0;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.field-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.field-content label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.field-content span {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #1e293b;
+  word-break: break-word;
+}
+
+.field-content .email-link {
+  color: #0891b2;
+}
+
+/* Status pill */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+}
+.status-pill.active { color: #059669 !important; }
+.status-pill.inactive { color: #d97706 !important; }
+.status-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.status-pill.active .status-dot { background: #10b981; }
+.status-pill.inactive .status-dot { background: #f59e0b; }
+
+/* ── FOOTER ── */
+.org-modal-footer {
+  padding: 16px 24px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-close-action {
+  background: #f1f5f9;
+  border: 1.5px solid #e2e8f0;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 40px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.2px;
+}
+.modal-close-action:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+
+/* ── CONNECTOR LINE CHEVRONS ── */
+.line-connector-arrow {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 8px;
+  z-index: 5;
+  pointer-events: none; /* Let clicks pass through to cards */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+/* ONE chevron per parent — sits just below the parent card's bottom edge */
+.line-connector-arrow.parent-chevron {
+  /* bottom: 0 = at wrapper bottom. Wrapper has padding-bottom: 24px so card
+     ends 24px above wrapper bottom. Circle (20px) has its bottom at wrapper
+     bottom, top at -20px from wrapper bottom = 4px below card content bottom. */
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .org-chart-tree-area, .org-chart-tree-area * {
+    visibility: visible;
+  }
+  .org-chart-tree-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+  .print-hide, .sidebar, .sidebar-wrapper, .org-header-section, .org-chart-sidebar-panel {
+    display: none !important;
+  }
+}
+
+
+

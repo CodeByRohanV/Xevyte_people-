@@ -1,0 +1,362 @@
+/* ============================================
+   GLOBAL STYLES - XEVYTE UI DESIGN SYSTEM
+   ============================================ */
+
+:root {
+    /* Brand Typography */
+    --primary-font-family: 'Wix Madefor Display', Inter, system-ui, sans-serif;
+    
+    /* Typography Scale (vw based) */
+    --font-title: 1.2vw;
+    --font-hero: 2.5vw;
+    --font-mobile-title: 1.2vw;
+    --font-subtitle: 1.2vw;
+    --font-desc-highlight: 1.1vw;
+    --font-body: 1vw;
+
+    /* Font Weights */
+    --fw-normal: 400;
+    --fw-semibold: 600;
+
+    /* Brand Palette */
+    --color-text-primary: #01144A;
+    --color-highlight: #2563eb;
+    --color-cta: #1d4ed8;
+    --color-cta-hover: #1e40af;
+    --color-bg-light: #f8fafc;
+    --color-bg-dark: #0A0F44;
+    --color-bg-light-dark: #2A3D73;
+}
+
+/* Smooth Scrolling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Wix Madefor Display' !important;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    font-family: 'Wix Madefor Display' !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-color: #F5F7FA !important;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+/* Custom Scrollbar - Global */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #93c5fd 0%, #3b82f6 100%);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+}
+
+/* Firefox Scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #3b82f6 #f1f5f9;
+}
+
+/* Smooth Transitions */
+a,
+button,
+input,
+select,
+textarea {
+    transition: all 0.3s ease;
+}
+
+/* Focus States */
+*:focus {
+    outline: none !important;
+}
+
+/* Selection Color */
+::selection {
+    background-color: rgba(94, 234, 212, 0.3);
+    color: #0f172a;
+}
+
+::-moz-selection {
+    background-color: rgba(94, 234, 212, 0.3);
+    color: #0f172a;
+}
+
+/* Premium DatePicker Styles */
+.react-datepicker {
+    font-family: 'Wix Madefor Display' !important;
+    border: none !important;
+    border-radius: 20px !important;
+    box-shadow: 0 25px 50px -12px rgba(20, 184, 166, 0.25) !important;
+    overflow: hidden !important;
+    background: white !important;
+}
+
+.custom-calendar-header {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    position: relative !important;
+}
+
+.calendar-header-banner {
+    background: linear-gradient(90deg, #4cd7e0 0%, #14b8a6 100%) !important;
+    padding: 18px 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    color: white !important;
+}
+
+.header-main-content {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex: 1 !important;
+    justify-content: center !important;
+}
+
+.header-text-group {
+    display: flex !important;
+    gap: 10px !important;
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+}
+
+.clickable-header-text {
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    padding: 2px 6px !important;
+    border-radius: 6px !important;
+}
+
+.clickable-header-text:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.header-nav-btn {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border: none !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    font-size: 1.4rem !important;
+    transition: all 0.2s ease !important;
+    line-height: 1 !important;
+}
+
+.header-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.35) !important;
+    transform: scale(1.05) !important;
+}
+
+.header-dropdown {
+    position: absolute !important;
+    top: 50px !important;
+    background: white !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    z-index: 100 !important;
+    padding: 8px !important;
+    border: 1px solid #f1f5f9 !important;
+    width: max-content !important;
+}
+
+.month-dropdown {
+    left: 20px !important;
+}
+
+.year-dropdown {
+    left: 80px !important;
+}
+
+.dropdown-scroll-pane {
+    max-height: 200px !important;
+    overflow-y: auto !important;
+}
+
+.dropdown-item {
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    font-size: 0.9rem !important;
+    color: #475569 !important;
+    font-weight: 600 !important;
+}
+
+.dropdown-item:hover {
+    background: #f0fdfa !important;
+    color: #14b8a6 !important;
+}
+
+.dropdown-item.active {
+    background: #14b8a6 !important;
+    color: white !important;
+}
+
+.react-datepicker__day-name {
+    color: #1e293b !important;
+    font-weight: 800 !important;
+    width: 40px !important;
+    margin: 2px !important;
+    font-size: 0.85rem !important;
+}
+
+.react-datepicker__day {
+    width: 40px !important;
+    line-height: 40px !important;
+    border-radius: 14px !important;
+    font-weight: 700 !important;
+    color: #334155 !important;
+    margin: 2px !important;
+    transition: all 0.2s ease !important;
+}
+
+.react-datepicker__day:hover {
+    background-color: #f0fdfa !important;
+    color: #14b8a6 !important;
+    transform: scale(1.1) !important;
+}
+
+.react-datepicker__day--today {
+    background-color: #99f6e4 !important;
+    color: #0d9488 !important;
+    border-radius: 14px !important;
+}
+
+.react-datepicker__day--selected {
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%) !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.4) !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+    background-color: #f0fdfa !important;
+    color: #14b8a6 !important;
+}
+
+.react-datepicker__header {
+    background: white !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    padding: 0 !important;
+}
+
+.react-datepicker__navigation {
+    display: none !important;
+}
+
+.react-datepicker__triangle {
+    display: none !important;
+}
+
+/* Mobile Full-Width Fix */
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100vw;
+        max-width: 100vw;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    #root {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    .react-datepicker {
+        width: calc(100vw - 40px) !important;
+        max-width: 400px !important;
+    }
+
+    .react-datepicker__day {
+        width: 36px !important;
+        line-height: 36px !important;
+    }
+
+    .react-datepicker__day-name {
+        width: 36px !important;
+    }
+
+    .calendar-header-banner {
+        padding: 14px 10px !important;
+    }
+
+    .header-text-group {
+        font-size: 0.95rem !important;
+        gap: 8px !important;
+    }
+
+    .header-nav-btn {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 1.2rem !important;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+}
+
+/* ============================================
+   TIMESHEET MODULE - FORCE SHARP EDGES
+   ============================================ */
+.timesheet-table,
+.timesheet1-table,
+.table-wrapper,
+.table1-wrapper,
+.timesheet-table thead,
+.timesheet-table tbody,
+.timesheet-table tr,
+.timesheet-table th,
+.timesheet-table td,
+.timesheet1-table thead,
+.timesheet1-table tr,
+.timesheet1-table th,
+.timesheet1-table td,
+.emp-table,
+.emp-table thead,
+.emp-table tr,
+.emp-table th,
+.emp-table td {
+    border-radius: 0 !important;
+}
