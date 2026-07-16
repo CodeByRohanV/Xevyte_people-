@@ -7,6 +7,4 @@ target/
 .DS_Store
 uploads/
 temp_pdf_conversion_work_area/
-.env
-**/.env
 token.txt
