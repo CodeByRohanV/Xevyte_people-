@@ -31,8 +31,8 @@ const startOfQuarter = () => {
   return fmtDate(new Date(d.getFullYear(), q, 1));
 };
 
-const STATUS_COLORS = { ON_TIME: '#00A4B0', LATE: '#00C1D0', WFH: '#2A3D73', ABSENT: '#f59e0b' };
-const DONUT_COLORS = ['#00A4B0', '#f59e0b', '#00C1D0', '#2A3D73', '#60a5fa'];
+const STATUS_COLORS = { ON_TIME: '#00A4B0', LATE: '#00C1D0', WFH: '#2A3D73', ABSENT: '#01144A' };
+const DONUT_COLORS = ['#00A4B0', '#01144A', '#00C1D0', '#2A3D73', '#60a5fa'];
 
 const fmtHM = h => {
   if (!h && h !== 0) return '0h 0m';
@@ -1229,7 +1229,7 @@ const AttendanceAnalyticsDeep = () => {
                                 { name: 'Late', value: activeData.punctuality.lateCount || 0, color: '#00C1D0' },
                                 { name: 'Work From Home', value: activeData.punctuality.wfhCount || 0, color: '#2A3D73' },
                                 { name: 'Half Day', value: (activeData.punctuality.halfDayCount || 0), color: '#007F8B' },
-                                { name: 'Absent', value: activeData.punctuality.absentCount || 0, color: '#f59e0b' }
+                                { name: 'Absent', value: activeData.punctuality.absentCount || 0, color: '#01144A' }
                               ].filter(d => d.value > 0)}
                               cx="50%" cy="50%" innerRadius="65%" outerRadius="90%" paddingAngle={2} dataKey="value" stroke="none"
                             >
@@ -1238,7 +1238,7 @@ const AttendanceAnalyticsDeep = () => {
                                 { name: 'Late', value: activeData.punctuality.lateCount || 0, color: '#00C1D0' },
                                 { name: 'Work From Home', value: activeData.punctuality.wfhCount || 0, color: '#2A3D73' },
                                 { name: 'Half Day', value: (activeData.punctuality.halfDayCount || 0), color: '#007F8B' },
-                                { name: 'Absent', value: activeData.punctuality.absentCount || 0, color: '#f59e0b' }
+                                { name: 'Absent', value: activeData.punctuality.absentCount || 0, color: '#01144A' }
                               ].filter(d => d.value > 0).map((entry, index) => (
                                 <Cell key={`cell-${index}`} fill={entry.color} />
                               ))}
@@ -1247,19 +1247,19 @@ const AttendanceAnalyticsDeep = () => {
                           </PieChart>
                         </ResponsiveContainer>
                       </div>
-                      <div style={{ width: '100%', marginTop: 'auto', paddingTop: '16px', display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'center' }}>
+                      <div style={{ width: '100%', marginTop: 'auto', paddingTop: '20px', display: 'flex', flexWrap: 'wrap', rowGap: '12px', columnGap: '16px', justifyContent: 'center' }}>
                         {(() => {
                           const distData = [
                             { name: 'Present', value: activeData.punctuality.onTimeCount || 0, color: '#00A4B0' },
                             { name: 'Late', value: activeData.punctuality.lateCount || 0, color: '#00C1D0' },
                             { name: 'Work From Home', value: activeData.punctuality.wfhCount || 0, color: '#2A3D73' },
                             { name: 'Half Day', value: (activeData.punctuality.halfDayCount || 0), color: '#007F8B' },
-                            { name: 'Absent', value: activeData.punctuality.absentCount || 0, color: '#f59e0b' }
+                            { name: 'Absent', value: activeData.punctuality.absentCount || 0, color: '#01144A' }
                           ].filter(d => d.value > 0);
                           const total = distData.reduce((sum, item) => sum + item.value, 0) || 1;
 
                           return distData.map((item, index) => (
-                            <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px' }}>
+                            <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '13px', whiteSpace: 'nowrap', flex: '0 0 auto' }}>
                               <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: item.color, display: 'inline-block', flexShrink: 0 }}></span>
                               <span style={{ color: '#64748b', fontWeight: '500' }}>{item.name}</span>
                               <span style={{ color: '#475569', fontWeight: '600', marginLeft: '2px' }}>
